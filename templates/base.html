@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-switch@2.0.0/dist/css/bulma-switch.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script type="text/javascript" src="{% static 'scripts/bulma.js' %}"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-162827339-1"></script>
     <script>
@@ -73,6 +74,15 @@
             width: 100%;
         }
 
+        .navbar-item.is-mega {
+          position: static;
+        }
+
+        .navbar-item.is-mega .is-mega-menu-title {
+          margin-bottom: 0;
+          padding: 0.375rem 1rem;
+        }
+
 
 	.requests-table-paginator > .has-multiple-pages-true,
 	.request-table-paginator > .has-next-true,
@@ -122,15 +132,85 @@
 </head>
 
 <body class="Site">
-    <section class="is-fullwidth" style="background-color: #33CCCC; height: 10%;">
-        <div class="column is-8-mobile is-offset-2-mobile is-4-tablet is-offset-4-tablet is-2-desktop is-offset-5-desktop ">
-          <a href="/">
-             <figure class="image is-16by1">
-                  <img src="../static/img/logo2.svg">
-             </figure>
+{#    <section class="is-fullwidth" style="background-color: #33CCCC; height: 10%;">#}
+{#        <div class="column is-8-mobile is-offset-2-mobile is-4-tablet is-offset-4-tablet is-2-desktop is-offset-5-desktop ">#}
+{#          <a href="/">#}
+{#             <figure class="image is-16by1">#}
+{#                  <img src="../static/img/logo2.svg">#}
+{#             </figure>#}
+{#          </a>#}
+{#        </div>#}
+{#    </section>#}
+
+<nav class="navbar" style="background-color: #33CCCC;">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="/">
+{#      <img src="http://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">#}
+        <img src="../static/img/logo2.svg">
+    </a>
+
+{#    <a class="navbar-item is-hidden-desktop" href="https://github.com/jgthms/bulma" target="_blank">#}
+{#      <span class="icon" style="color: #333;">#}
+{#        <i class="fa fa-github"></i>#}
+{#      </span>#}
+{#    </a>#}
+{##}
+{#    <a class="navbar-item is-hidden-desktop" href="https://twitter.com/jgthms" target="_blank">#}
+{#      <span class="icon" style="color: #55acee;">#}
+{#        <i class="fa fa-twitter"></i>#}
+{#      </span>#}
+{#    </a>#}
+
+    <div class="navbar-burger burger" data-target="navMenubd-example">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <div id="navMenubd-example" class="navbar-menu">
+    <div class="navbar-end">
+      <div class="navbar-item has-dropdown is-hoverable">
+{#        <a class="navbar-link  is-active">#}
+{#          Menu#}
+{#        </a>#}
+{#        <div class="navbar-dropdown is-right">#}
+{#            <a class="navbar-item" href="/legal">#}
+{#                <span class="bd-emoji">📝</span> &nbsp;Términos de uso#}
+{#              </a>#}
+{#              <a class="navbar-item" href="{% url  'general_faq' %}">#}
+{#                <span class="bd-emoji">❓</span> &nbsp;Preguntas frecuentes#}
+{#              </a>#}
+{#              <a class="navbar-item" href="{% url 'contact_us' %}">#}
+{#                <span class="bd-emoji">☎️</span> &nbsp;Contacto#}
+{#              </a>#}
+
+          <a class="navbar-item has-text-white" href="/legal">
+            <span class="bd-emoji">📝</span> &nbsp;Términos de uso
           </a>
-        </div>
-    </section>
+          <a class="navbar-item has-text-white" href="{% url  'general_faq' %}">
+            <span class="bd-emoji">❓</span> &nbsp;Preguntas frecuentes
+          </a>
+          <a class="navbar-item has-text-white" href="{% url 'contact_us' %}">
+            <span class="bd-emoji">☎️</span> &nbsp;Contacto
+          </a>
+      </div>
+    </div>
+  </div>
+</nav>
+{#<section class="hero is-primary">#}
+{#  <div class="hero-body">#}
+{#    <div class="container">#}
+{#      <h1 class="title">#}
+{#        Bulma.io  with Full Width Menu (Mega Menu)#}
+{#      </h1>#}
+{#      <h2 class="subtitle">#}
+{#        Hover over Blog#}
+{#      </h2>#}
+{#    </div>#}
+{#  </div>#}
+{#</section>#}
+
 <main class="Site-content">
     <section class="section">
         <div class="container">
