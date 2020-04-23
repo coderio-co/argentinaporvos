@@ -1,20 +1,25 @@
-{% extends 'base.html' %}
-{% block bread %}
-<nav class="breadcrumb  has-arrow-separator" aria-label="breadcrumbs">
-  <ul>
-    <li>
-      <span class="icon is-small">
-        <i class="fas fa-home" aria-hidden="true"></i>
-      </span>
-      <a href="/">Inicio</a></li>
-    <li class="is-active"><a href="#" aria-current="page">Preguntas frecuentes</a></li>
-  </ul>
+{% extends 'base.html' %} {% block bread %}
+<nav class="breadcrumb has-bullet-separator" aria-label="breadcrumbs">
+	<ul>
+		<li style="content: none !important;"><a href="/" style="color: #9096a1;">Inicio</a></li>
+		<li class="is-active">
+			<a href="#" class="is-active" style="color: #2979ff;">Preguntas</a>
+		</li>
+	</ul>
 </nav>
-{% endblock bread %}
-{% block content%}
+{% endblock bread %} {% block content %}
 
-	<div class="content">
-{#	<h2>Preguntas Frecuentes</h2>#}
+<div class="content">
+	<div class="title center" style="color: #2979ff; font-weight: bold;">
+		Preguntas frecuentes
+		<div id="loading-indicator" class="loader-wrapper">
+			<div class="loader is-loading"></div>
+		</div>
+	</div>
+
+	{% include "./includes/faq_question.html" with num=1 q="sarasa" res="pico" %}
+
+	<!-- {#	<h2>Preguntas Frecuentes</h2>#}
 		<div class="bd-post-container">
 			<div class="bd-post content is-medium">
 
@@ -51,6 +56,7 @@
 
 			</div>
 		</div>
-	</div>
+	</div> -->
 
-{% endblock content %}
+	{% endblock content %}
+</div>
