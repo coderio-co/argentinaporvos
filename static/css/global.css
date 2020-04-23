@@ -141,15 +141,24 @@ footer {
 	content: none;
 }
 
-
-.pagination-link[disabled], .pagination-next[disabled], .pagination-previous[disabled] {
-    background-color: #efefef;
-    border-color: #a7b0c0;
-    box-shadow: none;
-    color: #a7b0c0;
-    opacity: .5;
+.pagination-link[disabled],
+.pagination-next[disabled],
+.pagination-previous[disabled] {
+	background-color: #efefef;
+	border-color: #a7b0c0;
+	box-shadow: none;
+	color: #a7b0c0;
+	opacity: 0.5;
 }
 
+.questionNumber,
+.questionNumber:hover {
+	border-radius: 50%;
+	border-color: #2979ff;
+	background-color: transparent;
+	color: #2979ff;
+	cursor: default;
+}
 
 @-webkit-keyframes fadeIn {
 	from {
