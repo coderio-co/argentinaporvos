@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'leaflet',
     'django.contrib.gis',
     'core',
-    #'org',
     'widget_tweaks',
     'rest_framework',
     'rest_framework_gis',
@@ -175,3 +174,5 @@ REST_FRAMEWORK = {
 
 # Redirect to home URL after login (Default redirects to /accounts/profile/)
 LOGIN_REDIRECT_URL = '/'
+
+URL_PRINCIPAL = env('URL_PRINCIPAL', default='https://argentinaporvos.org')

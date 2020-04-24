@@ -1,4 +1,5 @@
 from django.contrib import messages
+from django.conf import settings
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.core.serializers import serialize
 from django.shortcuts import (
@@ -69,9 +70,9 @@ def view_request(request, id):
         "help_request": help_request,
         "thumbnail": help_request.thumb if help_request.picture else "/static/favicon.ico",
         "phone_number_img": image_to_base64(text_to_image(help_request.phone, 300, 50)),
-        "whatsapp": '595'+help_request.phone[1:]+'?text=Hola+'+help_request.name
+        "whatsapp": '54'+help_request.phone[1:]+'?text=Hola+'+help_request.name
                     + ',+te+escribo+por+el+pedido+que+hiciste:+'+quote_plus(help_request.title)
-                    + '+https:'+'/'+'/'+'ayudapy.org/pedidos/'+help_request.id.__str__()
+                    + f'+{settings.URL_PRINCIPAL}/pedidos/'+help_request.id.__str__()
     }
     if request.POST:
         if request.POST['vote']:
