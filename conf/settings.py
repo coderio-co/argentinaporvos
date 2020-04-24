@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'leaflet',
     'django.contrib.gis',
     'core',
-    'org',
+    #'org',
     'widget_tweaks',
     'rest_framework',
     'rest_framework_gis',
@@ -114,7 +114,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'es'
 
-TIME_ZONE = 'America/Asuncion'
+TIME_ZONE = 'America/Argentina/Buenos_Aires'
 
 USE_I18N = True
 
@@ -135,12 +135,17 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = 'media/'
 MEDIA_URL = '/media/'
 
+LATITUDE_MAPS = env('LATITUDE_MAPS', default='-34.6131516')
+LONGITUDE_MAPS = env('LATITUDE_MAPS', default='-58.3772316')
+DEFAULT_ZOOM_MAPS = env('DEFAULT_ZOOM', default=13)
+MIN_ZOOM_MAPS = env('MIN_ZOOM_MAPS', default=3)
+MAX_ZOOM_MAPS = env('MAX_ZOOM_MAPS', default=18)
 
 LEAFLET_CONFIG = {
-    'DEFAULT_CENTER': (-25.292, -57.551),
-    'DEFAULT_ZOOM': 11,
-    'MIN_ZOOM': 3,
-    'MAX_ZOOM': 18,
+    'DEFAULT_CENTER': (LATITUDE_MAPS, LONGITUDE_MAPS),
+    'DEFAULT_ZOOM': DEFAULT_ZOOM_MAPS,
+    'MIN_ZOOM': MIN_ZOOM_MAPS,
+    'MAX_ZOOM': MAX_ZOOM_MAPS,
     'RESET_VIEW': False,
     'NO_GLOBALS': False,
 
