@@ -85,7 +85,7 @@ WSGI_APPLICATION = 'conf.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 # Parse database connection url strings like psql://user:pass@127.0.0.1:8458/db
 DATABASES = {
-    'default': env.db(),
+    'default': env.db('DATABASE_URL')
 }
 
 
