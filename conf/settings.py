@@ -134,12 +134,11 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = 'media/'
 MEDIA_URL = '/media/'
 
-LATITUDE_MAPS = env('LATITUDE_MAPS', default='-34.6131516')
-LONGITUDE_MAPS = env('LATITUDE_MAPS', default='-58.3772316')
+LATITUDE_MAPS = str(env('LATITUDE_MAPS'))
+LONGITUDE_MAPS = str(env('LONGITUDE_MAPS'))
 DEFAULT_ZOOM_MAPS = env('DEFAULT_ZOOM', default=13)
 MIN_ZOOM_MAPS = env('MIN_ZOOM_MAPS', default=3)
 MAX_ZOOM_MAPS = env('MAX_ZOOM_MAPS', default=18)
-
 LEAFLET_CONFIG = {
     'DEFAULT_CENTER': (LATITUDE_MAPS, LONGITUDE_MAPS),
     'DEFAULT_ZOOM': DEFAULT_ZOOM_MAPS,
@@ -176,3 +175,49 @@ REST_FRAMEWORK = {
 LOGIN_REDIRECT_URL = '/'
 
 URL_PRINCIPAL = env('URL_PRINCIPAL', default='https://argentinaporvos.org')
+USE_S3 = False if DEBUG else True
+# STORAGES
+if USE_S3:
+    # https://django-storages.readthedocs.io/en/latest/#installation
+    INSTALLED_APPS += ["storages"]  # noqa F405
+    # https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html#settings
+    AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
+    # https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html#settings
+    AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
+    # https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html#settings
+    AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME')
+    # https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html#settings
+    AWS_QUERYSTRING_AUTH = False
+    # DO NOT change these unless you know what you're doing.
+    _AWS_EXPIRY = 60 * 60 * 24 * 7
+    # https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html#settings
+    AWS_S3_OBJECT_PARAMETERS = {
+        "CacheControl": f"max-age={_AWS_EXPIRY}, s-maxage={_AWS_EXPIRY}, must-revalidate"
+    }
+    #  https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html#settings
+    AWS_DEFAULT_ACL = None
+    # https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html#settings
+    AWS_S3_REGION_NAME = env("DJANGO_AWS_S3_REGION_NAME", default=None)
+    # STATIC
+    # ------------------------
+    STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+    # MEDIA
+    # ------------------------------------------------------------------------------
+    # region http://stackoverflow.com/questions/10390244/
+    # Full-fledge class: https://stackoverflow.com/a/18046120/104731
+    from storages.backends.s3boto3 import S3Boto3Storage  # noqa E402
+
+
+    class StaticRootS3Boto3Storage(S3Boto3Storage):
+        location = "static"
+        default_acl = "public-read"
+
+
+    class MediaRootS3Boto3Storage(S3Boto3Storage):
+        location = "media"
+        file_overwrite = False
+
+
+    # endregion
+    DEFAULT_FILE_STORAGE = "conf.settings.MediaRootS3Boto3Storage"
+    MEDIA_URL = f"https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/media/"
