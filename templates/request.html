@@ -11,101 +11,181 @@
 {% load l10n %}
 {% load humanize %}
 {% block bread %}
-  <nav class="breadcrumb  has-arrow-separator" aria-label="breadcrumbs">
-    <ul>
-      <li>
-        <a href="/">
-          <span class="icon is-small">
-            <i class="fas fa-home" aria-hidden="true"></i>
-          </span>
-          <span>Inicio</span>
-        </a>
-      </li>
-      <li><a href="/dar">Info ayudar</a></li>
-      <li><a href="/pedidos">Pedidos de ayuda</a></li>
-      <li class="is-active"><a href="#" aria-current="page">Pedido #{{help_request.id}}</a></li>
-      </ul>
-  </nav>
+    <nav class="breadcrumb has-bullet-separator" aria-label="breadcrumbs">
+	<ul>
+		<li><a href="/" style="color: #9096a1;">Inicio</a></li>
+		<li><a href="/recibir" style="color: #9096a1;">Información</a></li>
+		<li><a href="/pedidos" style="color: #9096a1;">Quiero ayudar</a></li>
+		<li class="is-active">
+			<a href="#" class="is-active" style="color: #2979ff;">Pedido #{{help_request.id}}</a>
+		</li>
+	</ul>
+</nav>
 {% endblock bread %}
 {% block content%}
-<div class="columns is-centered">
-    <div class="column is-half">
-      {% if messages %}
-        {% for message in messages %}
-            <div class="notification is-success is-half" id='msg{{ forloop.counter }}'>
-                <button class="delete" onclick="document.getElementById('msg{{ forloop.counter }}').style.display = 'none';"></button>
-                    <span class="is-5">{{ message }}</span>
-                    <p><span class="icon is-medium"><i class="far fa-hand-point-down"></i></span>
-                    Podés compartir tu pedido haciendo click en los botones</p>
-            {% include 'includes/buttons.html'%}
-            </div>
-        {% endfor %}
-      {% endif %}
-        <div class="subtitle center is-3">
-        <a class="has-text-primary" href="/pedidos/{{help_request.id}}">Pedido #{{help_request.id}}</a>
-        </div>
-    </div>
-</div>
+
 <div class="columns is-centered">
     <div class="column is-four-fifths">
+        <div class="card is-shadowless" style="border-radius: 15px; border: none">
+			<header class="card-header is-light">
+				<p
+					class="card-header-title is-size-4 is-centered"
+					style="background-color: transparent; color: #ffab07; padding: 5px; margin-bottom: 35px; font-size: 26px !important;"
+				>
+					Pedido #{{help_request.id}}
+				</p>
+			</header>
 
-        <div class="card">
-        <header class="card-header has-background-light is-light">
-            <p class="card-header-title is-size-4">{{ help_request.title}}</p>
-        </header>
-        <section class="card-content">
-                    <p class="has-text-right is-size-7" title="{{help_request.added|naturaltime}}">{{help_request.added}}</p>
-                    <p class="is-size-5">{{help_request.message|linebreaksbr}}</p>
-                    {% if help_request.picture %}
-                    <hr>
-                      <figure class="image is-small"> 
-                        <a href="/media/{{help_request.picture}}">
-                          <img class="has-ratio" src="{{thumbnail}}"/>
-                        </a>
-                      </figure>
-                    {% endif %}
-                    <hr>
-                    <p class="subtitle">Nombre:</p>
-                    <p class="title is-4">{{ help_request.name}}</p>
-                    <p class="subtitle">Contacto:</p>
-                    <p class="title is-4">
-                      <a href="tel:{{help_request.phone}}">
-                        <img src="data:image/jpeg;base64,{{phone_number_img}}">
-                      </a>
-                        &nbsp;
-                        <a href="https://wa.me/{{ whatsapp }}" target="_blank" class="button is-medium is-success is-outlined">
-                            <span class="icon is-small">
-                              <i class="fab fa-whatsapp"></i>
-                            </span>
-                            <span>Contactar vía WhatsApp</span>
-                        </a>
-                    </p>
-                    {% if help_request.address %}
-                      <p class="subtitle">Dirección:</p>
-                      <p class="title is-4">{{help_request.address}}</p>
-                    {% endif %}
-                    <p class="subtitle">Ciudad: </p>
-                    <p class="title is-4">
-                        <a href="/pedidos_ciudad/{{help_request.city_code}}">{{help_request.city}}</a>
-                    </p>
-                     <p class="subtitle">Ubicación:
-                     {% leaflet_map "main" callback="main_map_init" %}
-                     </p>
-                     <a href="https://www.google.com/maps/search/?api=1&query={{help_request.location.y|unlocalize}},{{help_request.location.x|unlocalize}}" target="_blank">
-                       <button class="button is-medium is-fullwidth is-link is-light">
-                            <span class="icon is-medium">
-                            <i class="fas fa-map-marker-alt"></i>
-                            </span>
-                            <span>Abrir en Google Maps</span>
-                        </button>
-                     </a>
 
-        </section>
-                    {% include 'vote_button.html' %}
+			
+			<div
+				class="column is-fullwidth"
+				style="background-color: white;"
+			>
+				<article class="media animated fadeIn">
+					<figure class="media-left">
+						<p class="image is-48x48">
+							<img src="../static/img/img_hand.svg" />
+						</p>
+					</figure>
+					<div class="media-content is-full is-fullwidth">
+						<div class="content">
+							<p class="title is-5 has-text-black" >{{ help_request.title }}</p>					
+						</div>
+					</div>
+				</article>
+			</div>
 
-    </div>
 
-                {% comment %} <article class="tile is-child is-box">
+
+
+
+			<section class="card-content" style="padding-bottom: 0; margin-bottom: 0 !important;">
+				<p class="has-text-left is-size-6" title="{{help_request.added|naturaltime}}">
+					<small class="is-small" style="font-size: 12px; color: #a7b0c0">{{help_request.added}}</small>
+				</p>
+
+				<p class="has-text-left is-size-5">
+					{{help_request.message|linebreaksbr}}
+				</p>
+
+				{% if help_request.picture %}
+				<hr>
+				<figure class="image is-small"> 
+					<a href="/media/{{help_request.picture}}">
+					<img class="has-ratio" src="{{thumbnail}}"/>
+					</a>
+				</figure>
+				{% endif %}
+				<hr>
+
+
+				<div
+					class="column is-fullwidth"
+					style="background-color: white;"
+				>
+					<article class="media animated fadeIn">						
+						<div class="media-content is-full is-fullwidth">
+							<div class="content">
+								<p class="subtitle has-text-left" style="margin-bottom: 30px;">Nombre:</p>
+								<p class="title is-4 has-text-left">{{ help_request.name}}</p>			
+							</div>
+						</div>
+					</article>
+				</div>
+
+				<div
+					class="column is-fullwidth"
+					style="background-color: white;"
+				>
+								<p class="subtitle has-text-left">Contactar:</p>
+								<p class="subtitle has-text-left">
+									<a href="tel:{{help_request.phone}}"
+										class="button hover-grow is-half"
+										style="background-color: #2979ff !important; color: white; "
+									>
+										<span class="icon is-small">
+											<img src="../static/img/phone.svg" />
+										</span>
+										<span>{{help_request.phone}}</span>
+									</a>
+									<a href="https://wa.me/{{ whatsapp }}"
+										class="button hover-grow"
+										style="background-color: white !important; color: #10c971; border: 2px solid #10c971;"
+									>
+										<span class="icon is-small">
+											<img src="../static/img/whatsapp.svg" />
+										</span>
+										<span>Contactar vía WhatsApp</span>
+									</a>
+								</p>
+				</div>
+
+				<hr>
+
+				{% if help_request.address %}
+					<div
+					class="column is-fullwidth"
+					style="background-color: white;"
+					>
+						<article class="media animated fadeIn">						
+							<div class="media-content is-full is-fullwidth">
+								<div class="content">
+									<p class="subtitle has-text-left" style="margin-bottom: 30px;">Dirección:</p>
+									<p class="title is-4 has-text-left">{{help_request.address}}</p>			
+								</div>
+							</div>
+						</article>
+					</div>
+				{% endif %}
+
+
+				<div
+				class="column is-fullwidth"
+				style="background-color: white;"
+				>
+					<article class="media animated fadeIn">						
+						<div class="media-content is-full is-fullwidth">
+							<div class="content">
+								<p class="subtitle has-text-left" style="margin-bottom: 30px;">Ciudad:</p>
+								<p class="title is-4 has-text-left"><p class="title is-4">
+								<a href="/pedidos_ciudad/{{help_request.city_code}}">{{help_request.city}}</a>
+							</div>
+						</div>
+					</article>
+				</div>
+
+
+
+				<div
+					class="column is-fullwidth"
+					style="background-color: white;"
+				>
+					<article class="media animated fadeIn">						
+						<div class="media-content is-full is-fullwidth">
+							<div class="content">
+								<p class="subtitle has-text-left" style="margin-bottom: 30px;">Ubicación:</p>
+								{% leaflet_map "main" callback="main_map_init" %}
+								<a href="https://www.google.com/maps/search/?api=1&query={{help_request.location.y|unlocalize}},{{help_request.location.x|unlocalize}}" target="_blank">
+									<button class="button is-fullwidth hover-grow"
+										style="margin: 30px 0 30px 0; background-color: #2979ff !important; color: white;"
+									>
+										<span class="icon is-medium">
+											<img src="../static/img/map.svg" />
+										</span>
+										<span>Abrir en Google Maps</span>
+									</button>
+								</a>
+							</div>
+						</div>
+					</article>
+				</div>				
+			</section>
+
+		{% include 'vote_button.html' %}	
+
+		</div>
+                {% comment %} <article class="tile is-child is-box" style="background-color: white !important;">
                     <p class="title is-4">{{ help_request.title}}</p>
                     <p class="subtitle">{{help_request.message|linebreaks}}</p>
                     <hr>
@@ -135,13 +215,9 @@
                             <span>Abrir en Google Maps</span>
                         </button>
                      </a>
-                </article> {% endcomment %}
-                <hr>
-                <label class="label has-text-success">
-                    <span class="icon is-medium"><i class="far fa-hand-point-down"></i></span>
-                        Podés compartir este pedido haciendo click en los botones
-                    </label>
-                <div class="is-fullwidth">
+                </article> {% endcomment %}				
+				<p class="subtitle" style="margin-bottom: 0 !important;color: #a7b0c0;background-color: white;">Compartí este pedido haciendo click en los botones</p>                
+                <div class="is-fullwidth" style="background-color: white;">
                 {% include 'includes/buttons.html'%}
                 </div>
           
