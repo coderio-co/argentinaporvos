@@ -12,4 +12,12 @@ services:
         env_file: 
             - conf/.env
         command: /start
+    geo:
+        image: registry.gitlab.com/coderio/backend/geoinversa
+        depends_on:
+            - app
+        ports:
+            - 3000:3000
+        env_file: 
+            - conf/.env
 
