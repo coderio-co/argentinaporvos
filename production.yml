@@ -22,7 +22,7 @@ services:
     traefik:
         build:
             context: .
-            dockerfile: ./compose/production/traefik/Dockerfile
+            dockerfile: ./docker/production/traefik/Dockerfile
         image: argxvos_production_traefik
         depends_on:
             - app

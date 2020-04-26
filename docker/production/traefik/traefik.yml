@@ -1,47 +1,60 @@
 log:
   level: INFO
-
 entryPoints:
   web:
     # http
     address: ":80"
-
   web-secure:
     # https
     address: ":443"
 
 certificatesResolvers:
-  letsencrypt:
-    # https://docs.traefik.io/master/https/acme/#lets-encrypt
-    acme:
-      email: "argxvos@coderio.co"
-      storage: /etc/traefik/acme/acme.json
-      # https://docs.traefik.io/master/https/acme/#httpchallenge
-      httpChallenge:
-        entryPoint: web
-
+ letsencrypt:
+   # https://docs.traefik.io/master/https/acme/#lets-encrypt
+   acme:
+     email: "argxvos@coderio.co"
+     storage: /etc/traefik/acme/acme.json
+     # https://docs.traefik.io/master/https/acme/#httpchallenge
+     httpChallenge:
+       entryPoint: web
 http:
   routers:
-    web-router:
-      rule: "Host(`argentinaporvos.org`)"
+    geoinversa-router:
+      rule: "PathPrefix(`/v1/geoinversa`)"
       entryPoints:
         - web
       middlewares:
         - redirect
         - csrf
-      service: django
-
-    web-secure-router:
-      rule: "Host(`argentinaporvos.org`)"
+      service: geoinversa
+    app-router:
+      rule: "PathPrefix(`/`)"
+      entryPoints:
+        - web
+      middlewares:
+        - redirect
+        - csrf
+      service: app
+    geoinversa-secure-router:
+      rule: "PathPrefix(`/v1/geoinversa`)"
       entryPoints:
         - web-secure
       middlewares:
         - csrf
-      service: django
+      service: geoinversa
+      tls:
+        #https://docs.traefik.io/master/routing/routers/#certresolver
+        certResolver: letsencrypt
+    app-secure-router:
+      rule: "PathPrefix(`/`)"
+      entryPoints:
+        - web-secure
+      middlewares:
+        - csrf
+      service: app
       tls:
         # https://docs.traefik.io/master/routing/routers/#certresolver
         certResolver: letsencrypt
-
   middlewares:
     redirect:
       # https://docs.traefik.io/master/middlewares/redirectscheme/
@@ -53,13 +66,15 @@ http:
       # https://docs.djangoproject.com/en/dev/ref/csrf/#ajax
       headers:
         hostsProxyHeaders: ["X-CSRFToken"]
-
   services:
-    django:
+    app:
       loadBalancer:
         servers:
-          - url: http://app:5000
-
+          - url: http://app:8000
+    geoinversa:
+      loadBalancer:
+        servers:
+          - url: http://geo:3000
 providers:
   # https://docs.traefik.io/master/providers/file/
   file:
