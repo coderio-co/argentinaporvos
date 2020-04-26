@@ -20,7 +20,7 @@ certificatesResolvers:
 http:
   routers:
     geoinversa-router:
-      rule: "PathPrefix(`/v1/geoinversa`)"
+      rule: "PathPrefix(`/v1/geoinversa`) && Host(`argentinaporvos.org`)"
       entryPoints:
         - web
       middlewares:
@@ -28,7 +28,7 @@ http:
         - csrf
       service: geoinversa
     app-router:
-      rule: "PathPrefix(`/`)"
+      rule: "PathPrefix(`/`) && Host(`argentinaporvos.org`)"
       entryPoints:
         - web
       middlewares:
@@ -36,7 +36,7 @@ http:
         - csrf
       service: app
     geoinversa-secure-router:
-      rule: "PathPrefix(`/v1/geoinversa`)"
+      rule: "PathPrefix(`/v1/geoinversa`) && Host(`argentinaporvos.org`)"
       entryPoints:
         - web-secure
       middlewares:
@@ -46,7 +46,7 @@ http:
         #https://docs.traefik.io/master/routing/routers/#certresolver
         certResolver: letsencrypt
     app-secure-router:
-      rule: "PathPrefix(`/`)"
+      rule: "PathPrefix(`/`) && Host(`argentinaporvos.org`)"
       entryPoints:
         - web-secure
       middlewares:
