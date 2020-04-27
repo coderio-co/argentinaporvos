@@ -14,13 +14,14 @@
 		this.currentSearchString = undefined;
 		this.requestTableView = new RequestsTableView();
 		this.loadingIndicator = new LoadingIndicatorView();
+
 		// show the spinner while we bootstrap
-		this.loadingIndicator.show();
+		//this.loadingIndicator.show();
 
 		// Use Leaflet API here
 		map.setZoom(13);
 		map.options.minZoom = 11;
-
+		
 		map.addControl(
 			new L.Control.Fullscreen({
 				title: {
