@@ -70,7 +70,7 @@ def view_request(request, id):
         "help_request": help_request,
         "thumbnail": help_request.thumb if help_request.picture else "/static/favicon.ico",
         "phone_number_img": image_to_base64(text_to_image(help_request.phone, 300, 50)),
-        "whatsapp": '54'+help_request.phone[1:]+'?text=Hola+'+help_request.name
+        "whatsapp": '54'+help_request.phone+'?text=Hola+'+help_request.name
                     + ',+te+escribo+por+el+pedido+que+hiciste:+'+quote_plus(help_request.title)
                     + f'+{settings.URL_PRINCIPAL}/pedidos/'+help_request.id.__str__()
     }
