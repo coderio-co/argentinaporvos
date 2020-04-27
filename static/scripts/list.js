@@ -16,7 +16,7 @@
 		this.loadingIndicator = new LoadingIndicatorView();
 
 		// show the spinner while we bootstrap
-		//this.loadingIndicator.show();
+		this.loadingIndicator.show();
 
 		// Use Leaflet API here
 		map.setZoom(13);
@@ -78,6 +78,8 @@
 		// document
 		//   .getElementById('switchNormal')
 		//   .addEventListener('click', this.groupMarkerRequest.bind(this));
+
+		vm.requestGeoData(vm.map);
 	}
 
 	function switchClusteringInit() {
