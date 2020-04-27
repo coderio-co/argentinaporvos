@@ -87,6 +87,8 @@ WSGI_APPLICATION = 'conf.wsgi.application'
 DATABASES = {
     'default': env.db('DATABASE_URL')
 }
+if not DEBUG:
+    DATABASES['default']['ENGINE'] = 'django.contrib.gis.db.backends.postgis'
 
 
 # Password validation
