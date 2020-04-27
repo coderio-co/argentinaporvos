@@ -25,6 +25,8 @@ urlpatterns = [
     path('preguntas_frecuentes', core_views.view_faq, name='general_faq'),
     path('contacto', TemplateView.as_view(template_name="contact_us.html"), name='contact_us'),
     path('accounts/', include('django.contrib.auth.urls')),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
 urlpatterns += api_urls.urlpatterns
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
