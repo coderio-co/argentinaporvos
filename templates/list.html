@@ -11,16 +11,12 @@
 {% endblock bread %}
 {% block content%}
 
-{% if help_request.id %}
 <div class="title center" style="color: #2979ff; font-weight: bold;">
 	Pedidos cercanos {{help_request.id}}
 	<div id="loading-indicator" class="loader-wrapper">
 		<div class="loader is-loading"></div>
 	</div>
 </div>
-{% endif %}
-	
-
 
 <div class="columns is-centered">
 	<div class="column is-6">
