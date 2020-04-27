@@ -125,7 +125,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-STATIC_ROOT= os.path.join(BASE_DIR, 'allstatic')
+STATIC_ROOT = os.path.join(BASE_DIR, 'allstatic')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
@@ -204,7 +204,7 @@ if USE_S3:
     AWS_S3_REGION_NAME = env("DJANGO_AWS_S3_REGION_NAME", default=None)
     # STATIC
     # ------------------------
-    STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+    STATICFILES_STORAGE = "conf.settings.StaticRootS3Boto3Storage"
     # MEDIA
     # ------------------------------------------------------------------------------
     # region http://stackoverflow.com/questions/10390244/
