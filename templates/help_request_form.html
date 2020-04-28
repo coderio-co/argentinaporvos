@@ -65,13 +65,12 @@
 		<script>
 			function getDireccion(longitude, latitude) {
 				return new Promise(function (resolve, reject) {
-					fetch(`https://geo.cabu.dev/v1/geoinversa/${latitude}/${longitude}`)
+					fetch(`/v1/geoinversa/ar/${longitude}/${latitude}`)
 						.then((response) => response.json())
 						.then((data) => {
 							const direccion = data.data;
-
 							document.getElementById('div_direccion').innerHTML = `
-          <span><b>Calles</b>:${direccion.direccion || ''}</span><br /> 
+          <span><b>Calles</b>:${direccion.getaddress || ''}</span><br /> 
           <span><b>Barrio</b>:${direccion.localidad || ''}</span><br /> 
           <span><b>Ciudad</b>:${direccion.distrito || ''} <span> <span><b>Departamento</b>:${
 								direccion.departamento || ''

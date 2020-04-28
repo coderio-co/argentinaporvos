@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load leaflet_tags %}
 {% load humanize %} 
-
+{% load static %}
 {% block bread %}
 <nav class="breadcrumb has-bullet-separator" aria-label="breadcrumbs">
 	<ul>
@@ -59,14 +59,14 @@
           
           <div style="overflow-y:auto;max-height:75vh;padding:15px;">
             {% for pedido in list_paginated %}
-              <a href="/pedidos/{{id}}" class="has-text-grey-dark" title="{{added}}">
+              <a href="/pedidos/{{pedido.id}}" class="has-text-grey-dark" title="{{added}}">
 			<div class="media">
 				<div class="media-content">
 					<div class="content">
 						<article class="media is-paddingless">
 							<figure class="media-left" style="margin: 10px">
 								<p class="image is-48x48">
-									<img src="../static/img/img_hand.svg" />
+									<img src="{% static "img/img_hand.svg" %}" />
 								</p>
 							</figure>
 							<div class="media-content">
