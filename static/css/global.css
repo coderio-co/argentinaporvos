@@ -6,7 +6,7 @@
 }
 
 .logo {
-	padding-top: 10px;
+	padding-top: 30px;
 	margin-bottom: 30px;
 }
 
@@ -284,3 +284,10 @@ footer {
 	background-color: #2098d1;
 	color: white;
 }
+
+@media (max-width: 600px) {
+	.padding-logo-mobile {
+	 padding-right: 35px;
+	 padding-top: 15px;
+		}
+	  }
