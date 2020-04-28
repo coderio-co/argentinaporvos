@@ -143,10 +143,11 @@ class HelpRequest(models.Model):
 
 @receiver(post_save, sender=HelpRequest)
 def thumbnail(sender, instance, created, **kwargs):
-    if instance.picture:
+    # Protect thumbnail recursive creation on modify help request
+    if instance.picture and created:
         try:
             create_thumbnail(
-                settings.MEDIA_ROOT + str(instance.picture), THUMBNAIL_BASEWIDTH
+                settings.MEDIA_ROOT + str(instance.picture), THUMBNAIL_BASEWIDTH, instance=instance.picture, **kwargs
             )
         except Exception as e:
             logger.error(f"Error creating thumbnail: {repr(e)}")

@@ -14,13 +14,14 @@
 		this.currentSearchString = undefined;
 		this.requestTableView = new RequestsTableView();
 		this.loadingIndicator = new LoadingIndicatorView();
+
 		// show the spinner while we bootstrap
 		this.loadingIndicator.show();
 
 		// Use Leaflet API here
 		map.setZoom(13);
 		map.options.minZoom = 11;
-
+		
 		map.addControl(
 			new L.Control.Fullscreen({
 				title: {
@@ -77,6 +78,8 @@
 		// document
 		//   .getElementById('switchNormal')
 		//   .addEventListener('click', this.groupMarkerRequest.bind(this));
+
+		vm.requestGeoData(vm.map);
 	}
 
 	function switchClusteringInit() {

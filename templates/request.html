@@ -45,7 +45,7 @@
 				<article class="media animated fadeIn">
 					<figure class="media-left">
 						<p class="image is-48x48">
-							<img src="../static/img/img_hand.svg" />
+							<img src="{% static "img/img_hand.svg" %}" />
 						</p>
 					</figure>
 					<div class="media-content is-full is-fullwidth">
@@ -105,7 +105,8 @@
 										style="background-color: #2979ff !important; color: white; "
 									>
 										<span class="icon is-small">
-											<img src="../static/img/phone.svg" />
+											
+											<img src="{% static "img/phone.svg" %}" />
 										</span>
 										<span>{{help_request.phone}}</span>
 									</a>
@@ -114,7 +115,8 @@
 										style="background-color: white !important; color: #10c971; border: 2px solid #10c971;"
 									>
 										<span class="icon is-small">
-											<img src="../static/img/whatsapp.svg" />
+											
+											<img src="{% static 'img/whatsapp.svg' %}" />
 										</span>
 										<span>Contactar vía WhatsApp</span>
 									</a>
@@ -171,7 +173,8 @@
 										style="margin: 30px 0 30px 0; background-color: #2979ff !important; color: white;"
 									>
 										<span class="icon is-medium">
-											<img src="../static/img/map.svg" />
+											
+											<img src="{% static "img/map.svg" %}" />
 										</span>
 										<span>Abrir en Google Maps</span>
 									</button>
