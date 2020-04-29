@@ -81,7 +81,7 @@
 							} ${direccion.distrito || ''} ${direccion.departamento || ''}`;
 							resolve(true);
 						})
-						.catch((error) => {
+						.catch(() => {
 							resolve(true);
 						});
 				});
