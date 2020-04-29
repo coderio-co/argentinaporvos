@@ -302,6 +302,7 @@ header h1 a img {
   color: #58595B;
   font-size: 1rem;
   font-weight: normal;
+  max-width: 30rem;
 }
 
 #need-help .card {
