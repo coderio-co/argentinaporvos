@@ -64,7 +64,7 @@
 
 		<script>
 			function getDireccion(longitude, latitude) {
-				return new Promise(function (resolve, reject) {
+				return new Promise(function (resolve) {
 					fetch(`https://geo.cabu.dev/v1/geoinversa/${latitude}/${longitude}`)
 						.then((response) => response.json())
 						.then((data) => {
