@@ -68,13 +68,12 @@
 					fetch(`https://geo.cabu.dev/v1/geoinversa/${latitude}/${longitude}`)
 						.then((response) => response.json())
 						.then((data) => {
-							const direccion = data.data;
+							const direccion = data.data.address;
+							var arraylocation = data.data.polygons.split(',')
 							document.getElementById('div_direccion').innerHTML = `
-          <span><b>Calles</b>:${direccion.getaddress || ''}</span><br /> 
-          <span><b>Barrio</b>:${direccion.localidad || ''}</span><br /> 
-          <span><b>Ciudad</b>:${direccion.distrito || ''} <span> <span><b>Departamento</b>:${
-								direccion.departamento || ''
-							}</span>`;
+          <span><b>Calles</b>:${direccion || ''}</span><br /> 
+          <span><b>Barrio</b>:${arraylocation[1] + arraylocation[2] || ''}</span><br /> 
+          <span><b>Provincia/Localidad</b>:${arraylocation[3] +', '+ arraylocation[4] || ''} <span>`;
 							document.getElementById('id_address').value = `${direccion.direccion || ''} ${
 								direccion.localidad || ''
 							} ${direccion.distrito || ''} ${direccion.departamento || ''}`;
