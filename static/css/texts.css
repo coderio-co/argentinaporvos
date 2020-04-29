@@ -1,0 +1,7 @@
+h2, h3 {
+  font-family: "mulibold", sans-serif;
+}
+
+h4, h5, h6, p, li, a, span {
+  font-family: "muliregular", sans-serif;
+}
