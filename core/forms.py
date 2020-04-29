@@ -28,22 +28,24 @@ class HelpRequestForm(forms.ModelForm):
         widgets = {
             "title": forms.TextInput(
                 attrs={
+                    "id": "title",
                     "class": "input",
                     "placeholder": "Ejemplo: Necesito de manera urgente víveres para mi familia",
                 }
             ),
             "message": forms.Textarea(
                 attrs={
+                    "id": "message",
                     "class": "textarea",
                     "rows": 4,
                     "placeholder": "Ejemplo: Por la situación actual estoy necesitando tapabocas y productos de limpieza, \
                         cualquier ayuda aunque sea mínima ya me va a ayudar.\nMuchas Gracias!",
                 }
             ),
-            "name": forms.TextInput(attrs={"class": "input"}),
-            "phone": forms.TextInput(attrs={"class": "input", "type": "tel"}),
-            "address": forms.TextInput(attrs={"class": "input"}),
-            'categories': forms.SelectMultiple(attrs={"style": "display:none;"}),
+            "name": forms.TextInput(attrs={"id": "name", "class": "input"}),
+            "phone": forms.TextInput(attrs={"id": "phone", "class": "input", "type": "tel"}),
+            "address": forms.TextInput(attrs={"id": "address", "class": "input"}),
+            'categories': forms.SelectMultiple(attrs={"id": "categories", "style": "display:none;"}),
         }
         error_messages = {
             NON_FIELD_ERRORS: {
