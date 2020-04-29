@@ -141,9 +141,9 @@
 			}
 
 			function checkRequestForm() {
-				fields = ['id_title', 'id_message', 'id_name', 'id_phone', 'id_location', 'id_address'];
-				var valid = true;
-				for (field in fields) {
+				let fields = ["id_title", "id_message", "id_name", "id_phone", "id_location", "id_address"];
+				let valid = true;
+				for (let field in fields) {
 					if (!document.getElementById(fields[field]).checkValidity()) {
 						valid = false;
 					}
