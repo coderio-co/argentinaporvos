@@ -344,6 +344,12 @@ header h1 a img {
   }
 }
 
+@media (min-width: 768px) {
+  #need-help, #want-to-help {
+    min-width: 15.625rem;
+  }
+}
+
 @media (max-width: 600px) {
   .padding-logo-mobile {
     padding-right: 35px;
