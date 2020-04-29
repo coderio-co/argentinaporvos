@@ -1,4 +1,20 @@
-{% extends 'base.html'%} {% block content %}
+{% extends 'base.html'%}
+{% block content %}
+{% load static %}
+
+<div class="tile is-ancestor center">
+	<div class="tile is-vertical is-6 is-parent">
+		<div class="column home-card is-4by3 is-mobile center hover-grow" style="background-color: #236BE4; border-radius: 10px;">
+			<div class="media is-centered">
+				<p class="title is-5 center has-text-centered has-text-white">
+					Publicá tu necesidad (leche, pañales, ropa, medicamentos, etc) <br> para que puedan ayudarte. <br>En ArgentinaPorVos conectamos por geolocalización las personas que necesitan ayuda con las que quieren ayudar.
+                    <br>¡La ayuda que necesitas está a la vuelta de la esquina!
+  
+				</p>
+			</div></div>
+		</div>
+	</div>
+
 <div class="is-fullhd">
 	<div class="columns is-centered is-2 animated fadeIn" style="margin-top: 20px;">
 		<div
@@ -10,7 +26,8 @@
 						<div class="media center">
 							<div>
 								<figure class="image is-96x96">
-									<img class="is-rounded" src="../static/img/needhelp.svg" alt="" />
+									
+									<img class="is-rounded" src="{% static "img/needhelp.svg" %}" alt="" />
 								</figure>
 							</div>
 						</div>
@@ -35,7 +52,7 @@
 						<div class="media center">
 							<div>
 								<figure class="image is-96x96">
-									<img class="is-rounded" src="../static/img/iwanttohelp.svg" alt="" />
+									<img class="is-rounded" src="{% static "img/iwanttohelp.svg" %}" alt="" />
 								</figure>
 							</div>
 						</div>
@@ -68,19 +85,7 @@
                     </article>
                 </a>
             </div> -->
-			{% if perms.org.add_donationcenter %}
-			<div class="column is-3">
-				<a href="/donar">
-					<article
-						class="tile is-child notification has-text-centered"
-						style="background-color: #2cceb8; color: white;"
-					>
-						<p class="title is-4">Registrar Centro de Donación</p>
-						<p class="subtitle is-6 is-size-7">Mirá lo que podés donar y dónde</p>
-					</article>
-				</a>
-			</div>
-			{% endif %}
+			
 		</div>
 	</div>
 

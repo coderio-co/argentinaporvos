@@ -8,7 +8,9 @@
 		</li>
 	</ul>
 </nav>
-{% endblock bread %} {% block content%}
+{% endblock bread %}
+{% block content%}
+
 <div class="title center" style="color: #2979ff; font-weight: bold;">
 	Pedidos cercanos {{help_request.id}}
 	<div id="loading-indicator" class="loader-wrapper">
@@ -139,7 +141,7 @@
 						<article class="media is-paddingless">
 							<figure class="media-left" style="margin: 10px">
 								<p class="image is-48x48">
-									<img src="../static/img/img_hand.svg" />
+									<img src="https://argentinaporvos.s3-us-west-2.amazonaws.com/static/img/img_hand.svg" />
 								</p>
 							</figure>
 							<div class="media-content">
@@ -213,6 +215,121 @@
 		</div>
 		{% endverbatim %}
 	</script>
+
+	<script>
+			function getDireccion(longitude, latitude) {
+				return new Promise(function (resolve, reject) {
+					fetch(`/v1/geoinversa/ar/${longitude}/${latitude}`)
+						.then((response) => response.json())
+						.then((data) => {
+							const direccion = data.data;
+							document.getElementById('div_direccion').innerHTML = `
+          <span><b>Calles</b>:${direccion.getaddress || ''}</span><br /> 
+          <span><b>Barrio</b>:${direccion.localidad || ''}</span><br /> 
+          <span><b>Ciudad</b>:${direccion.distrito || ''} <span> <span><b>Departamento</b>:${
+								direccion.departamento || ''
+							}</span>`;
+							document.getElementById('id_address').value = `${direccion.direccion || ''} ${
+								direccion.localidad || ''
+							} ${direccion.distrito || ''} ${direccion.departamento || ''}`;
+							resolve(true);
+						})
+						.catch((error) => {
+							resolve(true);
+						});
+				});
+			}
+
+			function geoFindMe() {
+				const status = document.querySelector('#status');
+				const boton = document.querySelector('#find-me');
+
+				function makePoint(longitude, latitude) {
+					return JSON.stringify({
+						type: 'Point',
+						coordinates: [longitude, latitude],
+					});
+				}
+
+				async function success(position) {
+					const latitude = position.coords.latitude;
+					const longitude = position.coords.longitude;
+
+					boton.textContent = 'Te encontré, seguí completando !';
+					boton.disabled = true;
+					status.textContent = '';
+
+					document.getElementById('id_location').innerHTML = makePoint(longitude, latitude);
+
+					await getDireccion(longitude, latitude);
+
+					const you = L.marker([latitude, longitude], {
+						draggable: true,
+						opacity: 0.9,
+						title: 'Tu ubicación',
+					}).addTo(maps[0]);
+					you.bindPopup('Moveme si queres !').openPopup();
+
+					maps[0].setView([latitude, longitude], 16);
+
+					you.on('dragend', async function (e) {
+						await getDireccion(e.target._latlng.lng, e.target._latlng.lat);
+						document.getElementById('id_location').innerHTML = makePoint(
+							e.target._latlng.lng,
+							e.target._latlng.lat
+						);
+					});
+				}
+
+				function error() {
+					status.textContent = 'No puedo encontrarte, usá los botones del mapa';
+				}
+
+				if (!navigator.geolocation) {
+					status.textContent = 'Tu navegador no soporta la geolocalización';
+				} else {
+					status.textContent = 'Buscando tu ubicación…';
+					navigator.geolocation.getCurrentPosition(success, error);
+				}
+			}
+
+			function checkRequestForm() {
+				fields = ['id_title', 'id_message', 'id_name', 'id_phone', 'id_location', 'id_address'];
+				var valid = true;
+				for (field in fields) {
+					if (!document.getElementById(fields[field]).checkValidity()) {
+						valid = false;
+					}
+				}
+
+				if (valid) {
+					document.querySelector('#submit').textContent = 'Enviando...';
+					document.querySelector('#submit').disabled = 'disabled';
+					return true;
+				}
+			}
+
+			document.querySelectorAll('.modal-button').forEach(function (el) {
+				el.addEventListener('click', function () {
+					var target = document.querySelector(el.getAttribute('data-target'));
+					//map.invalidateSize();
+					target.classList.add('is-active');
+
+					target.querySelector('.close').addEventListener('click', function () {
+						target.classList.remove('is-active');
+					});
+					target.querySelector('.delete').addEventListener('click', function () {
+						target.classList.remove('is-active');
+					});
+					target.querySelector('.modal-background').addEventListener('click', function () {
+						target.classList.remove('is-active');
+					});
+				});
+			});
+
+			document.querySelector('#find-me').addEventListener('click', geoFindMe);
+		</script>
+
 
 	{% endblock %}
 </div>

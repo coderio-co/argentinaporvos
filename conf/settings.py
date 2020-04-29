@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'leaflet',
     'django.contrib.gis',
     'core',
-    'org',
     'widget_tweaks',
     'rest_framework',
     'rest_framework_gis',
@@ -86,8 +85,10 @@ WSGI_APPLICATION = 'conf.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 # Parse database connection url strings like psql://user:pass@127.0.0.1:8458/db
 DATABASES = {
-    'default': env.db(),
+    'default': env.db('DATABASE_URL')
 }
+if not DEBUG:
+    DATABASES['default']['ENGINE'] = 'django.contrib.gis.db.backends.postgis'
 
 
 # Password validation
@@ -114,7 +115,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'es'
 
-TIME_ZONE = 'America/Asuncion'
+TIME_ZONE = 'America/Argentina/Buenos_Aires'
 
 USE_I18N = True
 
@@ -126,21 +127,29 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-STATIC_ROOT= os.path.join(BASE_DIR, 'allstatic')
+STATIC_ROOT = os.path.join(BASE_DIR, 'allstatic')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
+]
+STATICFILES_FINDERS = [
+    "django.contrib.staticfiles.finders.FileSystemFinder",
+    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
 ]
 STATIC_URL = '/static/'
 
 MEDIA_ROOT = 'media/'
 MEDIA_URL = '/media/'
 
-
+LATITUDE_MAPS = str(env('LATITUDE_MAPS'))
+LONGITUDE_MAPS = str(env('LONGITUDE_MAPS'))
+DEFAULT_ZOOM_MAPS = env('DEFAULT_ZOOM', default=13)
+MIN_ZOOM_MAPS = env('MIN_ZOOM_MAPS', default=3)
+MAX_ZOOM_MAPS = env('MAX_ZOOM_MAPS', default=18)
 LEAFLET_CONFIG = {
-    'DEFAULT_CENTER': (-25.292, -57.551),
-    'DEFAULT_ZOOM': 11,
-    'MIN_ZOOM': 3,
-    'MAX_ZOOM': 18,
+    'DEFAULT_CENTER': (LATITUDE_MAPS, LONGITUDE_MAPS),
+    'DEFAULT_ZOOM': DEFAULT_ZOOM_MAPS,
+    'MIN_ZOOM': MIN_ZOOM_MAPS,
+    'MAX_ZOOM': MAX_ZOOM_MAPS,
     'RESET_VIEW': False,
     'NO_GLOBALS': False,
 
@@ -170,3 +179,51 @@ REST_FRAMEWORK = {
 
 # Redirect to home URL after login (Default redirects to /accounts/profile/)
 LOGIN_REDIRECT_URL = '/'
+
+URL_PRINCIPAL = env('URL_PRINCIPAL', default='https://argentinaporvos.org')
+USE_S3 = False if DEBUG else True
+# STORAGES
+if USE_S3:
+    # https://django-storages.readthedocs.io/en/latest/#installation
+    INSTALLED_APPS += ["storages"]  # noqa F405
+    # https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html#settings
+    AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
+    # https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html#settings
+    AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
+    # https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html#settings
+    AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME')
+    # https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html#settings
+    AWS_QUERYSTRING_AUTH = False
+    # DO NOT change these unless you know what you're doing.
+    _AWS_EXPIRY = 60 * 60 * 24 * 7
+    # https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html#settings
+    AWS_S3_OBJECT_PARAMETERS = {
+        "CacheControl": f"max-age={_AWS_EXPIRY}, s-maxage={_AWS_EXPIRY}, must-revalidate"
+    }
+    #  https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html#settings
+    AWS_DEFAULT_ACL = None
+    # https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html#settings
+    AWS_S3_REGION_NAME = env("DJANGO_AWS_S3_REGION_NAME", default=None)
+    # STATIC
+    # ------------------------
+    STATICFILES_STORAGE = "conf.settings.StaticRootS3Boto3Storage"
+    # MEDIA
+    # ------------------------------------------------------------------------------
+    # region http://stackoverflow.com/questions/10390244/
+    # Full-fledge class: https://stackoverflow.com/a/18046120/104731
+    from storages.backends.s3boto3 import S3Boto3Storage  # noqa E402
+
+
+    class StaticRootS3Boto3Storage(S3Boto3Storage):
+        location = "static"
+        default_acl = "public-read"
+
+
+    class MediaRootS3Boto3Storage(S3Boto3Storage):
+        location = "media"
+        file_overwrite = False
+
+
+    # endregion
+    DEFAULT_FILE_STORAGE = "conf.settings.MediaRootS3Boto3Storage"
+    MEDIA_URL = f"https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/media/"

@@ -1,0 +1,82 @@
+log:
+  level: INFO
+entryPoints:
+  web:
+    # http
+    address: ":80"
+  web-secure:
+    # https
+    address: ":443"
+
+certificatesResolvers:
+ letsencrypt:
+   # https://docs.traefik.io/master/https/acme/#lets-encrypt
+   acme:
+     email: "argxvos@coderio.co"
+     storage: /etc/traefik/acme/acme.json
+     # https://docs.traefik.io/master/https/acme/#httpchallenge
+     httpChallenge:
+       entryPoint: web
+http:
+  routers:
+    geoinversa-router:
+      rule: "PathPrefix(`/v1/geoinversa`) && Host(`argentinaporvos.org`)"
+      entryPoints:
+        - web
+      middlewares:
+        - redirect
+        - csrf
+      service: geoinversa
+    app-router:
+      rule: "PathPrefix(`/`) && Host(`argentinaporvos.org`)"
+      entryPoints:
+        - web
+      middlewares:
+        - redirect
+        - csrf
+      service: app
+    geoinversa-secure-router:
+      rule: "PathPrefix(`/v1/geoinversa`) && Host(`argentinaporvos.org`)"
+      entryPoints:
+        - web-secure
+      middlewares:
+        - csrf
+      service: geoinversa
+      tls:
+        #https://docs.traefik.io/master/routing/routers/#certresolver
+        certResolver: letsencrypt
+    app-secure-router:
+      rule: "PathPrefix(`/`) && Host(`argentinaporvos.org`)"
+      entryPoints:
+        - web-secure
+      middlewares:
+        - csrf
+      service: app
+      tls:
+        # https://docs.traefik.io/master/routing/routers/#certresolver
+        certResolver: letsencrypt
+  middlewares:
+    redirect:
+      # https://docs.traefik.io/master/middlewares/redirectscheme/
+      redirectScheme:
+        scheme: https
+        permanent: true
+    csrf:
+      # https://docs.traefik.io/master/middlewares/headers/#hostsproxyheaders
+      # https://docs.djangoproject.com/en/dev/ref/csrf/#ajax
+      headers:
+        hostsProxyHeaders: ["X-CSRFToken"]
+  services:
+    app:
+      loadBalancer:
+        servers:
+          - url: http://app:8000
+    geoinversa:
+      loadBalancer:
+        servers:
+          - url: http://geo:3000
+providers:
+  # https://docs.traefik.io/master/providers/file/
+  file:
+    filename: /etc/traefik/traefik.yml
+    watch: true
