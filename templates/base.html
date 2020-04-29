@@ -52,13 +52,13 @@
 		<div class="media center logo">
 			<div>
 				<figure>
-					<img src="{% static "img/img_logo.svg" %}" alt="" />
+				<a href="/"><img src="{% static "img/img_logo.svg" %}" alt="" /></a>
 				</figure>
 			</div>
 		</div>
 
 		<main class="Site-content animated fadeIn">
-			<section class="section center">
+			<section class="section center" style="padding: 0 12px 0 12px !important;">
 				<div class="container">
 					{% block bread %} {% endblock bread %} {% block content %} {% endblock content %}
 				</div>
