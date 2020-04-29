@@ -242,7 +242,7 @@ footer {
 	animation-duration: 3s;
 }
 
-@media print, (prefers-reduced-motion: reduce) {
+@media (print), (prefers-reduced-motion: reduce) {
 	.animated {
 		-webkit-animation-duration: 1ms !important;
 		animation-duration: 1ms !important;
@@ -284,6 +284,13 @@ footer {
 	background-color: #2098d1;
 	color: white;
 }
+
+@media (max-width: 600px) {
+	.padding-logo-mobile {
+	 padding-right: 35px;
+	 padding-top: 15px;
+		}
+	  }
 
 /* Accessibility */
 .sr-only {
