@@ -1,0 +1,16 @@
+name: CI
+on:
+  push:
+    branches: [ dev-arg ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deployment
+        uses: fifsky/ssh-action@master
+        with:
+          command: |
+            ./deploy.sh
+          host: ${{ secrets.HOST_PROD }}
+          user: ${{ secrets.USER }}
+          key: ${{ secrets.PRIVATE_KEY}}
