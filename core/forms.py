@@ -42,7 +42,7 @@ class HelpRequestForm(forms.ModelForm):
                         cualquier ayuda aunque sea mínima ya me va a ayudar.\nMuchas Gracias!",
                 }
             ),
-            "name": forms.TextInput(attrs={"id": "name", "class": "input"}),
+            "name": forms.TextInput(attrs={"id": "name", "class": "input", 'pattern':'[A-Za-z ]+', 'title':'Ingrese solo texto.'}),
             "phone": forms.TextInput(attrs={"id": "phone", "class": "input", "type": "tel"}),
             "address": forms.TextInput(attrs={"id": "address", "class": "input"}),
             'categories': forms.SelectMultiple(attrs={"id": "categories", "style": "display:none;"}),
