@@ -73,6 +73,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'conf.context_processors.global_vars'
             ],
         },
     },
@@ -227,3 +228,6 @@ if USE_S3:
     # endregion
     DEFAULT_FILE_STORAGE = "conf.settings.MediaRootS3Boto3Storage"
     MEDIA_URL = f"https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/media/"
+
+
+GOOGLE_TAG_MANAGER_ID = env('GOOGLE_TAG_MANAGER_ID', default=None)
