@@ -52,6 +52,14 @@
   color: #2979ff;
 }
 
+.breadcrumb li:first-of-type a {
+  color: #9096a1;
+}
+
+.breadcrumb li.is-active a {
+  color: #2979ff;
+}
+
 footer {
   padding: 1rem 1rem 1rem !important;
   background-color: white !important;
@@ -129,6 +137,11 @@ footer {
 
 .home-cards .media:not(:last-child){
   margin-bottom: 0;
+}
+
+#legal .home-card {
+  background-color: #236BE4;
+  border-radius: 10px;
 }
 
 .level {
@@ -353,8 +366,18 @@ header h1 a img {
   display: flex;
 }
 
+#general-faq h2 {
+  color: #2979ff;
+  font-weight: bold;
+}
+
 #general-faq article p.title span {
   margin-right: 1rem;
+}
+
+#legal h2 {
+  color: #2979FF;
+  overflow: hidden;
 }
 
 @media (min-width: 600px) {
