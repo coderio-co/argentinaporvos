@@ -373,12 +373,27 @@ header h1 a img {
 
 .disclaimer-preview, .how-it-works {
   border-radius: 5px;
+  padding: 1.5rem;
 }
-
 .disclaimer-preview {
   background-color: #236BE4;
 }
-
+.disclaimer-preview article,
+.how-it-works article {
+  text-align: start;
+}
+.disclaimer-preview article .decorative-img,
+.how-it-works article .decorative-img {
+  display: block;
+  float: left;
+  margin-right: 0.875rem;
+  max-width: 100%;
+  width: 96px;
+}
+.disclaimer-preview article .content,
+.how-it-works article .content {
+  width: fit-content;
+}
 .how-it-works {
   background-color: white;
 }
@@ -420,6 +435,21 @@ header h1 a img {
 
   #general-faq article p.title {
     align-items: center;
+  }
+
+  .disclaimer-preview article .content,
+  .how-it-works article .content {
+    display: flex;
+    justify-content: space-between;
+  }
+  .disclaimer-preview article .decorative-img,
+  .how-it-works article .decorative-img {
+    float: none;
+  }
+  .disclaimer-preview article div .info,
+  .how-it-works article div .info {
+    margin-left: 1rem;
+    width: 85%;
   }
 }
 
