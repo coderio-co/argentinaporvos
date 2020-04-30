@@ -135,7 +135,7 @@ footer {
   border-radius: 5px;
 }
 
-.home-cards .media:not(:last-child){
+.home-cards .media:not(:last-child) {
   margin-bottom: 0;
 }
 
@@ -375,9 +375,14 @@ header h1 a img {
   margin-right: 1rem;
 }
 
-#legal h2 {
+#legal h2, #contact-us h2 {
   color: #2979FF;
   overflow: hidden;
+}
+
+#contact-us h2 {
+  margin-bottom: 10px;
+  padding-bottom: 10%;
 }
 
 @media (min-width: 600px) {
@@ -391,7 +396,7 @@ header h1 a img {
     font-size: 1rem;
   }
 
-  .home-cards .media:not(:last-child){
+  .home-cards .media:not(:last-child) {
     margin-right: 1.5rem;
   }
 
@@ -405,7 +410,7 @@ header h1 a img {
     min-width: 15.625rem;
   }
 
-  .home-cards .media:not(:last-child){
+  .home-cards .media:not(:last-child) {
     margin-right: 0;
     margin-bottom: 1.5rem;
   }
