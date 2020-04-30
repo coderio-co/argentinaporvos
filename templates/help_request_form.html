@@ -65,7 +65,7 @@
 		<script>
 			function getDireccion(longitude, latitude) {
 				return new Promise(function (resolve) {
-					fetch(`/v1/geoinversa/${latitude}/${longitude}`)
+					fetch(`/v1/geoinversa/ar/${longitude}/${latitude}`)
 						.then((response) => response.json())
 						.then((data) => {
 							const direccion = data.data.address;
