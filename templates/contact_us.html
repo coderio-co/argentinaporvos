@@ -1,9 +1,8 @@
-
 {% extends 'base.html' %}
 {% load static %}
 {% block bread %}
 <nav class="breadcrumb  has-bullet-separator" aria-label="breadcrumbs">
-  <ul>
+	<ul>
 		<li style="content: none !important;"><a href="/" style="color: #9096a1;">Inicio</a></li>
 		<li class="is-active">
 			<a href="#" class="is-active" style="color: #2979ff;">Contacto</a>
@@ -14,30 +13,33 @@
 {% block content%}
 
 <div id="contact-us" class="columns is-centered center">
-  <div class="column">
-    <div class="tile is-ancestor center">
-      <div class="tile is-5 is-vertical is-parent">
-        <div class="tile is-child is-warning">
-          <h2 class="title is-3 center has-text-weight-bold">¿Deseás contactarnos? </h2>
-          <div class="columns home-card is-4by3 is-mobile hover-grow" style="background-color: #2979FF; border-radius: 10px;">
-             <div class="media is-centered" style="padding: 40px" > 
-                <div class="media-left" style="margin-right: 2rem;">
-							  	<figure class="image is-96x96">
-									<img class="is-rounded" src="{% static "img/contactusicon.svg" %}" alt="" />
-                  </figure>
-                </div>
-                <div class="media-content">
-                  <p class="subtitle is-size-6 has-text-left has-text-white">
-                    Si tenés alguna duda o consulta, podés contactarnos a través de las redes sociales que están más abajo, o envianos un correo a 
-                    <a href="mailto:argxvos@coderio.co"><i class="has-text-white has-text-weight-bold" style="color: currentColor; font-style: normal;
+	<div class="column">
+		<div class="tile is-ancestor center">
+			<div class="tile is-5 is-vertical is-parent">
+				<div class="tile is-child is-warning">
+					<h2 class="title is-3 center has-text-weight-bold">¿Deseás contactarnos? </h2>
+					<div class="columns home-card is-4by3 is-mobile hover-grow"
+						 style="background-color: #2979FF; border-radius: 10px;">
+						<div class="media is-centered" style="padding: 40px">
+							<div class="media-left" style="margin-right: 2rem;">
+								<figure class="image is-96x96">
+									<img class="is-rounded" src="{% static 'img/contactusicon.svg' %}" alt=""/>
+								</figure>
+							</div>
+							<div class="media-content">
+								<p class="subtitle is-size-6 has-text-left has-text-white">
+									Si tenés alguna duda o consulta, podés contactarnos a través de las redes sociales
+									que están más abajo, o envianos un correo a
+									<a href="mailto:argxvos@coderio.co"><i class="has-text-white has-text-weight-bold"
+																		   style="color: currentColor; font-style: normal;
                     text-decoration: underline;">argxvos@coderio.co</i></a> y con gusto te atenderemos.
-                  </p>
-               </div>
-             </div>
-          </div>
-      </div>
-    </div>
-  </div>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
-
-{% endblock %}
+	{% endblock %}
