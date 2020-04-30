@@ -344,6 +344,10 @@ button.button span {
   font-family: "muli-semibold", sans-serif;
 }
 
+button[type="submit"].is-success {
+  background-color: #288047;
+}
+
 @media (min-width: 600px) {
   #need-help .title,
   #want-to-help .title {
