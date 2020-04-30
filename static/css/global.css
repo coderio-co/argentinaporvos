@@ -136,6 +136,7 @@ footer {
 }
 
 .home-cards .media:not(:last-child) {
+  margin-right: 1.5rem;
   margin-bottom: 0;
 }
 
@@ -396,10 +397,6 @@ header h1 a img {
     font-size: 1rem;
   }
 
-  .home-cards .media:not(:last-child) {
-    margin-right: 1.5rem;
-  }
-
   #general-faq article p.title {
     align-items: center;
   }
@@ -413,13 +410,6 @@ header h1 a img {
   .home-cards .media:not(:last-child) {
     margin-right: 0;
     margin-bottom: 1.5rem;
-  }
-}
-
-@media (max-width: 600px) {
-  .padding-logo-mobile {
-    padding-right: 35px;
-    padding-top: 15px;
   }
 }
 
