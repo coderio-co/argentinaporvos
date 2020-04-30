@@ -326,6 +326,10 @@ header {
   margin-top: 2rem;
 }
 
+header h1.logo {
+  margin-bottom: 0;
+}
+
 header h1 a img {
   display: block;
   max-width: 100%;
