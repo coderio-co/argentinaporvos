@@ -367,6 +367,18 @@ header h1 a img {
   margin-top: initial;
 }
 
+.disclaimer-preview, .how-it-works {
+  border-radius: 5px;
+}
+
+.disclaimer-preview {
+  background-color: #236BE4;
+}
+
+.how-it-works {
+  background-color: white;
+}
+
 #general-faq article p.title {
   align-items: flex-start;
   display: flex;
