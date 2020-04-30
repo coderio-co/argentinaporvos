@@ -127,6 +127,10 @@ footer {
   border-radius: 5px;
 }
 
+.home-cards .media:not(:last-child){
+  margin-bottom: 0;
+}
+
 .level {
   width: 100%;
 }
@@ -345,11 +349,20 @@ header h1 a img {
   #want-to-help .subtitle {
     font-size: 1rem;
   }
+
+  .home-cards .media:not(:last-child){
+    margin-right: 1.5rem;
+  }
 }
 
 @media (min-width: 768px) {
   #need-help, #want-to-help {
     min-width: 15.625rem;
+  }
+
+  .home-cards .media:not(:last-child){
+    margin-right: 0;
+    margin-bottom: 1.5rem;
   }
 }
 
