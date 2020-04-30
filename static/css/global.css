@@ -295,6 +295,15 @@ footer {
   color: white;
 }
 
+a.button.is-success span,
+button.button span {
+  font-family: "muli-semibold", sans-serif;
+}
+
+button[type="submit"].is-success {
+  background-color: #288047;
+}
+
 header {
   margin-top: 2rem;
 }
@@ -339,13 +348,13 @@ header h1 a img {
   margin-top: initial;
 }
 
-a.button.is-success span,
-button.button span {
-  font-family: "muli-semibold", sans-serif;
+#general-faq article p.title {
+  align-items: flex-start;
+  display: flex;
 }
 
-button[type="submit"].is-success {
-  background-color: #288047;
+#general-faq article p.title span {
+  margin-right: 1rem;
 }
 
 @media (min-width: 600px) {
@@ -361,6 +370,10 @@ button[type="submit"].is-success {
 
   .home-cards .media:not(:last-child){
     margin-right: 1.5rem;
+  }
+
+  #general-faq article p.title {
+    align-items: center;
   }
 }
 
