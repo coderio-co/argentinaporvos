@@ -1,69 +1,101 @@
 {% load leaflet_tags %} {% load static %}
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="description" content="Argentina Por Vos es una plataforma, sin fines de lucro, que busca asistir y conectar tanto a las personas que quieren ayudar como a las personas que buscan ayuda. En estos tiempos de pandemia, con el uso de la Geolocalizacion, van a poder asistirse entre vecinos por el bienestar de todos"/>
-		<title>{% block title %} ArgentinaPorVos {% endblock %}</title>
+<html lang="es">
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<meta name="description"
+		  content="Argentina Por Vos es una plataforma, sin fines de lucro, que busca asistir y conectar tanto a las personas que quieren ayudar como a las personas que buscan ayuda. En estos tiempos de pandemia, con el uso de la Geolocalizacion, van a poder asistirse entre vecinos por el bienestar de todos"/>
+	<title>{% block title %} ArgentinaPorVos {% endblock %}</title>
 
-		<!-- Open Graph / Facebook -->
-		<meta property="og:type" content="website" />
-		<meta property="og:url" content="{% block fb-url %} {{ request.build_absolute_uri }} {% endblock %}" />
-		<meta property="og:title" content="{% block fb-title %} ArgentinaPorVos {% endblock %}" />
-		<meta property="og:description" content="{% block fb-description %}Argentina Por Vos es una plataforma, sin fines de lucro, que busca asistir y conectar tanto a las personas que quieren ayudar como a las personas que buscan ayuda. En estos tiempos de pandemia, con el uso de la Geolocalizacion, van a poder asistirse entre vecinos por el bienestar de todos{% endblock %}" />
-		<meta property="og:image" content="{% block fb-image %} {% static "avatar-AxV-1200x1200px.jpg" %} {% endblock %}">
+	<!-- Open Graph / Facebook -->
+	<meta property="og:type" content="website"/>
+	<meta property="og:url" content="{% block fb-url %} {{ request.build_absolute_uri }} {% endblock %}"/>
+	<meta property="og:title" content="{% block fb-title %} ArgentinaPorVos {% endblock %}"/>
+	<meta property="og:description"
+		  content="{% block fb-description %}Argentina Por Vos es una plataforma, sin fines de lucro, que busca asistir y conectar tanto a las personas que quieren ayudar como a las personas que buscan ayuda. En estos tiempos de pandemia, con el uso de la Geolocalizacion, van a poder asistirse entre vecinos por el bienestar de todos{% endblock %}"/>
+	<meta property="og:image" content="{% block fb-image %} {% static 'avatar-AxV-1200x1200px.jpg' %} {% endblock %}" />
 
-		<!-- Twitter -->
-		<meta name="twitter:card" content="summary_large_image" />
+	<!-- Twitter -->
+	<meta name="twitter:card" content="summary_large_image"/>
 
-		<link rel="icon" href="{% static "avatar-AxV-iso-1200x1200px.jpg" %}" type="image/svg" />
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css" />
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-switch@2.0.0/dist/css/bulma-switch.min.css" />
-		<link rel="stylesheet" href="{% static "css/global.css"" %}" />
+	<link rel="icon" href="{% static 'avatar-AxV-iso-1200x1200px.jpg' %}" type="image/svg" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css"/>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-switch@2.0.0/dist/css/bulma-switch.min.css"/>
+	<style>
+	/* Muli */
+	@font-face {
+		font-family: "muli-regular";
+		src: url("{% static 'fonts/muli/muli-regular-webfont.woff2' %}") format("woff2"),
+		url("{% static 'fonts/muli/muli-regular-webfont.woff' %}") format("woff");
+		font-weight: normal;
+		font-style: normal;
+		font-display: swap;
+	}
 
-		<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-		<!-- Global site tag (gtag.js) - Google Analytics -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-164654732-1"></script>
-		<script>
-			window.dataLayer = window.dataLayer || [];
-			function gtag() {
-				dataLayer.push(arguments);
-			}
-			gtag('js', new Date());
-			gtag('config', 'UA-164654732-1');
-		</script>
+	@font-face {
+		font-family: "muli-semibold";
+		src: url("{% static 'fonts/muli/muli-semibold-webfont.woff2' %}") format("woff2"),
+		url("{% static 'fonts/muli/muli-semibold-webfont.woff' %}") format("woff");
+		font-weight: normal;
+		font-style: normal;
+		font-display: swap;
+	}
 
-		<script
-			src="https://cdn.jsdelivr.net/npm/@vizuaalog/bulmajs@0.10.3/dist/file.js"
-			integrity="sha256-9BDCQ1iKLp8eEXxQD6U8StZ4V2On9KFEHDeHeXLZ/aE="
-			crossorigin="anonymous"
-		></script>
-		<script
-			src="https://cdn.jsdelivr.net/npm/@vizuaalog/bulmajs@0.10.3/dist/modal.js"
-			integrity="sha256-HDcVnTQ5+DdyigrR4Xge4rxqguBi19XI7vNDhTDr+hs="
-			crossorigin="anonymous"
-		></script>
-		<script src="https://cdn.jsdelivr.net/combine/npm/moment@2.24.0/min/moment.min.js,npm/moment@2.24.0/locale/es.js"></script>
-		{% leaflet_js plugins="ALL" %} {% leaflet_css plugins="ALL" %}
-	</head>
+	@font-face {
+		font-family: "muli-bold";
+		src: url("{% static 'fonts/muli/muli-bold-webfont.woff2' %}") format("woff2"),
+		url("{% static 'fonts/muli/muli-bold-webfont.woff' %}") format("woff");
+		font-weight: normal;
+		font-style: normal;
+		font-display: swap;
+	}
+	</style>
+	<link rel="stylesheet" href="{% static 'css/global.css' %}" />
 
-	<body class="Site">
-		<div class="media center logo">
-			<div>
-				<figure>
-				<a href="/"><img src="{% static "img/img_logo.svg" %}" alt="" /></a>
-				</figure>
-			</div>
+	<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-164654732-1"></script>
+	<script>
+	window.dataLayer = window.dataLayer || [];
+
+	function gtag() {
+		dataLayer.push(arguments);
+	}
+
+	gtag("js", new Date());
+	gtag("config", "UA-164654732-1");
+	</script>
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/@vizuaalog/bulmajs@0.10.3/dist/file.js"
+		integrity="sha256-9BDCQ1iKLp8eEXxQD6U8StZ4V2On9KFEHDeHeXLZ/aE="
+		crossorigin="anonymous"
+	></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/@vizuaalog/bulmajs@0.10.3/dist/modal.js"
+		integrity="sha256-HDcVnTQ5+DdyigrR4Xge4rxqguBi19XI7vNDhTDr+hs="
+		crossorigin="anonymous"
+	></script>
+	<script
+		src="https://cdn.jsdelivr.net/combine/npm/moment@2.24.0/min/moment.min.js,npm/moment@2.24.0/locale/es.js"></script>
+	{% leaflet_js plugins="ALL" %} {% leaflet_css plugins="ALL" %}
+</head>
+
+<body class="site">
+<header>
+	<h1 class="logo">
+		<a href="/"><img src="{% static 'img/img_logo.svg' %}" alt="Argentina por vos"/></a>
+	</h1>
+</header>
+
+<main class="site-content animated fadeIn">
+	<section class="section center">
+		<div class="container">
+			{% block bread %} {% endblock bread %} {% block content %} {% endblock content %}
 		</div>
-
-		<main class="Site-content animated fadeIn">
-			<section class="section center" style="padding: 0 12px 0 12px !important;">
-				<div class="container">
-					{% block bread %} {% endblock bread %} {% block content %} {% endblock content %}
-				</div>
-			</section>
-		</main>
-		{% include 'footer.html' %}
-	</body>
+	</section>
+</main>
+{% include 'footer.html' %}
+</body>
 </html>

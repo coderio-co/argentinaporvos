@@ -26,7 +26,7 @@
 		<form enctype="multipart/form-data" method="post" action="/ceder">
 			{% csrf_token %} {% include 'includes/bulma_donation_form.html' with form=form %}
 			<div class="control">
-				<button id="submit" class="button is-success is-fullwidth">Enviar</button>
+				<button id="submit" type="submit" class="button is-success is-fullwidth">Enviar</button>
 			</div>
 		</form>
 

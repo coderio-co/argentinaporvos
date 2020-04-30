@@ -13,15 +13,14 @@
 <div class="columns is-centered">
 	<div class="column is-half">
 		<button
-			href="#"
 			id="find-me"
 			class="button is-fullwidth hover-grow"
-			style="margin: 30px 0 30px 0; background-color: #2979ff !important; color: white;"
+			style="margin: 30px 0 30px 0; background-color: #236BE4 !important; color: white;"
 		>
 			<span class="icon is-small">
 				<i class="fas fa-map-marker-alt"></i>
 			</span>
-			<span>Apreta acá voy a tratar de encontrarte</span>
+			<span>Apretá acá, voy a tratar de encontrarte</span>
 		</button>
 
 		<p id="status"></p>
@@ -29,7 +28,7 @@
 		<form enctype="multipart/form-data" method="post" action="/solicitar">
 			{% csrf_token %} {% include 'includes/bulma_form.html' with form=form %}
 			<div class="control hover-grow">
-				<button id="submit" class="button is-success is-fullwidth">Enviar</button>
+				<button id="submit" type="submit" class="button is-success is-fullwidth">Enviar</button>
 			</div>
 		</form>
 
@@ -54,7 +53,8 @@
 							marcador, una vez corregido apretar 'Grabar'
 						</li>
 					</ul>
-					<p class="image" style="margin-top: 30px;"><img src="{% static "img/ayudamapa.gif" %}" alt=""></p>
+					<div class="image" style="margin-top: 30px;"><img src="{% static 'img/ayudamapa.gif' %}" alt=""
+					/></div>
 				</section>
 				<footer class="modal-card-foot">
 					<button class="button is-success close">Ok</button>
@@ -64,7 +64,7 @@
 
 		<script>
 			function getDireccion(longitude, latitude) {
-				return new Promise(function (resolve, reject) {
+				return new Promise(function (resolve) {
 					fetch(`/v1/geoinversa/ar/${longitude}/${latitude}`)
 						.then((response) => response.json())
 						.then((data) => {
@@ -79,7 +79,7 @@
 							} ${direccion.distrito || ''} ${direccion.departamento || ''}`;
 							resolve(true);
 						})
-						.catch((error) => {
+						.catch(() => {
 							resolve(true);
 						});
 				});
@@ -139,9 +139,9 @@
 			}
 
 			function checkRequestForm() {
-				fields = ['id_title', 'id_message', 'id_name', 'id_phone', 'id_location', 'id_address'];
-				var valid = true;
-				for (field in fields) {
+				let fields = ["id_title", "id_message", "id_name", "id_phone", "id_location", "id_address"];
+				let valid = true;
+				for (let field in fields) {
 					if (!document.getElementById(fields[field]).checkValidity()) {
 						valid = false;
 					}

@@ -1,0 +1,14 @@
+root = true
+
+[*.{html, css}]
+charset = utf-8
+max_line_length = 120
+
+[*.html]
+indent_style = tab
+indent_size = 4
+
+[*.css]
+indent_style = space
+indent_size = 2
+quote_type = single
