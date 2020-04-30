@@ -363,6 +363,7 @@ header h1 a img {
 #want-to-help .subtitle {
   background: none;
   font-size: 0.875rem;
+  font-family: "muli-semibold", sans-serif;
   margin-top: initial;
 }
 
