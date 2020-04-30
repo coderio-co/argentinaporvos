@@ -42,9 +42,9 @@ class HelpRequestForm(forms.ModelForm):
                         cualquier ayuda aunque sea mínima ya me va a ayudar.\nMuchas Gracias!",
                 }
             ),
-            "name": forms.TextInput(attrs={"id": "name", "class": "input", 'pattern':'[A-Za-z ]+', 'title':'Ingrese solo texto.'}),
-            "phone": forms.TextInput(attrs={"id": "phone", "class": "input", "type": "tel"}),
-            "address": forms.TextInput(attrs={"id": "address", "class": "input"}),
+            "name": forms.TextInput(attrs={"id": "name", "class": "input", 'pattern':'[A-Za-z ]+', 'title':'Ingrese solo texto.', "placeholder": "Nombre completo",}),
+            "phone": forms.TextInput(attrs={"id": "phone", "class": "input", "type": "tel", 'pattern':'[0-9]+', 'title':'Ingrese solo números.', "placeholder": "Teléfono",}),
+            "address": forms.TextInput(attrs={"id": "address", "class": "input", "placeholder": "Dirección",}),
             'categories': forms.SelectMultiple(attrs={"id": "categories", "style": "display:none;"}),
         }
         error_messages = {
