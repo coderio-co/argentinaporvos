@@ -458,6 +458,21 @@ header h1 a img {
   }
 }
 
+/* Pedidos de ayuda */
+article.help-request {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+article.help-request img.decorative {
+  display: block;
+  width: 48px;
+  height: 48px;
+  margin-right: 1rem;
+}
+
 @media (min-width: 768px) {
   #need-help, #want-to-help {
     min-width: 15.625rem;
