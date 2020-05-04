@@ -110,6 +110,35 @@
 {% endfor %}
 
 <script type="text/javascript">
+      
+      window.addEventListener("DOMContentLoaded", () => {
+   if (!document.querySelector(".file-label")) {
+      let buttonWrapper = document.createElement("div");
+      let lastField = document.querySelectorAll(".field");
+      lastField = lastField[lastField.length - 1];
+      let labelFile = document.createElement("label");
+      let inputFile = document.querySelector("input[type='file']");
+      let fakeButton = document.createElement("span");
+      let fileIconWrapper = document.createElement("span");
+      let fileIcon = document.createElement("i");
+      buttonWrapper.classList.add("file", "has-name", "is-boxed", "is-primary", "is-fullwidth");
+      buttonWrapper.style.marginTop = "10px"
+      labelFile.classList.add("file-label");
+      inputFile.classList.add("file-input");
+      fakeButton.classList.add("button", "is-info", "is-outlined", "hover-grow");
+      fileIconWrapper.classList.add("file-icon");
+      fileIcon.classList.add("fas", "fa-image");
+      fileIcon.style.marginRight = "1rem";
+      lastField.appendChild(buttonWrapper);
+      buttonWrapper.appendChild(labelFile);
+      labelFile.appendChild(fakeButton);
+      fakeButton.appendChild(inputFile);
+      fakeButton.appendChild(fileIconWrapper);
+      fileIconWrapper.appendChild(fileIcon);
+      fileIconWrapper.innerHTML += "Adjuntá una foto";
+   }
+});
+
 
       function changeViveres() {
 
