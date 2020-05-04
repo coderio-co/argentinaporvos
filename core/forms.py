@@ -38,8 +38,7 @@ class HelpRequestForm(forms.ModelForm):
                     "id": "message",
                     "class": "textarea",
                     "rows": 4,
-                    "placeholder": "Ejemplo: Por la situación actual estoy necesitando tapabocas y productos de limpieza, \
-                        cualquier ayuda aunque sea mínima ya me va a ayudar.\nMuchas Gracias!",
+                    "placeholder": "Ejemplo: Por la situación actual estoy necesitando tapabocas y productos de limpieza, cualquier ayuda aunque sea mínima ya me va a ayudar. ¡Muchas Gracias!",
                 }
             ),
             "name": forms.TextInput(attrs={"id": "name", "class": "input", 'pattern':'[A-Za-z ]+', 'title':'Ingrese solo texto.', "placeholder": "Nombre completo",}),
