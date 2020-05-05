@@ -27,47 +27,51 @@
 <div class="columns is-centered">
     <div class="column is-four-fifths">
         <div class="card is-shadowless" style="border-radius: 15px; border: none">
-			<header class="card-header is-light">
-				<p
-					class="card-header-title is-size-4 is-centered"
-					style="background-color: transparent; color: #ffab07; padding: 5px; margin-bottom: 35px; font-size: 26px !important;"
-				>
-					Pedido #{{help_request.id}}
-				</p>
-			</header>
+		
+			<div class="header-wrapper">
+				<header class="card-header is-light">
+					<p
+						class="card-header-title is-size-4 is-centered"
+						style="background-color: transparent; color: #ffab07; padding: 5px; margin-bottom: 35px; font-size: 26px !important;"
+					>
+						Pedido #{{help_request.id}}
+					</p>
+				</header>
 
 
 			
-			<div
-				class="column is-fullwidth"
-				style="background-color: white;"
-			>
-				<article class="media animated fadeIn">
-					<figure class="media-left">
-						<p class="image is-48x48">
-							<img src="{% static "img/img_hand.svg" %}" />
-						</p>
-					</figure>
-					<div class="media-content is-full is-fullwidth">
-						<div class="content">
-							<p class="title is-5 has-text-black" >{{ help_request.title }}</p>					
-						</div>
-					</div>
-				</article>
+				<div
+					class="column is-fullwidth"
+					style="background-color: white;"
+				>
+					<article class="media animated fadeIn">
+						<figure class="media-left">
+							<p class="image is-48x48">
+								<img src="{% static "img/img_hand.svg" %}" />
+							</p>
+						</figure>
+							<div class="media-content is-full is-fullwidth">
+								<div class="content">
+									<p class="title is-5 has-text-black" >{{ help_request.title }}</p>					
+							    </div>
+							</div>
+					</article>
+				</div>
+
 			</div>
 
 
 
-
-
 			<section class="card-content" style="padding-bottom: 0; margin-bottom: 0 !important;">
-				<p class="has-text-left is-size-6" title="{{help_request.added|naturaltime}}">
-					<small class="is-small" style="font-size: 12px; color: #a7b0c0">{{help_request.added}}</small>
-				</p>
+				<div class="article-help-detail-p">
+					<p class="has-text-left is-size-6" title="{{help_request.added|naturaltime}}">
+						<small class="is-small" style="font-size: 12px; color: #a7b0c0">{{help_request.added}}</small>
+					</p>
 
-				<p class="has-text-left is-size-5">
-					{{help_request.message|linebreaksbr}}
-				</p>
+					<p class="has-text-left is-size-5">
+						{{help_request.message|linebreaksbr}}
+					</p>
+				</div>
 
 				{% if help_request.picture %}
 				<hr>
