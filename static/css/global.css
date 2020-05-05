@@ -484,6 +484,16 @@ article.help-request img.decorative {
   }
 }
 
+.header-wrapper {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.article-help-detail-p {
+  padding-left: .75rem;
+}
+
+
 /* Accessibility */
 .sr-only {
   clip-path: inset(100%) !important;
