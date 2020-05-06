@@ -246,9 +246,10 @@
                 L.geoJson(data).addTo(map)
 			}
 			
-			$('.open-map-button').hover(
-               function(){ $(this).addClass('hover') },
-            )
+			document.querySelector(".open-map-button")
+			.addEventListener("mouseover", function() {
+              this.classList.add("hover")
+            });
         </script>
     </div>
 </div>
