@@ -476,6 +476,8 @@ article.help-request img.decorative {
 .help-request-list {
   margin-bottom: .75rem;
   background-color: white;
+  box-shadow: 2px 2px 7px 1px rgba(0,0,0,0.2);
+  border-radius: 5px;
 }
 
 .card-content-request {
