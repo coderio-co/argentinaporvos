@@ -473,6 +473,11 @@ article.help-request img.decorative {
   margin-right: 1rem;
 }
 
+.help-request-list {
+  margin-bottom: .75rem;
+  background-color: white;
+}
+
 @media (min-width: 768px) {
   #need-help, #want-to-help {
     min-width: 15.625rem;
