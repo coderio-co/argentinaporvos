@@ -480,6 +480,22 @@ article.help-request img.decorative {
   border-radius: 5px;
 }
 
+.card-content-request {
+ padding-top: 0px;
+ padding-bottom: 0; 
+ margin-bottom: 0;
+}
+
+.request-title {
+  padding-bottom: 0px;
+}
+
+.request-phone-button {
+  background-color: #236BE4; 
+  color: white;
+  margin-bottom: .75rem;
+}
+
 @media (min-width: 768px) {
   #need-help, #want-to-help {
     min-width: 15.625rem;
