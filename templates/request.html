@@ -174,7 +174,7 @@
 								<p class="subtitle has-text-left" style="margin-bottom: 30px;">Ubicación:</p>
 								{% leaflet_map "main" callback="main_map_init" %}
 								<a href="https://www.google.com/maps/search/?api=1&query={{help_request.location.y|unlocalize}},{{help_request.location.x|unlocalize}}" target="_blank">
-									<button class="button is-fullwidth hover-grow"
+									<button class="button is-fullwidth open-map-button is-centered"
 										style="margin: 30px 0 30px 0; background-color: #2979ff !important; color: white;"
 									>
 										<span class="icon is-medium">
@@ -244,7 +244,12 @@
                 map.setView([lat, lon], 14);
                 //L.marker([lat, lon]).addTo(map);
                 L.geoJson(data).addTo(map)
-            }
+			}
+			
+			document.querySelector(".open-map-button")
+			.addEventListener("mouseover", function() {
+              this.classList.add("hover")
+            });
         </script>
     </div>
 </div>
