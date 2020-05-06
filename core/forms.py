@@ -38,12 +38,11 @@ class HelpRequestForm(forms.ModelForm):
                     "id": "message",
                     "class": "textarea",
                     "rows": 4,
-                    "placeholder": "Ejemplo: Por la situación actual estoy necesitando tapabocas y productos de limpieza, \
-                        cualquier ayuda aunque sea mínima ya me va a ayudar.\nMuchas Gracias!",
+                    "placeholder": "Ejemplo: Por la situación actual estoy necesitando tapabocas y productos de limpieza, cualquier ayuda aunque sea mínima ya me va a ayudar. ¡Muchas Gracias!",
                 }
             ),
             "name": forms.TextInput(attrs={"id": "name", "class": "input", 'pattern':'[A-Za-z ]+', 'title':'Ingrese solo texto.', "placeholder": "Nombre completo",}),
-            "phone": forms.TextInput(attrs={"id": "phone", "class": "input", "type": "tel", 'pattern':'[0-9]+', 'title':'Ingrese solo números.', "placeholder": "Teléfono",}),
+            "phone": forms.TextInput(attrs={"id": "phone", "class": "input", "type": "tel", 'pattern':'[0-9]{8,30}', 'title':'Ingrese solo números y una cantidad mayor a 7.', "placeholder": "Teléfono",}),
             "address": forms.TextInput(attrs={"id": "address", "class": "input", "placeholder": "Dirección",}),
             'categories': forms.SelectMultiple(attrs={"id": "categories", "style": "display:none;"}),
         }
