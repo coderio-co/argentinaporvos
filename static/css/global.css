@@ -503,6 +503,14 @@ article.help-request img.decorative {
   transform: scale(1.1)
 } 
 
+.request-header-title {
+  margin-top: 35px;
+  box-shadow: 0px;
+}
+.request-header {
+  box-shadow: none;
+}
+
 @media (min-width: 768px) {
   #need-help, #want-to-help {
     min-width: 15.625rem;
