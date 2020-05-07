@@ -510,6 +510,49 @@ article.help-request img.decorative {
 .request-header {
   box-shadow: none;
 }
+.request-list-heading {
+  color: #2979ff;
+  font-weight: bold;
+}
+.request-info-icon {
+  font-size: 15px;
+  margin-left: 3px; color: #2979ff;
+}
+.request-map-container {
+  margin-bottom: 5px;
+  border: 1px green solid;
+  border-radius: 2px;
+}
+.request-findme-button {
+  margin: 30px 0 30px 0;
+  background-color: #236BE4;
+  color: white;
+}
+.request-search-button {
+  border-radius: 5px;
+  background-color: #236BE4;
+  margin-left: 10px;
+}
+.request-list-table {
+  overflow-y: auto;
+  max-height: 75vh;
+}
+.request-list-table-pagination {
+  background-color: white;
+  color: #a7b0c0;
+}
+.request-list-button-showlast {
+  background-color: white;
+  color: #2979ff;
+  border-color: #2979ff;
+}
+.request-list-title {
+  background-color: transparent;
+  color: #ffab07;
+  padding: 5px;
+  margin-bottom: 17px;
+  font-size: 26px;
+}
 
 @media (min-width: 768px) {
   #need-help, #want-to-help {
