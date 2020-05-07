@@ -11,7 +11,7 @@
 {% endblock bread %}
 {% block content%}
 
-<div class="title center" style="color: #2979ff; font-weight: bold;">
+<div class="title center request-list-heading">
 	Pedidos cercanos {{help_request.id}}
 	<div id="loading-indicator" class="loader-wrapper">
 		<div class="loader is-loading"></div>
@@ -42,8 +42,7 @@
 										</div>
 										<p class="help has-text-info">
 											<i
-												class="fas fa-info-circle"
-												style="font-size: 15px; margin-left: 3px; color: #2979ff;"
+												class="fas fa-info-circle request-info-icon"
 											></i
 											>&nbsp;&nbsp;Si no ves tu ciudad es porque no hay pedidos!
 										</p>
@@ -65,15 +64,14 @@
 			</div>
 		</div>
 
-		<div class="row" style="margin-bottom: 5px; border: 1px green solid; border-radius: 2px;">
+		<div class="row request-map-container">
 			{% leaflet_map "main" callback="mainMapInit" %}
 		</div>
 
 		<button
 			href="#"
 			id="find-me"
-			class="button is-fullwidth hover-grow"
-			style="margin: 30px 0 30px 0; background-color: #236BE4 !important; color: white;"
+			class="button is-fullwidth hover-grow request-findme-button"
 		>
 			<span class="icon is-small">
 				<i class="fas fa-map-marker-alt"></i>
@@ -99,9 +97,8 @@
 					</div>
 					<div class="control">
 						<a
-							class="button is-info"
+							class="button is-info request-search-button"
 							id="search-button"
-							style="border-radius: 5px; background-color: #236BE4; margin-left: 10px;"
 						>
 							Buscar
 						</a>
@@ -110,14 +107,13 @@
 			</div>
 		</div>
 		
-		<p
-			class="panel-heading has-text-left"
-			style="background-color: transparent; color: #ffab07; padding: 5px; margin-bottom: 35px; font-size: 26px !important;"
+		<h3
+			class="panel-heading has-text-left request-list-title"
 		>
 			Últimos pedidos de ayuda
-		</p>
+    	</h3>
 		<div class="request-panel is-info has-text-left">
-			<div style="overflow-y: auto; max-height: 75vh;">
+			<div class="request-list-table">
 				<div id="requests-table"></div>
 			</div>
 		</div>
@@ -175,7 +171,7 @@
 		<div class="row requests-table-paginator">
 
 			<nav class="pagination is-centered" role="navigation" aria-label="pagination">
-				<button class="pagination-previous prev-button is-outlined" {{hasPrev}} style="background-color: white !important; color: #a7b0c0 !important;"> <i class="fas fa-chevron-left"></i>&nbsp;&nbsp;Anterior</button>
+				<button class="pagination-previous prev-button is-outlined request-list-table-pagination" {{hasPrev}}> <i class="fas fa-chevron-left"></i>&nbsp;&nbsp;Anterior</button>
 
 				<ul class="pagination-list">
 					<li>
@@ -203,11 +199,11 @@
 					</li>
 
 					<li>
-						<button class="pagination-link last-button {{showLast}} is-outlined" {{hasLast}} style="background-color: white !important; color: #2979ff; border-color: #2979ff;">{{totalPages}}</button>
+						<button class="pagination-link last-button {{showLast}} is-outlined request-list-button-showlast" {{hasLast}}>{{totalPages}}</button>
 					</li>
 				</ul>
 
-				<button class="pagination-next next-button is-outlined" {{hasNext}} style="background-color: white !important; color: #a7b0c0 !important;">Siguiente&nbsp;&nbsp;<i class="fas fa-chevron-right"></i> </button>
+				<button class="pagination-next next-button is-outlined request-list-table-pagination " {{hasNext}}">Siguiente&nbsp;&nbsp;<i class="fas fa-chevron-right"></i> </button>
 			</nav>
 		</div>
 		{% endverbatim %}
