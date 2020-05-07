@@ -496,6 +496,10 @@ article.help-request img.decorative {
   margin-bottom: .75rem;
 }
 
+.request-panel {
+  margin-bottom: 1.5rem;
+}
+
 @media (min-width: 768px) {
   #need-help, #want-to-help {
     min-width: 15.625rem;
