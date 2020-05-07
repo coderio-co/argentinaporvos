@@ -499,6 +499,9 @@ article.help-request img.decorative {
 .request-panel {
   margin-bottom: 1.5rem;
 }
+.open-map-button:hover{ 
+  transform: scale(1.1)
+} 
 
 @media (min-width: 768px) {
   #need-help, #want-to-help {
