@@ -496,6 +496,9 @@ article.help-request img.decorative {
   margin-bottom: .75rem;
 }
 
+.request-panel {
+  margin-bottom: 1.5rem;
+}
 .open-map-button:hover{ 
   transform: scale(1.1)
 } 
