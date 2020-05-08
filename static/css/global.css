@@ -175,6 +175,14 @@ footer {
   opacity: 0.5;
 }
 
+.button[disabled] {
+  background-color: #efefef;
+  border-color: #a7b0c0;
+  box-shadow: none;
+  color: #a7b0c0;
+  opacity: 0.5;
+}
+
 .questionNumber,
 .questionNumber:hover {
   border-radius: 50%;
