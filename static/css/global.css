@@ -478,6 +478,7 @@ article.help-request img.decorative {
   background-color: white;
   box-shadow: 2px 2px 7px 1px rgba(0,0,0,0.2);
   border-radius: 5px;
+  padding: 1px 5px;
 }
 
 .card-content-request {
@@ -536,6 +537,7 @@ article.help-request img.decorative {
 .request-list-table {
   overflow-y: auto;
   max-height: 75vh;
+  padding: 1px 5px;
 }
 .request-list-table-pagination {
   background-color: white;
