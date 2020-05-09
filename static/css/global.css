@@ -175,6 +175,14 @@ footer {
   opacity: 0.5;
 }
 
+.button[disabled] {
+  background-color: #efefef;
+  border-color: #a7b0c0;
+  box-shadow: none;
+  color: #a7b0c0;
+  opacity: 0.5;
+}
+
 .questionNumber,
 .questionNumber:hover {
   border-radius: 50%;
@@ -487,6 +495,12 @@ article.help-request img.decorative {
  margin-bottom: 0;
 }
 
+.custom-heading-two {
+  color: #2979ff;
+  font-weight: bold;
+  font-size: 2rem;
+  line-height: 1.125;
+}
 .request-title {
   padding-bottom: 0px;
 }
@@ -511,10 +525,7 @@ article.help-request img.decorative {
 .request-header {
   box-shadow: none;
 }
-.request-list-heading {
-  color: #2979ff;
-  font-weight: bold;
-}
+
 .request-info-icon {
   font-size: 15px;
   margin-left: 3px; color: #2979ff;
