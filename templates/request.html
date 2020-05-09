@@ -245,11 +245,16 @@
                 //L.marker([lat, lon]).addTo(map);
                 L.geoJson(data).addTo(map)
 			}
+
+			const openMapButton = document.querySelector(".open-map-button");
 			
-			document.querySelector(".open-map-button")
-			.addEventListener("mouseover", function() {
-              this.classList.add("hover")
+			openMapButton.addEventListener("mouseover", function() {
+				this.classList.add("hover")
             });
+
+			openMapButton.addEventListener("mouseout", function() {
+				this.classList.remove("hover");
+			});
         </script>
     </div>
 </div>

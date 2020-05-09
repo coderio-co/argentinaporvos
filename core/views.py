@@ -137,13 +137,13 @@ def view_faq(request):
 
 
 def list_requests(request):
-    cities = [(i['city'], i['city_code']) for i in HelpRequest.objects.all().values('city', 'city_code').distinct().order_by('city_code')]
+    cities = [(i['city'], i['city_code']) for i in HelpRequest.objects.filter(active=True).values('city', 'city_code').distinct().order_by('city_code')]
     context = {"list_cities": cities}
     return render(request, "list.html", context)
 
 
 def list_by_city(request, city):
-    list_help_requests = HelpRequest.objects.filter(city_code=city).order_by("-added")  # TODO limit this
+    list_help_requests = HelpRequest.objects.filter(city_code=city, active=True).order_by("-added")  # TODO limit this
     city = list_help_requests[0].city
     query = list_help_requests
     geo = serialize("geojson", query, geometry_field="location", fields=("name", "pk", "title", "added"))

@@ -68,8 +68,10 @@
 	<link rel="stylesheet" href="{% static 'css/global.css' %}" />
 
 	<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+	
+	{% if GOOGLE_TAG_MANAGER_ID %}		
 	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-164654732-1"></script>
+	<script async src="https://www.googletagmanager.com/gtag/js?id={{GOOGLE_TAG_MANAGER_ID}}"></script>
 	<script>
 	window.dataLayer = window.dataLayer || [];
 
@@ -78,9 +80,9 @@
 	}
 
 	gtag("js", new Date());
-	gtag("config", "UA-164654732-1");
+	gtag("config", "{{GOOGLE_TAG_MANAGER_ID}}");
 	</script>
-
+	{% endif %}
 	<script
 		src="https://cdn.jsdelivr.net/npm/@vizuaalog/bulmajs@0.10.3/dist/file.js"
 		integrity="sha256-9BDCQ1iKLp8eEXxQD6U8StZ4V2On9KFEHDeHeXLZ/aE="
@@ -102,7 +104,6 @@
 		<a href="/"><img src="{% static 'img/img_logo.svg' %}" alt="Argentina por vos"/></a>
 	</h1>
 </header>
-
 <main class="site-content animated fadeIn">
 	<section class="section center">
 		<div class="container">

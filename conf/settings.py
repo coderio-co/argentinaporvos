@@ -6,6 +6,13 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 import environ
+import logging
+import sentry_sdk
+
+from sentry_sdk.integrations.django import DjangoIntegration
+from sentry_sdk.integrations.logging import LoggingIntegration
+
+
 env = environ.Env(
     # set casting, default value
     DEBUG=(bool, False)
@@ -73,6 +80,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'conf.context_processors.global_vars'
             ],
         },
     },
@@ -227,3 +235,20 @@ if USE_S3:
     # endregion
     DEFAULT_FILE_STORAGE = "conf.settings.MediaRootS3Boto3Storage"
     MEDIA_URL = f"https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/media/"
+
+
+GOOGLE_TAG_MANAGER_ID = env('GOOGLE_TAG_MANAGER_ID', default=None)
+
+if not DEBUG:
+    # Sentry
+    SENTRY_DSN = env("SENTRY_DSN")
+    SENTRY_LOG_LEVEL = env.int("DJANGO_SENTRY_LOG_LEVEL", logging.INFO)
+
+    sentry_logging = LoggingIntegration(
+        level=SENTRY_LOG_LEVEL,  # Capture info and above as breadcrumbs
+        event_level=logging.ERROR,  # Send errors as events
+    )
+    sentry_sdk.init(
+        dsn=SENTRY_DSN,
+        integrations=[sentry_logging, DjangoIntegration()],
+    )

@@ -126,6 +126,10 @@ class HelpRequest(models.Model):
                     city = location.raw['address']['town']
                 elif location.raw['address'].get('locality'):
                     city = location.raw['address']['locality']
+                elif location.raw['address'].get('village'):
+                    city = location.raw['address']['village']
+                elif location.raw['address'].get('state_district'):
+                    city = location.raw['address']['state_district']
         except Exception as e:
             logger.error(f"Geolocator unavailable: {repr(e)}")
         return city
