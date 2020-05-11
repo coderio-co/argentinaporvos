@@ -19,8 +19,13 @@ certificatesResolvers:
        entryPoint: web
 http:
   routers:
+    api:
+      rule: Host(`traefik.argentinaporvos.org`)
+      service: api@internal
+      dashboard: true
+      insecure: true
     geoinversa-router:
-      rule: "PathPrefix(`/v1/geoinversa/ar/`) && (Host(`argentinaporvos.org`) || Host(`www.argentinaporvos.org`))"
+      rule: "PathPrefix(`/v1/geoinversa`) && (Host(`argentinaporvos.org`) || Host(`www.argentinaporvos.org`))"
       entryPoints:
         - web
       middlewares:
@@ -36,7 +41,7 @@ http:
         - csrf
       service: app
     geoinversa-secure-router:
-      rule: "PathPrefix(`/v1/geoinversa/ar/`) && (Host(`argentinaporvos.org`) || Host(`www.argentinaporvos.org`))"
+      rule: "PathPrefix(`/v1/geoinversa`) && (Host(`argentinaporvos.org`) || Host(`www.argentinaporvos.org`))"
       entryPoints:
         - web-secure
       middlewares:
