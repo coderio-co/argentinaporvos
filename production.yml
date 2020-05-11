@@ -19,8 +19,6 @@ services:
             - app
         env_file: 
             - conf/.env
-        ports:
-            - "3000:3000"
     traefik:
         build:
             context: .
