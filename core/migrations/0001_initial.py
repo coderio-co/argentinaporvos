@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('title', models.CharField(help_text='Descripción corta de que estás necesitando', max_length=200, verbose_name='Título del pedido')),
-                ('message', models.TextField(blank=True, help_text='Acá podes contar detalladamente lo que necesitas', max_length=2000, null=True, verbose_name='Descripción del pedido')),
+                ('message', models.TextField(blank=True, help_text='Acá podes contar detalladamente lo que necesitás', max_length=2000, null=True, verbose_name='Descripción del pedido')),
                 ('name', models.CharField(max_length=200, verbose_name='Nombre y Apellido')),
                 ('phone', models.CharField(max_length=30, verbose_name='Teléfono de contacto')),
                 ('address', models.CharField(blank=True, help_text='Es opcional pero puede ayudar a quien quiera ayudarte saber la direccion, ciudad, barrio, referencias, o como llegar', max_length=400, null=True, verbose_name='Dirección')),

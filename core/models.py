@@ -64,13 +64,13 @@ class HelpRequest(models.Model):
     title = models.CharField(
         "Título del pedido",
         max_length=200,
-        help_text="Descripción corta de qué estás necesitando",
+        help_text="Descripción corta de qué estás necesitando.",
         db_index=True,
     )
     message = models.TextField(
         "Descripción del pedido",
         help_text=mark_safe(
-            "Acá podés contar detalladamente lo que necesitás, <b>cuanto mejor cuentes tu situación es más probable que te quieran ayudar</b>"),
+            "Acá podés contar detalladamente lo que necesitás, <b>cuanto mejor cuentes tu situación es más probable que te quieran ayudar.</b>"),
         max_length=2000,
         null=True,
         db_index=True,
@@ -79,7 +79,7 @@ class HelpRequest(models.Model):
     phone = models.CharField("Teléfono de contacto", max_length=30)
     address = models.CharField(
         "Dirección",
-        help_text="Para ayudar a quien quiera ayudarte saber la dirección, ciudad, barrio, referencias, o cómo llegar",
+        help_text="Puede ser la de tu casa, como la de un lugar público cerca de la misma (comisaría, hospital, kiosko, plaza, estación de servicio).",
         max_length=400,
         blank=False,
         null=True,
@@ -93,7 +93,7 @@ class HelpRequest(models.Model):
     picture = models.ImageField(
         "Foto",
         upload_to=rename_img,
-        help_text=mark_safe('<p class="help text-muted has-text-left" style="margin:0 0 5px 5px;">Si querés podés adjuntar una foto relacionada con tu pedido, es opcional pero puede ayudar a que la gente entienda mejor tu situación</p>'),
+        help_text=mark_safe('<p class="help text-muted has-text-left" style="margin:0 0 5px 5px;">Si querés podés adjuntar una foto relacionada con tu pedido, es opcional pero puede ayudar a que la gente entienda mejor tu situación.</p>'),
         null=True,
         blank=True,
     )
