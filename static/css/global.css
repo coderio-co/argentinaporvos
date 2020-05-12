@@ -169,17 +169,17 @@ footer {
 .pagination-next[disabled],
 .pagination-previous[disabled] {
   background-color: #efefef;
-  border-color: #a7b0c0;
+  border-color: #606A85;
   box-shadow: none;
-  color: #a7b0c0;
+  color: #606A85;
   opacity: 0.5;
 }
 
 .button[disabled] {
   background-color: #efefef;
-  border-color: #a7b0c0;
+  border-color: #606A85;
   box-shadow: none;
-  color: #a7b0c0;
+  color: #606A85;
   opacity: 0.5;
 }
 
