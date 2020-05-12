@@ -29,7 +29,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='helprequest',
             name='message',
-            field=models.TextField(db_index=True, help_text='Acá podes contar detalladamente lo que necesitas, <b>cuanto mejor cuentes tu situación es más probable que te quieran ayudar</b>', max_length=2000, null=True, verbose_name='Descripción del pedido'),
+            field=models.TextField(db_index=True, help_text='Acá podes contar detalladamente lo que necesitás, <b>cuanto mejor cuentes tu situación es más probable que te quieran ayudar</b>', max_length=2000, null=True, verbose_name='Descripción del pedido'),
         ),
         migrations.AlterField(
             model_name='helprequest',

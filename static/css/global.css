@@ -169,17 +169,17 @@ footer {
 .pagination-next[disabled],
 .pagination-previous[disabled] {
   background-color: #efefef;
-  border-color: #a7b0c0;
+  border-color: #606A85;
   box-shadow: none;
-  color: #a7b0c0;
+  color: #606A85;
   opacity: 0.5;
 }
 
 .button[disabled] {
   background-color: #efefef;
-  border-color: #a7b0c0;
+  border-color: #606A85;
   box-shadow: none;
-  color: #a7b0c0;
+  color: #606A85;
   opacity: 0.5;
 }
 
@@ -489,6 +489,14 @@ article.help-request img.decorative {
   padding: 1px 5px;
 }
 
+.request-list-message {
+  margin-bottom: .75rem;
+  background-color: white;
+  box-shadow: 2px 2px 7px 1px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  padding: 5px 10px 5px 10px;
+}
+
 .card-content-request {
  padding-top: 0px;
  padding-bottom: 0; 
@@ -500,6 +508,7 @@ article.help-request img.decorative {
   font-weight: bold;
   font-size: 2rem;
   line-height: 1.125;
+  margin-bottom: 1.5rem;
 }
 .request-title {
   padding-bottom: 0px;
