@@ -489,6 +489,14 @@ article.help-request img.decorative {
   padding: 1px 5px;
 }
 
+.request-list-message {
+  margin-bottom: .75rem;
+  background-color: white;
+  box-shadow: 2px 2px 7px 1px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  padding: 5px 10px 5px 10px;
+}
+
 .card-content-request {
  padding-top: 0px;
  padding-bottom: 0; 
