@@ -590,7 +590,7 @@ article.help-request img.decorative {
 @media (min-width: 480px) {
   .request-map-container {
     height: 400px;
-}
+  } 
 }
 
 @media (min-width: 768px) {
@@ -605,7 +605,7 @@ article.help-request img.decorative {
 
   .request-map-container {
     height: 600px;
-}
+  }
 }
 
 .header-wrapper {
