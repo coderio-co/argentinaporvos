@@ -523,8 +523,13 @@ article.help-request img.decorative {
 .request-panel {
   margin-bottom: 1.5rem;
 }
+
+.open-map-button {
+  transition: all .2s ease-in-out;
+}
+
 .open-map-button:hover{ 
-  transform: scale(1.1)
+    transform: scale(1.025,1.025);
 } 
 
 .request-header-title {
