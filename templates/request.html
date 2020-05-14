@@ -216,14 +216,11 @@
 		</div>
 
 
-		<script type="text/javascript">
-		function main_map_init(map, options) {
-			// Use Leaflet API here
-			{%
-				autoescape;
-				off %
-			}
-			var lon = {
+	<script type="text/javascript">
+	function main_map_init(map) {
+		// Use Leaflet API here
+		{% autoescape; off %}
+		var lon = {
 			{
 				help_request.location.x | unlocalize;
 			}
