@@ -1,27 +1,26 @@
 {% extends 'base.html' %} {% block bread %}
-<nav class="breadcrumb has-bullet-separator is-centered" aria-label="breadcrumbs">
+<nav aria-label="breadcrumbs" class="breadcrumb has-bullet-separator is-centered">
 	<ul>
 		<li style="content: none !important;"><a href="/" style="color: #9096a1;">Inicio</a></li>
 		<li class="is-active">
-			<a href="#" class="is-active" style="color: #2979ff;">Recibir ayuda</a>
+			<a class="is-active" href="#" style="color: #2979ff;">Recibir ayuda</a>
 		</li>
 	</ul>
 </nav>
-{% endblock bread %} {% block content%} {% include "./disclaimer.html" with message='Si tenés una necesidad tenes que completar los campos con tus datos (asegurate que todos sean correctos) en la plataforma de ArgentinaPorVos.  Con esto y mediante la Geolocalización vas a poder ser ubicado por alguien que puede ayudarte. ¡La ayuda que necesitás puede estar a la vuelta de tu esquina!' %}
+{% endblock bread %} {% block content%} {% include "./disclaimer.html" with message='Si tenés una necesidad tenés que completar los campos con tus datos (asegurate que todos sean correctos) en la plataforma de ArgentinaPorVos.  Con esto y mediante la Geolocalización vas a poder ser ubicado por alguien que puede ayudarte. ¡La ayuda que necesitás puede estar a la vuelta de tu esquina!' %}
 <div class="columns center">
 	<div
 		class="column is-two-third-mobile is-half-tablet is-half-desktop is-half-widescreen is-half-fullhd is-marginless is-paddingless"
 	>
-		<article class="media animated fadeIn">
-			<div class="media-content">
-				<a
-					href="/solicitar"
-					class="accept-button button is-success is-fullwidth hover-grow"
-				>
-					<span>Sí, entiendo, quiero continuar </span>
-				</a>
-			</div>
-		</article>
+		<div class="media-content">
+			<a
+				class="accept-button button is-success is-fullwidth hover-grow"
+				href="/solicitar"
+				role="button"
+			>
+				<span>Sí, entiendo, quiero continuar </span>
+			</a>
+		</div>
 	</div>
 </div>
 {% endblock %}
