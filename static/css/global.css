@@ -515,6 +515,7 @@ article.help-request img.decorative {
   align-items: center;
   display: flex;
   padding-bottom: 0;
+  text-align: start;
 }
 
 .request-title img {
