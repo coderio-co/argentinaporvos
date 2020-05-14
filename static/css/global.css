@@ -512,7 +512,14 @@ article.help-request img.decorative {
   margin-bottom: 1.5rem;
 }
 .request-title {
-  padding-bottom: 0px;
+  align-items: center;
+  display: flex;
+  padding-bottom: 0;
+  text-align: start;
+}
+
+.request-title img {
+  margin-right: 1rem;
 }
 
 .request-phone-button {
@@ -536,9 +543,14 @@ article.help-request img.decorative {
     transform: scale(1.025,1.025);
 } 
 
+.request header {
+  display: block;
+  padding: 1.5rem 1.5rem 0;
+}
+
 .request-header-title {
-  margin-top: 35px;
-  box-shadow: 0px;
+  display: flex;
+  box-shadow: none;
 }
 .request-header {
   box-shadow: none;

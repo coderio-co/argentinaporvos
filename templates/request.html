@@ -1,69 +1,50 @@
 {% extends 'base.html' %}
 
-{% block title %} Pedido #{{help_request.id}} {% endblock %} 
+{% block title %} Pedido #{{help_request.id}} {% endblock %}
 
-{% block fb-title %} Pedido #{{help_request.id}} - {{ help_request.title}} {% endblock %} 
-{% block fb-description %} {{help_request.message}} {% endblock %} 
-{% block fb-image %} {{thumbnail}} {% endblock %} 
+{% block fb-title %} Pedido #{{help_request.id}} - {{ help_request.title}} {% endblock %}
+{% block fb-description %} {{help_request.message}} {% endblock %}
+{% block fb-image %} {{thumbnail}} {% endblock %}
 
-{% load leaflet_tags %} 
+{% load leaflet_tags %}
 {% load static %}
 {% load l10n %}
 {% load humanize %}
 {% block bread %}
-    <nav class="breadcrumb has-bullet-separator is-centered" aria-label="breadcrumbs">
+<nav aria-label="breadcrumbs" class="breadcrumb has-bullet-separator is-centered">
 	<ul>
 		<li><a href="/" style="color: #9096a1;">Inicio</a></li>
 		<li><a href="/recibir" style="color: #9096a1;">Información</a></li>
 		<li><a href="/pedidos" style="color: #9096a1;">Quiero ayudar</a></li>
 		<li class="is-active">
-			<a href="#" class="is-active" style="color: #2979ff;">Pedido #{{help_request.id}}</a>
+			<a class="is-active" href="#" style="color: #2979ff;">Pedido #{{help_request.id}}</a>
 		</li>
 	</ul>
 </nav>
 {% endblock bread %}
 {% block content%}
 
-<div class="columns is-centered">
-    <div class="column is-four-fifths">
-        <div class="card is-shadowless" style="border-radius: 15px; border: none">
-		
-			<div class="header-wrapper">
-				<header class="card-header request-header is-light">
-					<p
-						class="card-header-title request-header-title is-size-4 is-centered"
-						style="background-color: transparent; color: #ffab07; padding: 5px; margin-bottom: 35px; font-size: 26px !important;"
-					>
-						Pedido #{{help_request.id}}
-					</p>
-				</header>
+<main class="request columns is-centered">
+	<article class="column is-four-fifths">
+		<div class="card is-shadowless" style="border-radius: 15px; border: none">
 
-
-			
-				<div
-					class="column is-fullwidth request-title"
-					style="background-color: white;"
+			<header class="card-header request-header is-light">
+				<h2
+					class="card-header-title request-header-title is-size-4 is-centered"
+					style="background-color: transparent; color: #ffab07; padding: 5px; margin-bottom: 35px; font-size: 26px !important;"
 				>
-					<article class="media animated fadeIn">
-						<figure class="media-left">
-							<p class="image is-48x48">
-								<img src="{% static "img/img_hand.svg" %}" />
-							</p>
-						</figure>
-							<div class="media-content is-full is-fullwidth">
-								<div class="content">
-									<p class="title is-5 has-text-black" >{{ help_request.title }}</p>					
-							    </div>
-							</div>
-					</article>
-				
+					Pedido #{{help_request.id}}
+				</h2>
+
+				<div class="request-title animated fadeIn">
+					<img src="{% static 'img/img_hand.svg' %}"/>
+					<h3 class="title is-5 has-text-black">{{ help_request.title }}</h3>
 				</div>
-	          <hr>
-			</div>
+				<hr>
+			</header>
 
 
-
-			<section class="card-content card-content-request" >
+			<div class="card-content card-content-request">
 				<div class="article-help-detail-p">
 					<p class="has-text-left is-size-6" title="{{help_request.added|naturaltime}}">
 						<small class="is-small" style="font-size: 12px; color: #a7b0c0">{{help_request.added}}</small>
@@ -76,11 +57,11 @@
 
 				{% if help_request.picture %}
 				<hr>
-				<figure class="image is-small"> 
-					<a href="/media/{{help_request.picture}}">
-					<img class="has-ratio" src="{{thumbnail}}"/>
-					</a>
-				</figure>
+				<a href="/media/{{help_request.picture}}">
+					<figure class="image is-small">
+						<img alt="" class="has-ratio" src="{{thumbnail}}"/>
+					</figure>
+				</a>
 				{% endif %}
 				<hr>
 
@@ -89,165 +70,166 @@
 					class="column is-fullwidth"
 					style="background-color: white;"
 				>
-					<article class="media animated fadeIn">						
+					<article class="media animated fadeIn">
 						<div class="media-content is-full is-fullwidth">
 							<div class="content">
 								<p class="subtitle has-text-left" style="margin-bottom: 30px;">Nombre:</p>
-								<p class="title is-4 has-text-left">{{ help_request.name}}</p>			
+								<p class="title is-4 has-text-left">{{ help_request.name}}</p>
 							</div>
 						</div>
 					</article>
-					
+
 				</div>
 
 				<div
 					class="column is-fullwidth"
 					style="background-color: white;"
 				>
-								<p class="subtitle has-text-left">Contactar:</p>
-								<p class="subtitle has-text-left">
-									<a href="tel:{{help_request.phone}}"
-										class="button hover-grow is-half request-phone-button"
-									>
+					<p class="subtitle has-text-left">Contactar:</p>
+					<p class="subtitle has-text-left">
+						<a class="button hover-grow is-half request-phone-button"
+						   href="tel:{{help_request.phone}}"
+						>
 										<span class="icon is-small">
 											
-											<img src="{% static "img/phone.svg" %}" />
+											<img alt="" img src="{% static 'img/phone.svg' %}"/>
 										</span>
-										<span>{{help_request.phone}}</span>
-									</a>
-									<a href="https://wa.me/{{ whatsapp }}"
-										class="button hover-grow"
-										style="background-color: white !important; color: #10c971; border: 2px solid #10c971;"
-									>
+							<span>{{help_request.phone}}</span>
+						</a>
+						<a class="button hover-grow"
+						   href="https://wa.me/{{ whatsapp }}"
+						   style="background-color: white !important; color: #10c971; border: 2px solid #10c971;"
+						>
 										<span class="icon is-small">
 											
-											<img src="{% static 'img/whatsapp.svg' %}" />
+											<img alt="" src="{% static 'img/whatsapp.svg' %}"/>
 										</span>
-										<span>Contactar vía WhatsApp</span>
-									</a>
-								</p>
+							<span>Contactar vía WhatsApp</span>
+						</a>
+					</p>
 				</div>
 
 				<hr>
 
 				{% if help_request.address %}
-					<div
+				<div
 					class="column is-fullwidth"
 					style="background-color: white;"
-					>
-						<article class="media animated fadeIn">						
-							<div class="media-content is-full is-fullwidth">
-								<div class="content">
-									<p class="subtitle has-text-left" style="margin-bottom: 30px;">Dirección:</p>
-									<p class="title is-4 has-text-left">{{help_request.address}}</p>			
-								</div>
-							</div>
-						</article>
-					</div>
-				{% endif %}
-
-
-				<div
-				class="column is-fullwidth"
-				style="background-color: white;"
 				>
-					<article class="media animated fadeIn">						
+					<article class="media animated fadeIn">
 						<div class="media-content is-full is-fullwidth">
 							<div class="content">
-								<p class="subtitle has-text-left" style="margin-bottom: 30px;">Ciudad:</p>
-								<p class="title is-4 has-text-left"><p class="title is-4">
-								<a href="/pedidos_ciudad/{{help_request.city_code}}">{{help_request.city}}</a>
+								<p class="subtitle has-text-left" style="margin-bottom: 30px;">Dirección:</p>
+								<p class="title is-4 has-text-left">{{help_request.address}}</p>
 							</div>
 						</div>
 					</article>
 				</div>
-
+				{% endif %}
 
 
 				<div
 					class="column is-fullwidth"
 					style="background-color: white;"
 				>
-					<article class="media animated fadeIn">						
+					<div class="media animated fadeIn">
+						<div class="media-content is-full is-fullwidth">
+							<div class="content">
+								<p class="subtitle has-text-left" style="margin-bottom: 30px;">Ciudad:</p>
+								<p class="title is-4 has-text-left">
+								<p class="title is-4">
+									<a href="/pedidos_ciudad/{{help_request.city_code}}">{{help_request.city}}</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<div
+					class="column is-fullwidth"
+					style="background-color: white;"
+				>
+					<div class="media animated fadeIn">
 						<div class="media-content is-full is-fullwidth">
 							<div class="content">
 								<p class="subtitle has-text-left" style="margin-bottom: 30px;">Ubicación:</p>
 								{% leaflet_map "main" callback="main_map_init" %}
-								<a href="https://www.google.com/maps/search/?api=1&query={{help_request.location.y|unlocalize}},{{help_request.location.x|unlocalize}}" target="_blank">
+								<a href="https://www.google.com/maps/search/?api=1&query={{help_request.location.y|unlocalize}},{{help_request.location.x|unlocalize}}"
+								   target="_blank">
 									<button class="button is-fullwidth open-map-button is-centered"
-										style="margin: 30px 0 30px 0; background-color: #2979ff !important; color: white;"
+											style="margin: 30px 0 30px 0; background-color: #2979ff !important; color: white;"
 									>
 										<span class="icon is-medium">
 											
-											<img src="{% static "img/map.svg" %}" />
+											<img alt="" img src="{% static 'img/map.svg' %}"/>
 										</span>
 										<span>Abrir en Google Maps</span>
 									</button>
 								</a>
 							</div>
 						</div>
-					</article>
-				</div>				
-			</section>
+					</div>
+				</div>
+			</div>
 
-		{% include 'vote_button.html' %}	
+			{% include 'vote_button.html' %}
 
 		</div>
-                {% comment %} <article class="tile is-child is-box" style="background-color: white !important;">
-                    <p class="title is-4">{{ help_request.title}}</p>
-                    <p class="subtitle">{{help_request.message|linebreaks}}</p>
-                    <hr>
-                    <p class="subtitle">Nombre:</p>
-                    <p class="title is-4">{{ help_request.name}}</p>
-                    <p class="subtitle">Contacto:</p>
-                    <p class="title is-4"><a href="tel:{{help_request.phone}}">{{help_request.phone}}</p></a>
-                    {% if help_request.address %}
-                      <p class="subtitle">Dirección:</p>
-                      <p class="title is-4">{{help_request.address}}</p>
-                    {% endif %}
-                    {% if help_request.picture %}
-                      <figure class="image is-small"> 
-                        <a href="/media/{{help_request.picture}}">
-                          <img class="has-ratio" src="{{thumbnail}}"/>
-                        </a>
-                      </figure>
-                    {% endif %}
-                     <p class="subtitle">Ubicación:
-                     {% leaflet_map "main" callback="main_map_init" %}
-                     </p>
-                     <a href="https://www.google.com/maps/search/?api=1&query={{help_request.location.y|unlocalize}},{{help_request.location.x|unlocalize}}" target="_blank">
-                       <button class="button is-medium is-fullwidth is-link is-light">
-                            <span class="icon is-medium">
-                            <i class="fas fa-map-marker-alt"></i>
-                            </span>
-                            <span>Abrir en Google Maps</span>
-                        </button>
-                     </a>
-                </article> {% endcomment %}				
-				<p class="subtitle" style="margin-bottom: 0 !important;color: #a7b0c0;background-color: white;">Compartí este pedido haciendo click en los botones</p>                
-                <div class="is-fullwidth" style="background-color: white;">
-                {% include 'includes/buttons.html'%}
-                </div>
-          
+		{% comment %}
+		<div class="tile is-child is-box" style="background-color: white !important;">
+			<p class="title is-4">{{ help_request.title}}</p>
+			<p class="subtitle">{{help_request.message|linebreaks}}</p>
+			<hr>
+			<p class="subtitle">Nombre:</p>
+			<p class="title is-4">{{ help_request.name}}</p>
+			<p class="subtitle">Contacto:</p>
+			<p class="title is-4"><a href="tel:{{help_request.phone}}">{{help_request.phone}}</a></p>
+		</div>
+		{% if help_request.address %}
+		<p class="subtitle">Dirección:</p>
+		<p class="title is-4">{{help_request.address}}</p>
+		{% endif %}
+		{% if help_request.picture %}
+		<a href="/media/{{help_request.picture}}">
+			<figure class="image is-small">
+				<img class="has-ratio" src="{{thumbnail}}" alt=""/>
+			</figure>
+		</a>
+		{% endif %}
+		<p class="subtitle">Ubicación:
+			{% leaflet_map "main" callback="main_map_init" %}
+		</p>
+		<a href="https://www.google.com/maps/search/?api=1&query={{help_request.location.y|unlocalize}},{{help_request.location.x|unlocalize}}"
+		   target="_blank">
+			<button class="button is-medium is-fullwidth is-link is-light">
+				<span class="icon is-medium">
+					<i class="fas fa-map-marker-alt"></i>
+				</span>
+				<span>Abrir en Google Maps</span>
+			</button>
+		</a>
+	</article>
+	{% endcomment %}
+	<p class="subtitle" style="margin-bottom: 0 !important;color: #a7b0c0;background-color: white;">Compartí este
+		pedido haciendo click en los botones</p>
+	<div class="is-fullwidth" style="background-color: white;">
+		{% include 'includes/buttons.html'%}
+	</div>
 
-        
 
-        <script type="text/javascript">
-            function main_map_init(map, options) {
-                // Use Leaflet API here
-                {% autoescape off %}
-                var lon = {{ help_request.location.x|unlocalize }};
-                var lat = {{ help_request.location.y|unlocalize }};
-                data = {{ help_request.location.geojson }}
-                {% endautoescape %}
-                    // zoom to point & add it to map
-                map.setView([lat, lon], 14);
-                //L.marker([lat, lon]).addTo(map);
-                L.geoJson(data).addTo(map)
-			}
-
-		
-        </script>
-    </div>
-</div>
+	<script type="text/javascript">
+	function main_map_init(map, options) {
+		// Use Leaflet API here
+		{% autoescape off %}
+		let lon = {{ help_request.location.x|unlocalize }};
+		let lat = {{ help_request.location.y|unlocalize }};
+		data = {{ help_request.location.geojson }}
+		{% endautoescape %}
+		// zoom to point & add it to map
+		map.setView([lat, lon], 14);
+		//L.marker([lat, lon]).addTo(map);
+		L.geoJson(data).addTo(map)
+	}
+	</script>
+</main>
 {% endblock %}
