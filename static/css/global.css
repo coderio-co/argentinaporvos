@@ -490,6 +490,12 @@ article.help-request img.decorative {
   padding: 1px 5px;
 }
 
+.help-request-map-button {
+  margin: 0px 0 30px 0; 
+  background-color: #236BE4; 
+  color: white;
+}
+
 .request-list-message {
   margin-bottom: .75rem;
   background-color: white;
