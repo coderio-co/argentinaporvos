@@ -71,6 +71,7 @@ footer {
 .leaflet-container {
   /* all maps */
   z-index: 1;
+  height: 100%;
 }
 
 ::placeholder {
@@ -523,8 +524,16 @@ article.help-request img.decorative {
 .request-panel {
   margin-bottom: 1.5rem;
 }
+
+.open-map-button {
+  transition: all .2s ease-in-out;
+}
+.search-location-button {
+  color: white;
+}
+
 .open-map-button:hover{ 
-  transform: scale(1.1)
+    transform: scale(1.025,1.025);
 } 
 
 .request-header-title {
@@ -543,7 +552,9 @@ article.help-request img.decorative {
   margin-bottom: 5px;
   border: 1px green solid;
   border-radius: 2px;
+  height: 300px;
 }
+
 .request-findme-button {
   margin: 30px 0 30px 0;
   background-color: #236BE4;
@@ -576,6 +587,12 @@ article.help-request img.decorative {
   font-size: 26px;
 }
 
+@media (min-width: 480px) {
+  .request-map-container {
+    height: 400px;
+  } 
+}
+
 @media (min-width: 768px) {
   #need-help, #want-to-help {
     min-width: 15.625rem;
@@ -584,6 +601,10 @@ article.help-request img.decorative {
   .home-cards .media:not(:last-child) {
     margin-right: 0;
     margin-bottom: 1.5rem;
+  }
+
+  .request-map-container {
+    height: 600px;
   }
 }
 
@@ -596,7 +617,7 @@ article.help-request img.decorative {
   padding-left: .75rem;
 }
 
-
+ 
 /* Accessibility */
 .sr-only {
   clip-path: inset(100%) !important;
