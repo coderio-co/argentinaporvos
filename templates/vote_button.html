@@ -1,50 +1,50 @@
-<section class="card-content" style="padding-top: 0; margin-bottom: 0 !important; padding-bottom: 0;">
-<form name="thumbs" class="">
-	<p class="subtitle" style="margin-bottom: 10px; color: #a7b0c0;">Ayuda recibida</p>
-	<div class="field is-flex" style="justify-content: center;">
-		<article class="media animated fadeIn" style="margin-right: 30px;">
-				<figure class="media-left">
-					<button 
-						name='vote' 
+<aside class="card-content" style="padding-top: 0; margin-bottom: 0 !important; padding-bottom: 0;">
+	<form class="" name="thumbs">
+		<p class="subtitle" style="margin-bottom: 10px; color: #a7b0c0;">Ayuda recibida</p>
+		<div class="field is-flex" style="justify-content: center;">
+			<div class="media animated fadeIn" style="margin-right: 30px;">
+				<div class="media-left">
+					<button
 						class="button is-medium is-centered is-success is-outlined"
+						formmethod="post"
+						name='vote'
+						style="border-radius: 50%; width: 40px; height: 40px;"
 						type="submit"
-						formmethod="post"
 						value="up"
-						style="border-radius: 50%; width: 40px; height: 40px;"
-					> 
-						{% csrf_token %}					
-						<i class="fa fa-thumbs-up"></i>					
+					>
+						{% csrf_token %}
+						<i class="fa fa-thumbs-up"></i>
 					</button>
-				</figure>
+				</div>
 
 				<div class="media-content">
 					<div class="content is-vcentered is-vertical">
-						<p class="title is-3 has-text-success">{{help_request.upvotes}}</p>					
+						<p class="title is-3 has-text-success">{{help_request.upvotes}}</p>
 					</div>
 				</div>
-		</article>
+			</div>
 
-		<article class="media animated fadeIn" style="margin-top: 0; padding-top: 0; border: none">
-				<figure class="media-left">
-					<button 
-						name='vote' 
-						class="button is-medium is-centered is-danger is-outlined" 
-						type="submit" 
+			<div class="media animated fadeIn" style="margin-top: 0; padding-top: 0; border: none">
+				<div class="media-left">
+					<button
+						class="button is-medium is-centered is-danger is-outlined"
 						formmethod="post"
-						value="down"
+						name='vote'
 						style="border-radius: 50%; width: 40px; height: 40px;"
-					> 
-						{% csrf_token %}					
-						<i class="fa fa-thumbs-down"></i>					
+						type="submit"
+						value="down"
+					>
+						{% csrf_token %}
+						<i class="fa fa-thumbs-down"></i>
 					</button>
-				</figure>
+				</div>
 
 				<div class="media-content">
 					<div class="content is-vcentered is-vertical">
-						<p class="title is-3 has-text-danger">{{help_request.downvotes}}</p>					
+						<p class="title is-3 has-text-danger">{{help_request.downvotes}}</p>
 					</div>
 				</div>
-		</article>		
-	</div>
-</form>
-</section>
+			</div>
+		</div>
+	</form>
+</aside>
