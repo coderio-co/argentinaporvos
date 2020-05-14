@@ -218,37 +218,18 @@
 
 
 	<script type="text/javascript">
-	function main_map_init(map) {
+	function main_map_init(map, options) {
 		// Use Leaflet API here
-		{% autoescape; off %}
-		var lon = {
-			{
-				help_request.location.x | unlocalize;
-			}
-		}
-
-			var lat = {
-			{
-				help_request.location.y | unlocalize;
-			}
-		}
-
-			data = {
-			{
-				help_request.location.geojson;
-			}
-		}
-			{%
-				endautoescape %
-			}
-			// zoom to point & add it to map
-			map.setView([lat, lon], 14);
-			//L.marker([lat, lon]).addTo(map);
-			L.geoJson(data).addTo(map);
-		}
-
-
-		</script>
-	</article>
+		{% autoescape off %}
+		let lon = {{ help_request.location.x|unlocalize }};
+		let lat = {{ help_request.location.y|unlocalize }};
+		data = {{ help_request.location.geojson }}
+		{% endautoescape %}
+		// zoom to point & add it to map
+		map.setView([lat, lon], 14);
+		//L.marker([lat, lon]).addTo(map);
+		L.geoJson(data).addTo(map)
+	}
+	</script>
 </main>
 {% endblock %}
