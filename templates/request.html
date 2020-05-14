@@ -57,11 +57,11 @@
 
 				{% if help_request.picture %}
 				<hr>
-				<figure class="image is-small">
-					<a href="/media/{{help_request.picture}}">
-						<img class="has-ratio" src="{{thumbnail}}"/>
-					</a>
-				</figure>
+				<a href="/media/{{help_request.picture}}">
+					<figure class="image is-small">
+						<img class="has-ratio" src="{{thumbnail}}" alt=""/>
+					</figure>
+				</a>
 				{% endif %}
 				<hr>
 
