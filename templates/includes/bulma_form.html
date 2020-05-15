@@ -1,4 +1,5 @@
 {% load widget_tweaks %}
+{% load static %}
 {% for hidden_field in form.hidden_fields %}
 {{ hidden_field }}
 {% endfor %}
@@ -10,10 +11,11 @@
 {% if form.errors %}
 {% for field in form %}
 {% for error in field.errors %}
-<div class="message is-danger">
-    <div class="message-body">
+<div class="media center message is-danger error-message-container ">
+    <img class="media-left decorative-img error-message-icon" src="{% static 'img/alert-circle.svg' %}" alt=""/>
+    <div class="media-content is-centered error-message has-text-left">
         {{ error|escape }}
-    </div>
+    </div> 
 </div>
 {% endfor %}
 {% endfor %}
@@ -77,8 +79,13 @@
         {% render_field field class="input is-danger" %}
     </div>
     {% for error in field.errors %}
-    <div class="help is-danger">
-        {{ error }}
+    <div class="container center">
+       <div class="media center help is-danger error-message-container-small center">
+            <img class="media-left error-message-icon-small" src="{% static 'img/alert-circle.svg' %}" alt=""/>
+            <div class="media-content error-message has-text-left">
+            {{ error }}
+           </div>
+      </div>
     </div>
     {% endfor %}
     {% else %}
