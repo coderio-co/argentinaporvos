@@ -21,7 +21,7 @@
 
 .modalLi::before {
   content: '\2022';
-  color: #2979ff;
+  color: var(--blue);
   font-weight: bold;
   display: inline-block;
   width: 1em;
@@ -44,12 +44,12 @@
 }
 
 .is-active {
-  color: #2979ff;
-  border-bottom: 2px solid #2979ff !important;
+  color: var(--blue);
+  border-bottom: 2px solid var(--blue) !important;
 }
 
 .breadcrumb li + li::before {
-  color: #2979ff;
+  color: var(--blue);
 }
 
 .breadcrumb li:first-of-type a {
@@ -57,7 +57,7 @@
 }
 
 .breadcrumb li.is-active a {
-  color: #2979ff;
+  color: var(--blue);
 }
 
 footer {
@@ -188,9 +188,9 @@ footer {
 .questionNumber,
 .questionNumber:hover {
   border-radius: 50%;
-  border-color: #2979ff;
+  border-color: var(--blue);
   background-color: transparent;
-  color: #2979ff;
+  color: var(--blue);
   cursor: default;
 }
 
@@ -328,11 +328,11 @@ button.button span {
 }
 
 button[type="submit"].is-success {
-  background-color: #288047;
+  background-color: var(--green);
 }
 
 a.accept-button.button, a.accept-button.button:hover {
-  background-color: #288047;
+  background-color: var(--green);
   border-radius: 5px;
   margin-top: 30px;
 }
@@ -359,11 +359,11 @@ header h1 a img {
 }
 
 #need-help .card {
-  background-color: #9b51e0;
+  background-color: var(--purple);
 }
 
 #want-to-help .card {
-  background-color: #ED9700;
+  background-color: var(--tangerine);
 }
 
 #need-help .image,
@@ -419,7 +419,7 @@ header h1 a img {
 }
 
 #general-faq h2 {
-  color: #2979ff;
+  color: var(--blue);
   font-weight: bold;
 }
 
@@ -428,7 +428,7 @@ header h1 a img {
 }
 
 #legal h2, #contact-us h2 {
-  color: #2979FF;
+  color: var(--blue);
   overflow: hidden;
 }
 
@@ -512,7 +512,7 @@ article.help-request img.decorative {
 }
 
 .custom-heading-two {
-  color: #2979ff;
+  color: var(--blue);
   font-weight: bold;
   font-size: 2rem;
   line-height: 1.125;
@@ -565,7 +565,7 @@ article.help-request img.decorative {
 
 .request-info-icon {
   font-size: 15px;
-  margin-left: 3px; color: #2979ff;
+  margin-left: 3px; color: var(--blue);
 }
 .request-map-container {
   margin-bottom: 5px;
@@ -595,12 +595,12 @@ article.help-request img.decorative {
 }
 .request-list-button-showlast {
   background-color: white;
-  color: #2979ff;
-  border-color: #2979ff;
+  color: var(--blue);
+  border-color: var(--blue);
 }
 .request-list-title {
   background-color: transparent;
-  color: #ffab07;
+  color: var(--tangerine);
   padding: 5px;
   margin-bottom: 17px;
   font-size: 26px;
