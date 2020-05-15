@@ -12,7 +12,7 @@
 {% for field in form %}
 {% for error in field.errors %}
 <div class="media center message is-danger error-message-container ">
-    <img class="media-left decorative-img error-message-icon" src="{% static 'img/alert-circle.svg' %}" alt=""/>
+    <img class="media-left error-message-icon" src="{% static 'img/alert-circle.svg' %}" alt=""/>
     <div class="media-content is-centered error-message has-text-left">
         {{ error|escape }}
     </div> 
