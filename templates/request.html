@@ -36,7 +36,7 @@
 				</h2>
 
 				<div class="request-title animated fadeIn">
-					<img src="{% static 'img/img_hand.svg' %}"/>
+					<img src="{% static 'img/img_hand.svg' %}" alt=""/>
 					<h3 class="title is-5 has-text-black">{{ help_request.title }}</h3>
 				</div>
 				<hr>
@@ -46,7 +46,7 @@
 			<div class="card-content card-content-request">
 				<div class="article-help-detail-p">
 					<p class="has-text-left is-size-6" title="{{help_request.added|naturaltime}}">
-						<small class="is-small" style="font-size: 12px; color: #a7b0c0">{{help_request.added}}</small>
+						<small class="is-small request-date-added">{{help_request.added}}</small>
 					</p>
 
 					<p class="has-text-left is-size-5">
@@ -89,18 +89,16 @@
 						   href="tel:{{help_request.phone}}"
 						>
 										<span class="icon is-small">
-											
-											<img alt="" img src="{% static 'img/phone.svg' %}"/>
+											<img src="{% static 'img/phone.svg' %}" alt="" />
 										</span>
 							<span>{{help_request.phone}}</span>
 						</a>
-						<a class="button hover-grow"
+						<a class="button hover-grow request-whatsapp-button"
 						   href="https://wa.me/{{ whatsapp }}"
-						   style="background-color: white !important; color: #10c971; border: 2px solid #10c971;"
 						>
 										<span class="icon is-small">
 											
-											<img alt="" src="{% static 'img/whatsapp.svg' %}"/>
+											<img src="{% static 'img/whatsapp.svg' %}" alt="" />
 										</span>
 							<span>Contactar vía WhatsApp</span>
 						</a>
@@ -154,12 +152,9 @@
 								{% leaflet_map "main" callback="main_map_init" %}
 								<a href="https://www.google.com/maps/search/?api=1&query={{help_request.location.y|unlocalize}},{{help_request.location.x|unlocalize}}"
 								   target="_blank">
-									<button class="button is-fullwidth open-map-button is-centered"
-											style="margin: 30px 0 30px 0; background-color: #2979ff !important; color: white;"
-									>
+									<button class="button is-fullwidth open-map-button is-centered">
 										<span class="icon is-medium">
-											
-											<img alt="" img src="{% static 'img/map.svg' %}"/>
+											<img src="{% static 'img/map.svg' %}" alt="" />
 										</span>
 										<span>Abrir en Google Maps</span>
 									</button>
@@ -208,11 +203,12 @@
 		</a>
 	</article>
 	{% endcomment %}
-	<p class="subtitle" style="margin-bottom: 0 !important;color: #a7b0c0;background-color: white;">Compartí este
-		pedido haciendo click en los botones</p>
-	<div class="is-fullwidth" style="background-color: white;">
-		{% include 'includes/buttons.html'%}
-	</div>
+	<aside>
+		<h3 class="subtitle request-share">Compartí este pedido haciendo click en los botones</h3>
+		<div class="is-fullwidth request-share-buttons">
+			{% include 'includes/buttons.html'%}
+		</div>
+	</aside>
 
 
 	<script type="text/javascript">

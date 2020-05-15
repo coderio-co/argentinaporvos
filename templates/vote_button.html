@@ -1,6 +1,6 @@
 <aside class="card-content" style="padding-top: 0; margin-bottom: 0 !important; padding-bottom: 0;">
 	<form class="" name="thumbs">
-		<p class="subtitle" style="margin-bottom: 10px; color: #a7b0c0;">Ayuda recibida</p>
+		<h3 class="subtitle request-received">Ayuda recibida</h3>
 		<div class="field is-flex" style="justify-content: center;">
 			<div class="media animated fadeIn" style="margin-right: 30px;">
 				<div class="media-left">
@@ -12,6 +12,7 @@
 						type="submit"
 						value="up"
 					>
+						<span class="sr-only">Ayuda recibida</span>
 						{% csrf_token %}
 						<i class="fa fa-thumbs-up"></i>
 					</button>
@@ -34,6 +35,7 @@
 						type="submit"
 						value="down"
 					>
+						<span class="sr-only">Ayuda no recibida</span>
 						{% csrf_token %}
 						<i class="fa fa-thumbs-down"></i>
 					</button>
