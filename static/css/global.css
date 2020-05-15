@@ -492,7 +492,7 @@ article.help-request img.decorative {
 }
 
 .help-request-map-button {
-  margin: 0px 0 30px 0; 
+  margin: 0 0 30px 0;
   background-color: #236BE4; 
   color: white;
 }
@@ -506,7 +506,7 @@ article.help-request img.decorative {
 }
 
 .card-content-request {
- padding-top: 0px;
+ padding-top: 0;
  padding-bottom: 0; 
  margin-bottom: 0;
 }
