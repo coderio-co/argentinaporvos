@@ -1,4 +1,5 @@
 @import "texts.css";
+@import "colors.css";
 
 .center {
   display: flex;
