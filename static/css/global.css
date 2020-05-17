@@ -363,7 +363,7 @@ header h1 a img {
 }
 
 #want-to-help .card {
-  background-color: var(--tangerine);
+  background-color: var(--yellow);
 }
 
 #need-help .image,
@@ -624,7 +624,7 @@ article.help-request img.decorative {
 
 .request-list-title {
   background-color: transparent;
-  color: var(--tangerine);
+  color: var(--yellow);
   font-size: 26px;
   margin-bottom: 17px;
   padding: 5px;
