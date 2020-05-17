@@ -662,6 +662,40 @@ article.help-request img.decorative {
   background-color: white;
 }
 
+.error-message-container {
+  border-left: 4px solid #EB5757;
+  padding: 10px 0 10px 0;
+}
+
+.error-message {
+  color: #E32222;
+  border: none;
+  padding: 10px;
+}
+
+.error-message-icon {
+  height: 76px;
+  width: 76px;
+  padding-left: 20px;
+}
+
+.error-message-icon-small {
+  height: 36px;
+  width: 36px;
+  margin: 0px;
+}
+
+.error-message-hyperlink {
+  color: #E32222;
+  text-decoration: underline;
+}
+
+.error-message-container-small{
+  color: #f14668;
+  justify-content: center;
+  align-items: center;
+}
+
 @media (min-width: 480px) {
   .request-map-container {
     height: 400px;
