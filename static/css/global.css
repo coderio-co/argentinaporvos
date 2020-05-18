@@ -28,7 +28,7 @@
   width: 1em;
 }
 .button.is-info {
-  background-color: #236BE4;
+  background-color: var(--blue);
 }
 
 .site {
@@ -613,13 +613,13 @@ article.help-request img.decorative {
 }
 
 .request-findme-button {
-  background-color: #236BE4;
+  background-color: var(--blue);
   color: white;
   margin: 30px 0 30px 0;
 }
 
 .request-search-button {
-  background-color: #236BE4;
+  background-color: var(--blue);
   border-radius: 5px;
   margin-left: 10px;
 }
