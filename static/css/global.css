@@ -189,23 +189,19 @@ footer {
 }
 
 .pagination-number-button {
-  background-color: #236BE4;
-  border-color: #236BE4;
+  background-color: var(--blue);
+  border: 1px solid var(--blue);
   color: #fff;
   min-width: 2.5em;
   font-size: 1em;
   justify-content: center;
   margin: .25rem;
-  padding-left: .5em;
-  padding-right: .5em;
   text-align: center;
-  border: 1px solid transparent;
   border-radius: 4px;
   height: 2.5em;
-  padding-top: calc(.5em - 1px);
   position: relative;
   vertical-align: top;
-  padding-bottom: .5em;
+  padding: calc(.5em - 1px) .5em .5em;
 }
 
 .questionNumber,
