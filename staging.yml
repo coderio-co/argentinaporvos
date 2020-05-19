@@ -1,0 +1,13 @@
+version: '3.5'
+services:
+    app:
+        build:
+            context: .
+            dockerfile: docker/production/Dockerfile
+        volumes:
+            - .:/code
+        env_file: 
+            - conf/.env
+        command: /start
+        labels:
+            - "traefik.http.routers.staging.rule=Host(`staging.argentinaporvos.org`)"
