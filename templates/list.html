@@ -87,31 +87,21 @@
 			<div class="column">
 				<div class="field has-addons">
 					<div class="control is-expanded">
-						<input
-							class="input"
-							type="text"
-							placeholder="Búsqueda por título o descripción, Ejemplo: Pañal"
-							id="search-text-field"
-							name="search-text-field"
-						/>
+						<input class="input" type="text" placeholder="Búsqueda por título o descripción, Ejemplo: Pañal"
+							id="search-text-field" name="search-text-field" />
 					</div>
 					<div class="control">
-						<a
-							class="button is-info request-search-button"
-							id="search-button"
-						>
+						<a class="button is-info request-search-button" id="search-button">
 							Buscar
 						</a>
 					</div>
 				</div>
 			</div>
 		</div>
-		
-		<h3
-			class="panel-heading has-text-left request-list-title"
-		>
+
+		<h3 class="panel-heading has-text-left request-list-title">
 			Últimos pedidos de ayuda
-    	</h3>
+		</h3>
 		<div class="request-panel is-info has-text-left">
 			<div class="request-list-table">
 				<div id="requests-table"></div>
@@ -159,7 +149,7 @@
 	</script>
 
 	<script type="text/template" id="requests-table-empty-template">
-		     {% verbatim %}
+		{% verbatim %}
 		<div class="media request-list-message">
 		    <h1>No se encuentran pedidos de ayuda en la ubicación actual.</h1>
 		</div>

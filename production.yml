@@ -1,8 +1,6 @@
 version: '3.5'
-
 volumes:
     production_traefik: {}
-
 services:
     app:
         build:
@@ -31,4 +29,5 @@ services:
         ports:
             - "0.0.0.0:80:80"
             - "0.0.0.0:443:443"
+            - "0.0.0.0:3000:3000"
 

@@ -149,7 +149,7 @@ def list_by_city(request, city):
     geo = serialize("geojson", query, geometry_field="location", fields=("name", "pk", "title", "added"))
 
     page = request.GET.get('page', 1)
-    paginate_by = 25
+    paginate_by = 4
     paginator = Paginator(list_help_requests, paginate_by)
     try:
         list_paginated = paginator.page(page)

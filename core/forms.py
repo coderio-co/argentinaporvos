@@ -1,3 +1,4 @@
+import re
 from django import forms
 from leaflet.forms.fields import PointField
 from django.core.exceptions import NON_FIELD_ERRORS
@@ -51,3 +52,9 @@ class HelpRequestForm(forms.ModelForm):
                 'unique_together': "Registro ya ingresado, no puede duplicar mismo pedido.",
             }
         }
+
+    def clean_phone(self):
+        phone = self.data.get('phone')
+        if not re.match(r"\+?1?\d{9,15}$", f'+54{phone}'):
+            raise forms.ValidationError('Ingrese un número de teléfono válido')
+        return phone
