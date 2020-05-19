@@ -26,7 +26,7 @@
 
 		<p id="status"></p>
 
-		<form enctype="multipart/form-data" method="post" action="/solicitar">
+		<form enctype="multipart/form-data" method="post" action="/solicitar" id="help-request-form">
 			{% csrf_token %} {% include 'includes/bulma_form.html' with form=form %}
 			<div class="control hover-grow">
 				<button id="submit" type="submit" class="button is-success is-fullwidth">Enviar</button>
@@ -140,19 +140,18 @@
 			}
 
 			function checkRequestForm() {
-				let fields = ["id_title", "id_message", "id_name", "id_phone", "id_location", "id_address"];
-				let valid = true;
-				for (let field in fields) {
-					if (!document.getElementById(fields[field]).checkValidity()) {
-						valid = false;
-					}
-				}
-
-				if (valid) {
-					document.querySelector('#submit').textContent = 'Enviando...';
-					document.querySelector('#submit').disabled = 'disabled';
-					return true;
-				}
+     			let fields = ["title", "message", "name", "phone", "location", "address"];
+       			
+				for (let field of fields) {
+					if (document.getElementById(field).checkValidity()) {
+						document.querySelector('#submit').textContent = 'Enviando...';
+						document.querySelector('#submit').disabled = 'disabled';
+				
+						return true;
+		 			}
+        		}
+				
+     			return false;
 			}
 
 			document.querySelectorAll('.modal-button').forEach(function (el) {
@@ -174,6 +173,7 @@
 			});
 
 			document.querySelector('#find-me').addEventListener('click', geoFindMe);
+			document.querySelector('#help-request-form').addEventListener('submit', checkRequestForm);
 		</script>
 		{% endblock %}
 	</div>
