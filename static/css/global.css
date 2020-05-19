@@ -687,7 +687,7 @@ article.help-request img.decorative {
 }
 
 .error-message {
-  color: #E32222;
+  color: var(--red);
   border: none;
   padding: 10px;
 }
@@ -705,7 +705,7 @@ article.help-request img.decorative {
 }
 
 .error-message-hyperlink {
-  color: #E32222;
+  color: var(--red);
   text-decoration: underline;
 }
 
