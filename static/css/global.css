@@ -27,6 +27,9 @@
   margin-left: -1.3em;
   width: 1em;
 }
+.button.is-info {
+  background-color: var(--blue);
+}
 
 .site {
   background-color: #f8f8f8;
