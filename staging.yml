@@ -10,4 +10,4 @@ services:
             - conf/.env
         command: /start
         labels:
-            - "traefik.http.routers.staging.rule=Host(`staging.docker.localhost`)"
+            - "traefik.http.routers.staging.rule=Host(`staging.argentinaporvos.org`)"
