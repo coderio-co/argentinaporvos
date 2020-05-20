@@ -1,5 +1,5 @@
 log:
-  level: INFO
+  level: DEBUG
 
 entryPoints:
   web:
@@ -8,7 +8,9 @@ entryPoints:
   web-secure:
     # https
     address: ":443"
-api: {}
+api:
+  dashboard: true
+  insecure: true
 certificatesResolvers:
  letsencrypt:
    # https://docs.traefik.io/master/https/acme/#lets-encrypt
@@ -21,15 +23,10 @@ certificatesResolvers:
 http:
   routers:
     api:
-      rule: "Host(`argentinaporvos.org`) && (PathPrefix(`/api`) || PathPrefix(`/dashboard`))"
-      entryPoints:
-        - web-secure
+      rule: "PathPrefix(`/api`) || PathPrefix(`/dashboard`)"
       service: api@internal
-      middlewares:
-        - myAuth
-      tls: {}
     geoinversa-router:
-      rule: "Host(`argentinaporvos.org`) || PathPrefix(`/v1/geoinversa`)"
+      rule: "PathPrefix(`/v1/geoinversa`)"
       entryPoints:
         - web
       middlewares:
@@ -45,7 +42,7 @@ http:
         - csrf
       service: app
     geoinversa-secure-router:
-      rule: "Host(`argentinaporvos.org`) || PathPrefix(`/v1/geoinversa/`)"
+      rule: "PathPrefix(`/v1/geoinversa`)"
       entryPoints:
         - web-secure
       middlewares:
@@ -61,24 +58,6 @@ http:
       tls:
         # https://docs.traefik.io/master/routing/routers/#certresolver
         certResolver: letsencrypt
-    staging-router:
-      rule: "Host(`staging.argentinaporvos.org`) && PathPrefix(`/`)"
-      entryPoints:
-        - web
-      middlewares:
-        - redirect
-        - csrf
-      service: staging
-    staging-secure-router:
-      rule: "Host(`staging.argentinaporvos.org`) && PathPrefix(`/`)"
-      entryPoints:
-        - web-secure
-      middlewares:
-        - csrf
-      service: staging
-      tls:
-        #https://docs.traefik.io/master/routing/routers/#certresolver
-        certResolver: letsencrypt
   middlewares:
     redirect:
       # https://docs.traefik.io/master/middlewares/redirectscheme/
@@ -90,11 +69,6 @@ http:
       # https://docs.djangoproject.com/en/dev/ref/csrf/#ajax
       headers:
         hostsProxyHeaders: ["X-CSRFToken"]
-    middlewares:
-      myAuth:
-        basicAuth:
-          users:
-            - 'test:$apr1$H6uskkkW$IgXLP6ewTrSuBkTrqE8wj/'
   services:
     app:
       loadBalancer:
@@ -104,14 +78,9 @@ http:
       loadBalancer:
         servers:
           - url: http://geo:3000
-    staging:
-      loadBalancer:
-        servers:
-          - url: http://localhost:8000
 providers:
   # https://docs.traefik.io/master/providers/file/
   file:
     filename: /etc/traefik/traefik.yml
     watch: true
-  docker:
-    endpoint: "unix:///var/run/docker.sock"
+  docker: {}
