@@ -1,13 +1,6 @@
 log:
   level: INFO
-api:
-  # Dashboard
-  #
-  # Optional
-  # Default: true
-  #
-  dashboard: true
-  insecure: true
+
 entryPoints:
   web:
     # http
@@ -15,7 +8,7 @@ entryPoints:
   web-secure:
     # https
     address: ":443"
-
+api: {}
 certificatesResolvers:
  letsencrypt:
    # https://docs.traefik.io/master/https/acme/#lets-encrypt
@@ -29,7 +22,12 @@ http:
   routers:
     api:
       rule: "Host(`argentinaporvos.org`) && (PathPrefix(`/api`) || PathPrefix(`/dashboard`))"
+      entryPoints:
+        - web-secure
       service: api@internal
+      middlewares:
+        - myAuth
+      tls: {}
     geoinversa-router:
       rule: "Host(`argentinaporvos.org`) || PathPrefix(`/v1/geoinversa`)"
       entryPoints:
@@ -92,6 +90,11 @@ http:
       # https://docs.djangoproject.com/en/dev/ref/csrf/#ajax
       headers:
         hostsProxyHeaders: ["X-CSRFToken"]
+    middlewares:
+      myAuth:
+        basicAuth:
+          users:
+            - 'test:$apr1$H6uskkkW$IgXLP6ewTrSuBkTrqE8wj/'
   services:
     app:
       loadBalancer:
