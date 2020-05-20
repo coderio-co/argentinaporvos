@@ -8,6 +8,6 @@ services:
             - .:/code
         env_file: 
             - conf/.env
-        command: /start
+        command: /start_stg
         ports:
-            - "8007:8000"
+            - "5000:5000"
