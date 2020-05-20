@@ -26,7 +26,7 @@ http:
       rule: "PathPrefix(`/api`) || PathPrefix(`/dashboard`)"
       service: api@internal
     geoinversa-router:
-      rule: "PathPrefix(`/v1/geoinversa`)"
+      rule: "(Host(`argentinaporvos.org`) || Host(`www.argentinaporvos.org`)) && PathPrefix(`/v1/geoinversa`)"
       entryPoints:
         - web
       middlewares:
@@ -42,7 +42,7 @@ http:
         - csrf
       service: app
     geoinversa-secure-router:
-      rule: "PathPrefix(`/v1/geoinversa`)"
+      rule: "(Host(`argentinaporvos.org`) || Host(`www.argentinaporvos.org`)) && PathPrefix(`/v1/geoinversa`)"
       entryPoints:
         - web-secure
       middlewares:
