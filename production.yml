@@ -4,6 +4,8 @@ volumes:
 networks:
     stg_default:
         external: true
+    default:
+        internal: true
 services:
     app:
         build:
@@ -11,13 +13,17 @@ services:
             dockerfile: docker/production/Dockerfile
         volumes:
             - .:/code
-        env_file: 
+        networks:
+            - default
+        env_file:
             - conf/.env
         command: /start
     geo:
         image: registry.gitlab.com/coderio/backend/geoinversa
         depends_on:
             - app
+        networks:
+            - default
         env_file: 
             - conf/.env
     traefik:
