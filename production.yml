@@ -1,6 +1,9 @@
 version: '3.5'
 volumes:
     production_traefik: {}
+networks:
+    argentinaporvos-stg_default:
+        external: true
 services:
     app:
         build:
