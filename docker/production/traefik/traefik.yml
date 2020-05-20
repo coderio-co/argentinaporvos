@@ -1,5 +1,13 @@
 log:
   level: INFO
+api:
+  # Dashboard
+  #
+  # Optional
+  # Default: true
+  #
+  dashboard: true
+  insecure: true
 entryPoints:
   web:
     # http
@@ -19,8 +27,11 @@ certificatesResolvers:
        entryPoint: web
 http:
   routers:
+    api:
+      rule: "Host(`argentinaporvos.org`) && (PathPrefix(`/api`) || PathPrefix(`/dashboard`))"
+      service: api@internal
     geoinversa-router:
-      rule: PathPrefix(`/v1/geoinversa/`)"
+      rule: "Host(`argentinaporvos.org`) || PathPrefix(`/v1/geoinversa`)"
       entryPoints:
         - web
       middlewares:
@@ -36,7 +47,7 @@ http:
         - csrf
       service: app
     geoinversa-secure-router:
-      rule: PathPrefix(`/v1/geoinversa/`)"
+      rule: "Host(`argentinaporvos.org`) || PathPrefix(`/v1/geoinversa/`)"
       entryPoints:
         - web-secure
       middlewares:
