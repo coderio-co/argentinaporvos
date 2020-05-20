@@ -68,6 +68,19 @@ footer {
   padding: 1rem 1rem 1rem !important;
 }
 
+.footer-right-container {
+  padding-bottom: 0px;
+}
+
+.footer-right-text {
+  color: black;
+  font-weight: bold;
+}
+
+.footer-right-link {
+ color: var(--blue);
+}
+
 .hero {
   padding-bottom: 1rem;
 }
@@ -159,10 +172,6 @@ footer {
 
 .media-buttons {
   margin: 30px;
-}
-
-.breadcrumb.has-bullet-separator li + li::before {
-  content: none !important;
 }
 
 .breadcrumb li + li::before {
@@ -451,7 +460,7 @@ header h1 a img {
   margin-right: 1rem;
 }
 
-#legal h2, #contact-us h2 {
+#legal h2, #contact-us h2, #gratitude h2 {
   color: var(--blue);
   overflow: hidden;
 }
@@ -459,6 +468,16 @@ header h1 a img {
 #contact-us h2 {
   margin-bottom: 10px;
   padding-bottom: 10%;
+}
+
+.gratitude-container {
+  padding-top: 0px;
+}
+
+.gratitude-text {
+  color: #58595B;
+  font-weight: bold;
+  padding: 0px 0px 0.5rem 0px;
 }
 
 @media (min-width: 600px) {

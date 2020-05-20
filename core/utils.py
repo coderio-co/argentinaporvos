@@ -13,9 +13,9 @@ from PIL import Image, ImageDraw, ImageFont
 logger = logging.getLogger(__name__)
 
 if "core" in os.getcwd():
-    FONT_PATH = "../static/Roboto/Roboto-Regular.ttf"
+    FONT_PATH = "../static/fonts/muli/muli-regular-webfont.woff"
 else:
-    FONT_PATH = "./static/Roboto/Roboto-Regular.ttf"
+    FONT_PATH = "./static/fonts/muli/muli-regular-webfont.woff"
 
 
 def create_thumbnail(imagepath: str, basewidth: int, force=False, **kwargs) -> bool:
