@@ -26,7 +26,7 @@ http:
       rule: "PathPrefix(`/api`) || PathPrefix(`/dashboard`)"
       service: api@internal
     geoinversa-router:
-      rule: "(HostRegexp(`argentinaporvos.org`, `{subdomain:[a-z]+}.argentinaporvos.org`)) && PathPrefix(`/v1/geoinversa`)"
+      rule: "PathPrefix(`/v1/geoinversa`)"
       entryPoints:
         - web
       middlewares:
@@ -60,7 +60,7 @@ http:
         # https://docs.traefik.io/master/routing/routers/#certresolver
         certResolver: letsencrypt
     geoinversa-secure-router:
-      rule: "(HostRegexp(`argentinaporvos.org`, `{subdomain:[a-z]+}.argentinaporvos.org`)) && PathPrefix(`/v1/geoinversa`)"
+      rule: "PathPrefix(`/v1/geoinversa`)"
       entryPoints:
         - web-secure
       middlewares:
