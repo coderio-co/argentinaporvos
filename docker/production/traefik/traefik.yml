@@ -20,7 +20,7 @@ certificatesResolvers:
 http:
   routers:
     geoinversa-router:
-      rule: "Host(`argentinaporvos.org`) || Host(`www.argentinaporvos.org`) && PathPrefix(`/v1/geoinversa`)"
+      rule: PathPrefix(`/v1/geoinversa/`)"
       entryPoints:
         - web
       middlewares:
@@ -36,15 +36,12 @@ http:
         - csrf
       service: app
     geoinversa-secure-router:
-      rule: "Host(`argentinaporvos.org`) || Host(`www.argentinaporvos.org`) && PathPrefix(`/v1/geoinversa`)"
+      rule: PathPrefix(`/v1/geoinversa/`)"
       entryPoints:
         - web-secure
       middlewares:
         - csrf
       service: geoinversa
-      tls:
-        #https://docs.traefik.io/master/routing/routers/#certresolver
-        certResolver: letsencrypt
     app-secure-router:
       rule: "Host(`argentinaporvos.org`) || Host(`www.argentinaporvos.org`) && PathPrefix(`/`)"
       entryPoints:
@@ -54,6 +51,24 @@ http:
       service: app
       tls:
         # https://docs.traefik.io/master/routing/routers/#certresolver
+        certResolver: letsencrypt
+    staging-router:
+      rule: "Host(`staging.argentinaporvos.org`) && PathPrefix(`/`)"
+      entryPoints:
+        - web
+      middlewares:
+        - redirect
+        - csrf
+      service: staging
+    staging-secure-router:
+      rule: "Host(`staging.argentinaporvos.org`) && PathPrefix(`/`)"
+      entryPoints:
+        - web-secure
+      middlewares:
+        - csrf
+      service: staging
+      tls:
+        #https://docs.traefik.io/master/routing/routers/#certresolver
         certResolver: letsencrypt
   middlewares:
     redirect:
@@ -75,8 +90,14 @@ http:
       loadBalancer:
         servers:
           - url: http://geo:3000
+    staging:
+      loadBalancer:
+        servers:
+          - url: http://localhost:8000
 providers:
   # https://docs.traefik.io/master/providers/file/
   file:
     filename: /etc/traefik/traefik.yml
     watch: true
+  docker:
+    endpoint: "unix:///var/run/docker.sock"
