@@ -48,6 +48,9 @@ http:
       middlewares:
         - csrf
       service: geoinversa
+      tls:
+        # https://docs.traefik.io/master/routing/routers/#certresolver
+        certResolver: letsencrypt
     app-secure-router:
       rule: "Host(`argentinaporvos.org`) || Host(`www.argentinaporvos.org`)"
       entryPoints:
