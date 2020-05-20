@@ -4,7 +4,7 @@ volumes:
 networks:
     stg_default:
         external: true
-    default:
+    argentinaporvos_default:
         internal: true
 services:
     app:
@@ -14,7 +14,7 @@ services:
         volumes:
             - .:/code
         networks:
-            - default
+            - argentinaporvos_default
         env_file:
             - conf/.env
         command: /start
@@ -23,7 +23,7 @@ services:
         depends_on:
             - app
         networks:
-            - default
+            - argentinaporvos_default
         env_file: 
             - conf/.env
     traefik:
@@ -35,6 +35,7 @@ services:
             - app
         networks:
             - stg_default
+            - argentinaporvos_default
         volumes:
             - production_traefik:/etc/traefik/acme
             - /var/run/docker.sock:/var/run/docker.sock
