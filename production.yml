@@ -1,6 +1,9 @@
 version: '3.5'
 volumes:
     production_traefik: {}
+networks:
+    argentinaporvos-stg_default:
+        external: true
 services:
     app:
         build:
@@ -27,6 +30,8 @@ services:
         volumes:
             - production_traefik:/etc/traefik/acme
             - /var/run/docker.sock:/var/run/docker.sock
+        networks:
+            - argentinaporvos-stg_default
         ports:
             - "0.0.0.0:80:80"
             - "0.0.0.0:443:443"

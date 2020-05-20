@@ -1,5 +1,5 @@
 log:
-  level: DEBUG
+  level: INFO
 
 entryPoints:
   web:
@@ -41,24 +41,24 @@ http:
         - redirect
         - csrf
       service: app
-    # staging-router:
-    #   rule: "Host(`staging.argentinaporvos.org`)"
-    #   entryPoints:
-    #     - web
-    #   middlewares:
-    #     - redirect
-    #     - csrf
-    #   service: staging
-    # staging-secure-router:
-    #   rule: "Host(`staging.argentinaporvos.org`)"
-    #   entryPoints:
-    #     - web-secure
-    #   middlewares:
-    #     - csrf
-    #   service: staging
-    #   tls:
-    #     # https://docs.traefik.io/master/routing/routers/#certresolver
-    #     certResolver: letsencrypt
+    staging-router:
+      rule: "Host(`staging.argentinaporvos.org`)"
+      entryPoints:
+        - web
+      middlewares:
+        - redirect
+        - csrf
+      service: staging
+    staging-secure-router:
+      rule: "Host(`staging.argentinaporvos.org`)"
+      entryPoints:
+        - web-secure
+      middlewares:
+        - csrf
+      service: staging
+      tls:
+        # https://docs.traefik.io/master/routing/routers/#certresolver
+        certResolver: letsencrypt
     geoinversa-secure-router:
       rule: "(Host(`argentinaporvos.org`) || Host(`www.argentinaporvos.org`)) && PathPrefix(`/v1/geoinversa`)"
       entryPoints:
@@ -99,10 +99,10 @@ http:
       loadBalancer:
         servers:
           - url: http://geo:3000
-    # staging:
-    #   loadBalancer:
-    #     servers:
-    #       - url: http://172.26.0.1:8000 
+    staging:
+      loadBalancer:
+        servers:
+          - url: http://172.21.0.2:8000 
 providers:
   # https://docs.traefik.io/master/providers/file/
   file:
