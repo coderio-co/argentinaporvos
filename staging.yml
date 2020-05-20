@@ -1,6 +1,6 @@
 version: '3.5'
 services:
-    app:
+    staging_app:
         build:
             context: .
             dockerfile: docker/production/Dockerfile
@@ -11,5 +11,3 @@ services:
         command: /start
         ports:
             - "8000:8000"
-        labels:
-            - "traefik.http.routers.app.rule=Host(`app.docker.localhost`)"
