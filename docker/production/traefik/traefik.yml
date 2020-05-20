@@ -99,3 +99,4 @@ providers:
   file:
     filename: /etc/traefik/traefik.yml
     watch: true
+  docker: {}
