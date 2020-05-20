@@ -23,6 +23,10 @@ COPY ./docker/production/start /start
 RUN sed -i 's/\r$//g' /start
 RUN chmod +x /start
 
+COPY ./docker/production/start_stg /start_stg
+RUN sed -i 's/\r$//g' /start_stg
+RUN chmod +x /start_stg
+
 COPY . /code/
 
 EXPOSE 8000

@@ -1,6 +1,11 @@
 version: '3.5'
 volumes:
     production_traefik: {}
+networks:
+    stg_default:
+        external: true
+    argentinaporvos_default:
+        internal: true
 services:
     app:
         build:
@@ -8,7 +13,7 @@ services:
             dockerfile: docker/production/Dockerfile
         volumes:
             - .:/code
-        env_file: 
+        env_file:
             - conf/.env
         command: /start
     geo:
