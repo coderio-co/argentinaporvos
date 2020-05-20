@@ -102,7 +102,7 @@ http:
     staging:
       loadBalancer:
         servers:
-          - url: http://172.21.0.2:5000 
+          - url: http://172.21.0.1:5000 
 providers:
   # https://docs.traefik.io/master/providers/file/
   file:
