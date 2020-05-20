@@ -162,6 +162,11 @@ LEAFLET_CONFIG = {
     'NO_GLOBALS': False,
 
     'PLUGINS': {
+        'gesturehandling': {
+            'css': 'https://unpkg.com/leaflet-gesture-handling/dist/leaflet-gesture-handling.min.css',
+            'js': 'https://unpkg.com/leaflet-gesture-handling/dist/leaflet-gesture-handling.min.js',
+            'auto-include': True,
+        },
         'markercluster': {
             'css': 'https://leaflet.github.io/Leaflet.markercluster/dist/MarkerCluster.Default.css',
             'js': 'https://leaflet.github.io/Leaflet.markercluster/dist/leaflet.markercluster-src.js',

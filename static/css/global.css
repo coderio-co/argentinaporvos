@@ -27,6 +27,9 @@
   margin-left: -1.3em;
   width: 1em;
 }
+.button.is-info {
+  background-color: var(--blue);
+}
 
 .site {
   background-color: #f8f8f8;
@@ -63,6 +66,19 @@
 footer {
   background-color: white !important;
   padding: 1rem 1rem 1rem !important;
+}
+
+.footer-right-container {
+  padding-bottom: 0px;
+}
+
+.footer-right-text {
+  color: black;
+  font-weight: bold;
+}
+
+.footer-right-link {
+ color: var(--blue);
 }
 
 .hero {
@@ -158,10 +174,6 @@ footer {
   margin: 30px;
 }
 
-.breadcrumb.has-bullet-separator li + li::before {
-  content: none !important;
-}
-
 .breadcrumb li + li::before {
   color: #b5b5b5;
   content: none;
@@ -183,6 +195,22 @@ footer {
   box-shadow: none;
   color: #606A85;
   opacity: 0.5;
+}
+
+.pagination-number-button {
+  background-color: var(--blue);
+  border: 1px solid var(--blue);
+  color: #fff;
+  min-width: 2.5em;
+  font-size: 1em;
+  justify-content: center;
+  margin: .25rem;
+  text-align: center;
+  border-radius: 4px;
+  height: 2.5em;
+  position: relative;
+  vertical-align: top;
+  padding: calc(.5em - 1px) .5em .5em;
 }
 
 .questionNumber,
@@ -363,7 +391,7 @@ header h1 a img {
 }
 
 #want-to-help .card {
-  background-color: var(--tangerine);
+  background-color: var(--orange);
 }
 
 #need-help .image,
@@ -432,7 +460,7 @@ header h1 a img {
   margin-right: 1rem;
 }
 
-#legal h2, #contact-us h2 {
+#legal h2, #contact-us h2, #gratitude h2 {
   color: var(--blue);
   overflow: hidden;
 }
@@ -440,6 +468,16 @@ header h1 a img {
 #contact-us h2 {
   margin-bottom: 10px;
   padding-bottom: 10%;
+}
+
+.gratitude-container {
+  padding-top: 0px;
+}
+
+.gratitude-text {
+  color: #58595B;
+  font-weight: bold;
+  padding: 0px 0px 0.5rem 0px;
 }
 
 @media (min-width: 600px) {
@@ -594,13 +632,13 @@ article.help-request img.decorative {
 }
 
 .request-findme-button {
-  background-color: #236BE4;
+  background-color: var(--blue);
   color: white;
   margin: 30px 0 30px 0;
 }
 
 .request-search-button {
-  background-color: #236BE4;
+  background-color: var(--blue);
   border-radius: 5px;
   margin-left: 10px;
 }
@@ -624,7 +662,7 @@ article.help-request img.decorative {
 
 .request-list-title {
   background-color: transparent;
-  color: var(--tangerine);
+  color: var(--orange);
   font-size: 26px;
   margin-bottom: 17px;
   padding: 5px;
@@ -660,6 +698,40 @@ article.help-request img.decorative {
 
 .request-share, .request-share-buttons {
   background-color: white;
+}
+
+.error-message-container {
+  border-left: 4px solid #EB5757;
+  padding: 10px 0 10px 0;
+}
+
+.error-message {
+  color: var(--red);
+  border: none;
+  padding: 10px;
+}
+
+.error-message-icon {
+  height: 76px;
+  width: 76px;
+  padding-left: 20px;
+}
+
+.error-message-icon-small {
+  height: 36px;
+  width: 36px;
+  margin: 0px;
+}
+
+.error-message-hyperlink {
+  color: var(--red);
+  text-decoration: underline;
+}
+
+.error-message-container-small{
+  color: #f14668;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (min-width: 480px) {

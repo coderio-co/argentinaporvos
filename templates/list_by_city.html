@@ -3,7 +3,7 @@
 {% load humanize %} 
 {% load static %}
 {% block bread %}
-<nav class="breadcrumb has-bullet-separator is-centered" aria-label="breadcrumbs">
+<nav class="breadcrumb is-centered" aria-label="breadcrumbs">
 	<ul>
 		<li><a href="/" style="color: #9096a1;">Inicio</a></li>
 		<li><a href="/dar" style="color: #9096a1;">Información</a></li>
@@ -15,9 +15,9 @@
 {% endblock bread %}
 
 {% block content%}
-<div class="title center" style="color: #2979ff; font-weight: bold;">
+<h2 class="center custom-heading-two"">
 	Pedidos en {{city}}
-</div>
+</h2>
 
 <div class="subtitle center">
 	<a href="/pedidos" style="text-decoration: solid !important;">Ver todos</a>
@@ -39,7 +39,7 @@
 		</div>
 		<!-- End Switch clustering -->
 		<div class="row request-map-container">
-			{% leaflet_map "main" callback="main_map_init" %}
+			{% leaflet_map "main" callback="mainMapInit" %}
 		</div>
 	</div>
 	<div class="column is-6">
@@ -111,7 +111,7 @@
         }
       }
 
-      function main_map_init(map, options) {
+      function mainMapInit(map, options) {
             // Use Leaflet API here
             this.map = map
             {% autoescape off %}

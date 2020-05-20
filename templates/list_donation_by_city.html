@@ -40,7 +40,7 @@
         </div>
         <!-- End Switch clustering -->
         <div class="row">
-          {% leaflet_map "main" callback="main_map_init" %}
+          {% leaflet_map "main" callback="mainMapInit" %}
         </div>
       </div>
       <div class="column is-6">
@@ -95,7 +95,7 @@
         }
       }
 
-      function main_map_init(map, options) {
+      function mainMapInit(map, options) {
             // Use Leaflet API here
             this.map = map
             {% autoescape off %}

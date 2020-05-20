@@ -40,11 +40,11 @@
 			{% endif %}
 			
             <li>
-				<a
-					class="pagination-link is-current is-outlined"	
+				<button
+					class="pagination-number-button is-outlined"	
 					aria-label="Page {{ list_paginated.number }}" aria-current="page">
 					{{ list_paginated.number }}
-				</a>
+		    	</button>
 			</li>
 
             {% if list_paginated.number|add:"1" < list_paginated.paginator.num_pages %}

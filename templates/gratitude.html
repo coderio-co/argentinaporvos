@@ -1,0 +1,47 @@
+{% extends 'base.html' %} {% block bread %}
+<nav class="breadcrumb is-centered" aria-label="breadcrumbs">
+	<ul>
+		<li><a href="/">Inicio</a></li>
+		<li class="is-active">
+			<a href="#" class="is-active">Agradecimientos</a>
+		</li>
+	</ul>
+</nav>
+{% endblock bread %} {% block content%}
+<div id="gratitude" class="content">
+	<h2 class="title is-3 center">Agradecimientos</h2>
+	<div class="column center gratitude-container">
+		<div class="subtitle is-size-6 has-text-center" style="margin: 10px;">
+			<p class="gratitude-text">Joaquin Quintas - Director</p>
+
+			<p class="gratitude-text">
+				Eugenia Kessler - Assesure, Art and Design<br />
+				Ezequiel de Francisco - Lead Design<br />
+				Alejandra Isaza - Art and Design
+			</p>
+
+			<p class="gratitude-text">
+				Adrian Benavente - Assesure Accesibility<br />
+				Juan C. Lopez - Frontend Developer<br />
+				Melina Albuquerque - Frontend Developer
+			</p>
+			<p class="gratitude-text">
+				Manuel Crotto - Technical Leader Backend<br />
+				Juan Carrinza - Backend Developer<br />
+				Alejandro Duque - Backend Developer
+			</p>
+
+			<p class="gratitude-text">
+				Agostina Bossati - Community Manager <br />
+				Crismary Castellanos - QA Tester
+			</p>
+
+			<p class="gratitude-text">
+				Marcelo Elizeche Lando - Project Manager<br />
+				Matias Rizzo - Project Manager
+			</p>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

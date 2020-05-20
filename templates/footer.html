@@ -41,6 +41,7 @@
 					</div>
 				</div>
 			</a>
+			
 		</div>
 
 		<!-- Center side -->
@@ -57,24 +58,26 @@
 				<span class="sr-only">Instagram</span>
 				<i class="fab fa-instagram fa-2x"></i>
 			</a>
-			<a href="https://www.youtube.com/channel/UC0fOgXlJl8H-5YKWTabjtSA?view_as=subscriber" target="_blank" class="media-buttons hover-grow">
-				<span class="sr-only">Youtube</span>
-				<i class="fab fa-youtube fa-2x"></i>
-			</a>
 		</div>
 
 		<!-- Right side -->
 		<div class="column is-one-fifth">
-			<p class="column is-size-7 has-text-centered has-text-right-desktop hover-grow">				
-				<a href="https://ayudapy.org/" target="_blank" style="color: black; font-weight: bold;">
-					Código de la app inspirado en <strong class="strong-text" style="color: #236BE4">ayudapy.org</strong></a
+			<p class="column footer-right-container is-size-7 has-text-centered has-text-right-desktop hover-grow">				
+				<a href="https://ayudapy.org/" target="_blank" class="footer-right-text">
+					Código de la app inspirado en <strong class="strong-text footer-right-link">ayudapy.org</strong></a
 				>
 			</p>
-			<p class="column is-size-7 has-text-centered has-text-right-desktop hover-grow">
-				<a href="https://coderio.co/" target="_blank" style="color: black; font-weight: bold;">
-					Potenciado por <strong style="color: #236BE4">_coderio</strong></a
+			<p class="column footer-right-container is-size-7 has-text-centered has-text-right-desktop hover-grow">
+				<a href="https://coderio.co/" target="_blank" class="footer-right-text">
+					Potenciado por <strong class="strong-text footer-right-link">_coderio</strong></a
 				>
 			</p>
+			
+			<a class="column footer-right-container is-size-7 has-text-centered has-text-right-desktop hover-grow" href="{% url 'gratitude' %}">
+				<div>
+					<span class="footer-right-text">Agradecimientos</span>
+				</div>
+			</a>
 		</div>
 	</nav>
 </footer>
