@@ -149,7 +149,7 @@
 						<div class="media-content is-full is-fullwidth">
 							<div class="content">
 								<p class="subtitle has-text-left" style="margin-bottom: 30px;">Ubicación:</p>
-								{% leaflet_map "main" callback="main_map_init" %}
+								{% leaflet_map "main" callback="mainMapInit" %}
 								<a href="https://www.google.com/maps/search/?api=1&query={{help_request.location.y|unlocalize}},{{help_request.location.x|unlocalize}}"
 								   target="_blank">
 									<button class="button is-fullwidth open-map-button is-centered">
@@ -190,7 +190,7 @@
 		</a>
 		{% endif %}
 		<p class="subtitle">Ubicación:
-			{% leaflet_map "main" callback="main_map_init" %}
+			{% leaflet_map "main" callback="mainMapInit" %}
 		</p>
 		<a href="https://www.google.com/maps/search/?api=1&query={{help_request.location.y|unlocalize}},{{help_request.location.x|unlocalize}}"
 		   target="_blank">
@@ -212,7 +212,7 @@
 
 
 	<script type="text/javascript">
-	function main_map_init(map, options) {
+	function mainMapInit(map, options) {
 		// Use Leaflet API here
 		{% autoescape off %}
 		let lon = {{ help_request.location.x|unlocalize }};
