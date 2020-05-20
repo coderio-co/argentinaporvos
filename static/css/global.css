@@ -161,10 +161,6 @@ footer {
   margin: 30px;
 }
 
-.breadcrumb.has-bullet-separator li + li::before {
-  content: none !important;
-}
-
 .breadcrumb li + li::before {
   color: #b5b5b5;
   content: none;
