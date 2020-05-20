@@ -10,4 +10,4 @@ services:
             - conf/.env
         command: /start
         ports:
-            - "8000:8000"
+            - "8007:8000"

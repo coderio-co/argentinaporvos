@@ -102,7 +102,7 @@ http:
     staging:
       loadBalancer:
         servers:
-          - url: http://staging_app:8000
+          - url: http://staging_app:8007
 providers:
   # https://docs.traefik.io/master/providers/file/
   file:
