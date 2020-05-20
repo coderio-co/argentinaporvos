@@ -26,7 +26,7 @@ http:
       rule: "PathPrefix(`/api`) || PathPrefix(`/dashboard`)"
       service: api@internal
     geoinversa-router:
-      rule: "(Host(`argentinaporvos.org`) || Host(`www.argentinaporvos.org`)) && PathPrefix(`/v1/geoinversa`)"
+      rule: "(HostRegexp(`argentinaporvos.org`, `{subdomain:[a-z]+}.argentinaporvos.org`)) && PathPrefix(`/v1/geoinversa`)"
       entryPoints:
         - web
       middlewares:
@@ -50,7 +50,7 @@ http:
         - csrf
       service: staging
     staging-secure-router:
-      rule: "(Host(`staging.argentinaporvos.org`) || Host(`www.staging.argentinaporvos.org`))"
+      rule: "Host(`staging.argentinaporvos.org`) || Host(`www.staging.argentinaporvos.org`)"
       entryPoints:
         - web-secure
       middlewares:
@@ -60,7 +60,7 @@ http:
         # https://docs.traefik.io/master/routing/routers/#certresolver
         certResolver: letsencrypt
     geoinversa-secure-router:
-      rule: "(Host(`argentinaporvos.org`) || Host(`www.argentinaporvos.org`)) && PathPrefix(`/v1/geoinversa`)"
+      rule: "(HostRegexp(`argentinaporvos.org`, `{subdomain:[a-z]+}.argentinaporvos.org`)) && PathPrefix(`/v1/geoinversa`)"
       entryPoints:
         - web-secure
       middlewares:
