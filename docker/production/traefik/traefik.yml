@@ -1,5 +1,6 @@
 log:
-  level: INFO
+  level: DEBUG
+
 entryPoints:
   web:
     # http
@@ -7,7 +8,9 @@ entryPoints:
   web-secure:
     # https
     address: ":443"
-
+api:
+  dashboard: true
+  insecure: true
 certificatesResolvers:
  letsencrypt:
    # https://docs.traefik.io/master/https/acme/#lets-encrypt
@@ -19,8 +22,11 @@ certificatesResolvers:
        entryPoint: web
 http:
   routers:
+    api:
+      rule: "PathPrefix(`/api`) || PathPrefix(`/dashboard`)"
+      service: api@internal
     geoinversa-router:
-      rule: PathPrefix(`/v1/geoinversa/`)"
+      rule: "(Host(`argentinaporvos.org`) || Host(`www.argentinaporvos.org`)) && PathPrefix(`/v1/geoinversa`)"
       entryPoints:
         - web
       middlewares:
@@ -28,7 +34,7 @@ http:
         - csrf
       service: geoinversa
     app-router:
-      rule: "Host(`argentinaporvos.org`) || Host(`www.argentinaporvos.org`) && PathPrefix(`/`)"
+      rule: "Host(`argentinaporvos.org`) || Host(`www.argentinaporvos.org`)"
       entryPoints:
         - web
       middlewares:
@@ -36,14 +42,17 @@ http:
         - csrf
       service: app
     geoinversa-secure-router:
-      rule: PathPrefix(`/v1/geoinversa/`)"
+      rule: "(Host(`argentinaporvos.org`) || Host(`www.argentinaporvos.org`)) && PathPrefix(`/v1/geoinversa`)"
       entryPoints:
         - web-secure
       middlewares:
         - csrf
       service: geoinversa
+      tls:
+        # https://docs.traefik.io/master/routing/routers/#certresolver
+        certResolver: letsencrypt
     app-secure-router:
-      rule: "Host(`argentinaporvos.org`) || Host(`www.argentinaporvos.org`) && PathPrefix(`/`)"
+      rule: "Host(`argentinaporvos.org`) || Host(`www.argentinaporvos.org`)"
       entryPoints:
         - web-secure
       middlewares:
@@ -51,24 +60,6 @@ http:
       service: app
       tls:
         # https://docs.traefik.io/master/routing/routers/#certresolver
-        certResolver: letsencrypt
-    staging-router:
-      rule: "Host(`staging.argentinaporvos.org`) && PathPrefix(`/`)"
-      entryPoints:
-        - web
-      middlewares:
-        - redirect
-        - csrf
-      service: staging
-    staging-secure-router:
-      rule: "Host(`staging.argentinaporvos.org`) && PathPrefix(`/`)"
-      entryPoints:
-        - web-secure
-      middlewares:
-        - csrf
-      service: staging
-      tls:
-        #https://docs.traefik.io/master/routing/routers/#certresolver
         certResolver: letsencrypt
   middlewares:
     redirect:
@@ -90,14 +81,9 @@ http:
       loadBalancer:
         servers:
           - url: http://geo:3000
-    staging:
-      loadBalancer:
-        servers:
-          - url: http://localhost:8000
 providers:
   # https://docs.traefik.io/master/providers/file/
   file:
     filename: /etc/traefik/traefik.yml
     watch: true
-  docker:
-    endpoint: "unix:///var/run/docker.sock"
+  docker: {}
