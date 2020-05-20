@@ -20,7 +20,7 @@ certificatesResolvers:
 http:
   routers:
     geoinversa-router:
-      rule: "Host(`argentinaporvos.org`) || Host(`www.argentinaporvos.org`) && PathPrefix(`/v1/geoinversa`)"
+      rule: PathPrefix(`/v1/geoinversa/`)"
       entryPoints:
         - web
       middlewares:
@@ -36,7 +36,7 @@ http:
         - csrf
       service: app
     geoinversa-secure-router:
-      rule: "Host(`argentinaporvos.org`) || Host(`www.argentinaporvos.org`) && PathPrefix(`/v1/geoinversa`)"
+      rule: PathPrefix(`/v1/geoinversa/`)"
       entryPoints:
         - web-secure
       middlewares:
