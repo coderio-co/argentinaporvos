@@ -42,7 +42,7 @@ http:
         - csrf
       service: app
     staging-router:
-      rule: "Host(`staging.argentinaporvos.org`) || Host(`www.staging.argentinaporvos.org`)"
+      rule: "Host(`staging.argentinaporvos.org`)"
       entryPoints:
         - web
       middlewares:
@@ -50,7 +50,7 @@ http:
         - csrf
       service: staging
     staging-secure-router:
-      rule: "Host(`staging.argentinaporvos.org`) || Host(`www.staging.argentinaporvos.org`)"
+      rule: "Host(`staging.argentinaporvos.org`)"
       entryPoints:
         - web-secure
       middlewares:
