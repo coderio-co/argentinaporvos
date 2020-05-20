@@ -102,7 +102,7 @@ http:
     staging:
       loadBalancer:
         servers:
-          - url: http://geo:3000
+          - url: http://staging_app:8000
 providers:
   # https://docs.traefik.io/master/providers/file/
   file:

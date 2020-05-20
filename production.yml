@@ -1,6 +1,9 @@
 version: '3.5'
 volumes:
     production_traefik: {}
+networks:
+    stg_default:
+        external: true
 services:
     app:
         build:
@@ -24,6 +27,8 @@ services:
         image: argxvos_production_traefik
         depends_on:
             - app
+        networks:
+            - stg_default
         volumes:
             - production_traefik:/etc/traefik/acme
             - /var/run/docker.sock:/var/run/docker.sock
