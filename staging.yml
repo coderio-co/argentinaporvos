@@ -12,4 +12,4 @@ services:
         ports:
             - "8000:8000"
         labels:
-            - "traefik.http.routers.staging.rule=Host(`staging.argentinaporvos.org`)"
+            - "traefik.http.routers.app.rule=Host(`app.docker.localhost`)"
