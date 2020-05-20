@@ -1,5 +1,5 @@
 {% extends 'base.html' %} {% load leaflet_tags %} {% load humanize %} {% load static %} {% block bread %}
-<nav class="breadcrumb has-bullet-separator is-centered" aria-label="breadcrumbs">
+<nav class="breadcrumb is-centered" aria-label="breadcrumbs">
 	<ul>
 		<li><a href="/" style="color: #9096a1;">Inicio</a></li>
 		<li><a href="/dar" style="color: #9096a1;">Información</a></li>
@@ -114,7 +114,16 @@
 
 	<script type="text/javascript">
 		function mainMapInit(map, options) {
-			new ListRequestView(map, options);
+			new ListRequestView(map, {
+				gestureHandling: true,
+				gestureHandlingOptions: {
+					text: {
+						touch: "Usá dos dedos para mover el mapa",
+						scroll: "Usá ctrl + scroll para hacer zoom",
+						scrollMac: "Usá \u2318 + scroll para hacer zoom"
+					}
+				}
+			});
 		}
 	</script>
 
