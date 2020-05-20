@@ -54,7 +54,7 @@ http:
         - csrf
       service: geoinversa
     app-secure-router:
-      rule: "Host(`argentinaporvos.org`) || Host(`www.argentinaporvos.org`) && PathPrefix(`/`)"
+      rule: "Host(`argentinaporvos.org`) || Host(`www.argentinaporvos.org`)"
       entryPoints:
         - web-secure
       middlewares:
