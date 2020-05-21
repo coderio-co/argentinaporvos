@@ -140,18 +140,19 @@
 			}
 
 			function checkRequestForm() {
-     			let fields = ["title", "message", "name", "phone", "location", "address"];
-       			
+				let fields = ["title", "message", "name", "phone", "address"];
+				let valid = true;
+
+				document.getElementById('submit').textContent = 'Enviando...';
+				document.getElementById('submit').disabled = 'disabled';
+
 				for (let field of fields) {
-					if (document.getElementById(field).checkValidity()) {
-						document.querySelector('#submit').textContent = 'Enviando...';
-						document.querySelector('#submit').disabled = 'disabled';
-				
-						return true;
-		 			}
-        		}
-				
-     			return false;
+					if (!document.getElementById(field).checkValidity()) {
+						valid = false;
+					}
+				}
+
+				return valid;
 			}
 
 			document.querySelectorAll('.modal-button').forEach(function (el) {
