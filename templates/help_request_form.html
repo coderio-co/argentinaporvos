@@ -72,9 +72,9 @@
 							const direccion = data.data.address;
 							var arraylocation = data.data.polygons.split(',')
 							document.getElementById('div_direccion').innerHTML = `
-								<span><b>Calles</b>:${direccion || ''}</span><br />
-								<span><b>Barrio</b>:${arraylocation[1] + arraylocation[2] || ''}</span><br />
-								<span><b>Provincia/Localidad</b>:${arraylocation[3] +', '+ arraylocation[4] || ''} <span>`;
+          <span><b>Calles</b>:${direccion || ''}</span><br /> 
+          <span><b>Barrio</b>:${arraylocation[1] + arraylocation[2] || ''}</span><br /> 
+          <span><b>Provincia/Localidad</b>:${arraylocation[3] +', '+ arraylocation[4] || ''} <span>`;
 							document.getElementById('id_address').value = `${direccion.direccion || ''} ${
 								direccion.localidad || ''
 							} ${direccion.distrito || ''} ${direccion.departamento || ''}`;
@@ -105,7 +105,6 @@
 					boton.disabled = true;
 					status.textContent = '';
 
-					document.getElementById('id_location').classList.add("location_valid");
 					document.getElementById('id_location').innerHTML = makePoint(longitude, latitude);
 
 					await getDireccion(longitude, latitude);
@@ -141,26 +140,18 @@
 			}
 
 			function checkRequestForm() {
-				let fields = ["title", "message", "name", "phone", "id_location", "address"];
-				let validLocation = document.getElementById("id_location").classList.contains("location_valid");
-				let validFields = true;
-
-				document.getElementById('submit').textContent = 'Enviando...';
-				document.getElementById('submit').disabled = 'disabled';
-
+     			let fields = ["title", "message", "name", "phone", "location", "address"];
+       			
 				for (let field of fields) {
-					if (!document.getElementById(field).checkValidity()) {
-						validFields = false;
-					}
-				}
-
-				let valid = validFields && validLocation;
-
-				if (valid) {
-					document.getElementById("phone").value = `+54${document.getElementById("phone").value}`;
-				}
-
-				return valid;
+					if (document.getElementById(field).checkValidity()) {
+						document.querySelector('#submit').textContent = 'Enviando...';
+						document.querySelector('#submit').disabled = 'disabled';
+				
+						return true;
+		 			}
+        		}
+				
+     			return false;
 			}
 
 			document.querySelectorAll('.modal-button').forEach(function (el) {
