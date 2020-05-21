@@ -661,6 +661,11 @@ article.help-request img.decorative {
   padding: 1px 5px;
 }
 
+.request-list-table-pagination {
+  background-color: white;
+  color: #a7b0c0;
+}
+
 .request-list-button-showlast {
   background-color: white;
   border-color: var(--blue);

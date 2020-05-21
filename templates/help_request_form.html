@@ -72,9 +72,9 @@
 							const direccion = data.data.address;
 							var arraylocation = data.data.polygons.split(',')
 							document.getElementById('div_direccion').innerHTML = `
-								<span><b>Calles</b>:${direccion || ''}</span><br />
-								<span><b>Barrio</b>:${arraylocation[1] + arraylocation[2] || ''}</span><br />
-								<span><b>Provincia/Localidad</b>:${arraylocation[3] +', '+ arraylocation[4] || ''} <span>`;
+          <span><b>Calles</b>:${direccion || ''}</span><br /> 
+          <span><b>Barrio</b>:${arraylocation[1] + arraylocation[2] || ''}</span><br /> 
+          <span><b>Provincia/Localidad</b>:${arraylocation[3] +', '+ arraylocation[4] || ''} <span>`;
 							document.getElementById('id_address').value = `${direccion.direccion || ''} ${
 								direccion.localidad || ''
 							} ${direccion.distrito || ''} ${direccion.departamento || ''}`;
