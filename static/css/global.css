@@ -27,6 +27,7 @@
   margin-left: -1.3em;
   width: 1em;
 }
+
 .button.is-info {
   background-color: var(--blue);
 }
@@ -78,7 +79,7 @@ footer {
 }
 
 .footer-right-link {
- color: var(--blue);
+  color: var(--blue);
 }
 
 .hero {
@@ -162,7 +163,7 @@ footer {
 }
 
 #legal .home-card {
-  background-color: #236BE4;
+  background-color: var(--blue);
   border-radius: 10px;
 }
 
@@ -183,17 +184,17 @@ footer {
 .pagination-next[disabled],
 .pagination-previous[disabled] {
   background-color: white;
-  color: #a7b0c0;
+  border-color: var(--comet);
   box-shadow: none;
+  color: #a7b0c0;
   opacity: 0.5;
-  border-color: #606A85;
 }
 
 .pagination-next,
-.pagination-previous{
-  background-color: var(--blue) ;
-  color: white;
+.pagination-previous {
+  background-color: var(--blue);
   border-color: var(--blue);
+  color: white;
 }
 
 .pagination-button-color {
@@ -202,26 +203,26 @@ footer {
 
 .button[disabled] {
   background-color: #efefef;
-  border-color: #606A85;
+  border-color: var(--comet);
   box-shadow: none;
-  color: #606A85;
+  color: var(--comet);
   opacity: 0.5;
 }
 
 .pagination-number-button {
   background-color: var(--blue);
   border: 1px solid var(--blue);
-  color: #fff;
-  min-width: 2.5em;
+  border-radius: 4px;
+  color: #ffffff;
   font-size: 1em;
+  height: 2.5em;
   justify-content: center;
   margin: .25rem;
-  text-align: center;
-  border-radius: 4px;
-  height: 2.5em;
-  position: relative;
-  vertical-align: top;
+  min-width: 2.5em;
   padding: calc(.5em - 1px) .5em .5em;
+  position: relative;
+  text-align: center;
+  vertical-align: top;
 }
 
 .questionNumber,
@@ -391,7 +392,7 @@ header h1 a img {
 }
 
 .heading-text {
-  color: #58595B;
+  color: var(--gray);
   font-size: 1rem;
   font-weight: normal;
   max-width: 30rem;
@@ -431,7 +432,7 @@ header h1 a img {
 }
 
 .disclaimer-preview {
-  background-color: #236BE4;
+  background-color: var(--blue);
 }
 
 .disclaimer-preview article,
@@ -486,7 +487,7 @@ header h1 a img {
 }
 
 .gratitude-text {
-  color: #58595B;
+  color: var(--gray);
   font-weight: bold;
   padding: 0px 0px 0.5rem 0px;
 }
@@ -548,7 +549,7 @@ article.help-request img.decorative {
 }
 
 .help-request-map-button {
-  background-color: #236BE4;
+  background-color: var(--blue);
   color: white;
   margin: 0 0 30px 0;
 }
@@ -686,6 +687,7 @@ article.help-request img.decorative {
   background-color: white;
   border: 2px solid #0A8549;
   color: #0A8549;
+  font-weight: bold;
 }
 
 .request-received {
@@ -712,21 +714,21 @@ article.help-request img.decorative {
 }
 
 .error-message {
-  color: var(--red);
   border: none;
+  color: var(--red);
   padding: 10px;
 }
 
 .error-message-icon {
   height: 76px;
-  width: 76px;
   padding-left: 20px;
+  width: 76px;
 }
 
 .error-message-icon-small {
   height: 36px;
-  width: 36px;
   margin: 0px;
+  width: 36px;
 }
 
 .error-message-hyperlink {
@@ -734,10 +736,10 @@ article.help-request img.decorative {
   text-decoration: underline;
 }
 
-.error-message-container-small{
+.error-message-container-small {
+  align-items: center;
   color: #f14668;
   justify-content: center;
-  align-items: center;
 }
 
 @media (min-width: 480px) {
