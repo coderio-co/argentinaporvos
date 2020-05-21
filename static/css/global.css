@@ -182,22 +182,11 @@ footer {
 .pagination-link[disabled],
 .pagination-next[disabled],
 .pagination-previous[disabled] {
-  background-color: white;
-  color: #a7b0c0;
-  box-shadow: none;
-  opacity: 0.5;
+  background-color: #efefef;
   border-color: #606A85;
-}
-
-.pagination-next,
-.pagination-previous{
-  background-color: var(--blue) ;
-  color: white;
-  border-color: var(--blue);
-}
-
-.pagination-button-color {
-  color: white;
+  box-shadow: none;
+  color: #606A85;
+  opacity: 0.5;
 }
 
 .button[disabled] {
@@ -658,6 +647,11 @@ article.help-request img.decorative {
   max-height: 75vh;
   overflow-y: auto;
   padding: 1px 5px;
+}
+
+.request-list-table-pagination {
+  background-color: white;
+  color: #a7b0c0;
 }
 
 .request-list-button-showlast {
