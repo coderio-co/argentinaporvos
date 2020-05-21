@@ -1,10 +1,10 @@
 {% extends 'base.html' %} {% load leaflet_tags %} {% load static %} {% block bread %}
 <nav class="breadcrumb is-centered" aria-label="breadcrumbs">
 	<ul>
-		<li><a href="/" style="color: #9096a1;">Inicio</a></li>
-		<li><a href="/recibir" style="color: #9096a1;">Información</a></li>
+		<li><a href="/" class="navigation-breadcrumb-before">Inicio</a></li>
+		<li><a href="/recibir" class="navigation-breadcrumb-before">Información</a></li>
 		<li class="is-active">
-			<a href="#" class="is-active" style="color: #2979ff;">Necesito ayuda</a>
+			<a href="#" class="is-active navigation-breadcrumb-active">Necesito ayuda</a>
 		</li>
 	</ul>
 </nav>
@@ -36,14 +36,14 @@
 		<div class="modal" id="myModal">
 			<div class="modal-background"></div>
 			<div class="modal-card">
-				<header class="modal-card-head" style="background-color: white;">
-					<p class="modal-card-title has-text-left" style="font-weight: bold; color: #2979ff !important;">
+				<header class="modal-card-head" class="help-request-modal-header">
+					<p class="modal-card-title has-text-left help-request-modal-p">
 						Ayuda con el mapa
 					</p>
 					<button class="delete" aria-label="close"></button>
 				</header>
 				<section class="modal-card-body">
-					<ul style="list-style-position: outside;margin-left: 30px;">
+					<ul class="help-request-help-modal">
 						<li class="is-size-6 has-text-left has-text-black modalLi">
 							Mové el mapa hasta donde veas tu ubicación y luego apretá en el icono
 							<i class="fas fa-map-marker-alt"></i> y luego marcá en el mapa el punto exacto
@@ -54,7 +54,7 @@
 							marcador, una vez corregido apretar 'Grabar'
 						</li>
 					</ul>
-					<div class="image" style="margin-top: 30px;"><img src="{% static 'img/ayudamapa.gif' %}" alt=""
+					<div class="image" class="help-request-gif-container"><img src="{% static 'img/ayudamapa.gif' %}" alt=""
 					/></div>
 				</section>
 				<footer class="modal-card-foot">

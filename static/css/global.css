@@ -63,6 +63,14 @@
   color: var(--blue);
 }
 
+.navigation-breadcrumb-before {
+  color: var(--gray);
+}
+
+.navigation-breadcrumb-active {
+  color: var(--blue);
+}
+
 footer {
   background-color: white !important;
   padding: 1rem 1rem 1rem !important;
@@ -164,6 +172,7 @@ footer {
 #legal .home-card {
   background-color: #236BE4;
   border-radius: 10px;
+  margin-bottom: 15px;
 }
 
 .level {
@@ -481,15 +490,129 @@ header h1 a img {
   padding-bottom: 10%;
 }
 
+.contact-us-card-container {
+  background-color: var(--blue);
+  border-radius: 10px;
+}
+.contact-us-media {
+  padding: 40px;
+}
+
+.contact-us-media-left {
+  margin-right: 2rem;
+}
+
+.contact-us-media-i {
+  color: currentColor;
+  font-style: normal;
+  text-decoration: underline;
+}
+
+.home-tile-heading {
+  margin-bottom: 0;
+  padding: 0 5px 0 5px
+} 
+
+.home-tile-column {
+  border-radius: 10px;
+}
+
+.home-tile-text {
+  color: var(--gray); 
+  font-weight: bold;
+}
+
+.home-card-column-container {
+  margin-top: 20px;
+}
+
+.home-help-card {
+  padding-bottom: 30px;
+}
+
+.disclaimer-title {
+  overflow: hidden;
+}
+
+.disclaimer-column-card {
+  margin-top: 20px;
+}
+
+.legal-card {
+  margin-bottom: 15px;
+}
+
+.legal-p-title {
+  margin: 10px;
+}
+
+.legal-content-container {
+  padding-bottom: 15px;
+}
+
+.legal-item-title {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 1em;
+}
+
 .gratitude-container {
   padding-top: 0px;
 }
 
+.gratitude-container-div {
+  margin: 10px;
+}
+
 .gratitude-text {
-  color: #58595B;
+  color: var(--gray);
   font-weight: bold;
   padding: 0px 0px 0.5rem 0px;
 }
+
+.list-by-city-subtitle-center {
+  text-decoration: solid !important;
+}
+
+.list-by-city-input-container {
+  margin-bottom: .75em;
+}
+
+.list-by-city-checkbox {
+  width: 15px;
+  height: 15px;
+}
+
+.list-by-city-last-request {
+  background-color: transparent;
+  color: var(--orange);
+  padding: 5px;
+  margin-bottom: 35px;
+  font-size: 26px !important;
+}
+
+.list-by-city-request-div {
+  overflow-y:auto;
+  max-height:75vh;
+  padding:15px;
+}
+
+.list-by-city-request-name-div {
+  margin-bottom: 0;
+}
+
+.list-by-city-request-name {
+  color: var(--blue);
+}
+.list-by-city-notification-div {
+  margin-bottom: 0;
+  color: var(--gray);
+}
+
+.list-by-city-notificacion {
+  font-size: 12px;
+}
+
 
 @media (min-width: 600px) {
   #need-help .title,
@@ -551,6 +674,24 @@ article.help-request img.decorative {
   background-color: #236BE4;
   color: white;
   margin: 0 0 30px 0;
+}
+
+.help-request-modal-header {
+  background-color: white;
+}
+
+.help-request-modal-p {
+  font-weight: bold;
+  color: var(--blue);
+}
+
+.help-request-help-modal {
+  list-style-position: outside;
+  margin-left: 30px;
+}
+
+.help-request-gif-container {
+  margin-top: 30px;
 }
 
 .request-list-message {
