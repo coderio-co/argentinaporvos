@@ -1,14 +1,13 @@
-<aside class="card-content" style="padding-top: 0; margin-bottom: 0 !important; padding-bottom: 0;">
+<aside class="card-content request-vote-container">
 	<form class="" name="thumbs">
 		<h3 class="subtitle request-received">Ayuda recibida</h3>
-		<div class="field is-flex" style="justify-content: center;">
-			<div class="media animated fadeIn" style="margin-right: 30px;">
+		<div class="field is-flex request-vote-field">
+			<div class="media animated fadeIn request-vote-media">
 				<div class="media-left">
 					<button
-						class="button is-medium is-centered is-success is-outlined"
+						class="button is-medium is-centered is-success is-outlined request-help-button"
 						formmethod="post"
 						name='vote'
-						style="border-radius: 50%; width: 40px; height: 40px;"
 						type="submit"
 						value="up"
 					>
@@ -25,13 +24,12 @@
 				</div>
 			</div>
 
-			<div class="media animated fadeIn" style="margin-top: 0; padding-top: 0; border: none">
+			<div class="media animated fadeIn request-help-not-received">
 				<div class="media-left">
 					<button
-						class="button is-medium is-centered is-danger is-outlined"
+						class="button is-medium is-centered is-danger is-outlined request-help-button"
 						formmethod="post"
 						name='vote'
-						style="border-radius: 50%; width: 40px; height: 40px;"
 						type="submit"
 						value="down"
 					>

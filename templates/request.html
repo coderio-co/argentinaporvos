@@ -13,11 +13,11 @@
 {% block bread %}
 <nav aria-label="breadcrumbs" class="breadcrumb is-centered">
 	<ul>
-		<li><a href="/" style="color: #9096a1;">Inicio</a></li>
-		<li><a href="/recibir" style="color: #9096a1;">Información</a></li>
-		<li><a href="/pedidos" style="color: #9096a1;">Quiero ayudar</a></li>
+		<li><a href="/" class="navigation-breadcrumb-before">Inicio</a></li>
+		<li><a href="/recibir" class="navigation-breadcrumb-before">Información</a></li>
+		<li><a href="/pedidos" class="navigation-breadcrumb-before">Quiero ayudar</a></li>
 		<li class="is-active">
-			<a class="is-active" href="#" style="color: #2979ff;">Pedido #{{help_request.id}}</a>
+			<a class="is-active navigation-breadcrumb-active" href="#">Pedido #{{help_request.id}}</a>
 		</li>
 	</ul>
 </nav>
@@ -26,7 +26,7 @@
 
 <main class="request columns is-centered">
 	<article class="column is-four-fifths">
-		<div class="card is-shadowless" style="border-radius: 15px; border: none">
+		<div class="card is-shadowless request-container">
 
 			<header class="card-header request-header is-light">
 				<h2
@@ -66,13 +66,12 @@
 
 
 				<div
-					class="column is-fullwidth"
-					style="background-color: white;"
+					class="column is-fullwidth request-data-container"
 				>
 					<div class="media animated fadeIn">
 						<div class="media-content is-full is-fullwidth">
 							<div class="content">
-								<p class="subtitle has-text-left" style="margin-bottom: 30px;">Nombre:</p>
+								<p class="subtitle has-text-left request-name">Nombre:</p>
 								<p class="title is-4 has-text-left">{{ help_request.name}}</p>
 							</div>
 						</div>
@@ -80,8 +79,7 @@
 				</div>
 
 				<div
-					class="column is-fullwidth"
-					style="background-color: white;"
+					class="column is-fullwidth request-data-container"
 				>
 					<p class="subtitle has-text-left">Contactar:</p>
 					<p class="subtitle has-text-left">
@@ -109,13 +107,12 @@
 
 				{% if help_request.address %}
 				<div
-					class="column is-fullwidth"
-					style="background-color: white;"
+					class="column is-fullwidth request-data-container"
 				>
 					<div class="media animated fadeIn">
 						<div class="media-content is-full is-fullwidth">
 							<div class="content">
-								<p class="subtitle has-text-left" style="margin-bottom: 30px;">Dirección:</p>
+								<p class="subtitle has-text-left request-data-name">Dirección:</p>
 								<p class="title is-4 has-text-left">{{help_request.address}}</p>
 							</div>
 						</div>
@@ -125,13 +122,12 @@
 
 
 				<div
-					class="column is-fullwidth"
-					style="background-color: white;"
+					class="column is-fullwidth request-data-container"
 				>
 					<div class="media animated fadeIn">
 						<div class="media-content is-full is-fullwidth">
 							<div class="content">
-								<p class="subtitle has-text-left" style="margin-bottom: 30px;">Ciudad:</p>
+								<p class="subtitle has-text-left request-data-name">Ciudad:</p>
 								<p class="title is-4 has-text-left">
 								<p class="title is-4">
 									<a href="/pedidos_ciudad/{{help_request.city_code}}">{{help_request.city}}</a>
@@ -142,13 +138,12 @@
 
 
 				<div
-					class="column is-fullwidth"
-					style="background-color: white;"
+					class="column is-fullwidth request-data-container"
 				>
 					<div class="media animated fadeIn">
 						<div class="media-content is-full is-fullwidth">
 							<div class="content">
-								<p class="subtitle has-text-left" style="margin-bottom: 30px;">Ubicación:</p>
+								<p class="subtitle has-text-left request-data-name">Ubicación:</p>
 								{% leaflet_map "main" callback="mainMapInit" %}
 								<a href="https://www.google.com/maps/search/?api=1&query={{help_request.location.y|unlocalize}},{{help_request.location.x|unlocalize}}"
 								   target="_blank">
@@ -169,7 +164,7 @@
 
 		</div>
 		{% comment %}
-		<div class="tile is-child is-box" style="background-color: white !important;">
+		<div class="tile is-child is-box request-data-container">
 			<p class="title is-4">{{ help_request.title}}</p>
 			<p class="subtitle">{{help_request.message|linebreaks}}</p>
 			<hr>
