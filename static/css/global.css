@@ -78,7 +78,7 @@ footer {
 }
 
 .footer-right-container {
-  padding-bottom: 0px;
+  padding-bottom: 0;
 }
 
 .footer-right-text {
@@ -558,7 +558,7 @@ header h1 a img {
 }
 
 .gratitude-container {
-  padding-top: 0px;
+  padding-top: 0;
 }
 
 .gratitude-container-div {
@@ -568,7 +568,7 @@ header h1 a img {
 .gratitude-text {
   color: var(--gray);
   font-weight: bold;
-  padding: 0px 0px 0.5rem 0px;
+  padding: 0 0 0.5rem 0;
 }
 
 .list-by-city-subtitle-center {
@@ -944,7 +944,7 @@ article.help-request img.decorative {
 
 .error-message-icon-small {
   height: 36px;
-  margin: 0px;
+  margin: 0;
   width: 36px;
 }
 
