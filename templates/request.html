@@ -13,9 +13,9 @@
 {% block bread %}
 <nav aria-label="breadcrumbs" class="breadcrumb is-centered">
 	<ul>
-		<li><a href="/" class="navigation-breadcrumb-before">Inicio</a></li>
-		<li><a href="/recibir" class="navigation-breadcrumb-before">Información</a></li>
-		<li><a href="/pedidos" class="navigation-breadcrumb-before">Quiero ayudar</a></li>
+		<li><a href="/">Inicio</a></li>
+		<li><a href="/recibir">Información</a></li>
+		<li><a href="/pedidos">Quiero ayudar</a></li>
 		<li class="is-active">
 			<a class="is-active navigation-breadcrumb-active" href="#">Pedido #{{help_request.id}}</a>
 		</li>
@@ -70,8 +70,8 @@
 				>
 					<div class="media animated fadeIn">
 						<div class="media-content is-full is-fullwidth">
-							<div class="content">
-								<p class="subtitle has-text-left request-name">Nombre:</p>
+							<div>
+								<p class="subtitle has-text-left request-data-name">Nombre:</p>
 								<p class="title is-4 has-text-left">{{ help_request.name}}</p>
 							</div>
 						</div>
@@ -111,7 +111,7 @@
 				>
 					<div class="media animated fadeIn">
 						<div class="media-content is-full is-fullwidth">
-							<div class="content">
+							<div>
 								<p class="subtitle has-text-left request-data-name">Dirección:</p>
 								<p class="title is-4 has-text-left">{{help_request.address}}</p>
 							</div>
@@ -126,7 +126,7 @@
 				>
 					<div class="media animated fadeIn">
 						<div class="media-content is-full is-fullwidth">
-							<div class="content">
+							<div>
 								<p class="subtitle has-text-left request-data-name">Ciudad:</p>
 								<p class="title is-4 has-text-left">
 								<p class="title is-4">

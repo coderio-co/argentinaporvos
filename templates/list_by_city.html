@@ -5,8 +5,8 @@
 {% block bread %}
 <nav class="breadcrumb is-centered" aria-label="breadcrumbs">
 	<ul>
-		<li><a href="/" class="navigation-breadcrumb-before">Inicio</a></li>
-		<li><a href="/dar" class="navigation-breadcrumb-before">Información</a></li>
+		<li><a href="/">Inicio</a></li>
+		<li><a href="/dar">Información</a></li>
 		<li class="is-active">
 			<a href="#" class="is-active navigation-breadcrumb-active" >Quiero ayudar</a>
 		</li>
@@ -20,7 +20,7 @@
 </h2>
 
 <div class="subtitle center">
-	<a href="/pedidos" class="list-by-city-subtitle-center">Ver todos</a>
+	<a href="/pedidos">Ver todos</a>
 </div>
 {% if not list_help %}
 <div class="notification is-warning center is-size-5">
@@ -43,7 +43,7 @@
 		</div>
 	</div>
 	<div class="column is-6">
-		<div class="panel is-info is-shadowless">
+		<div class="panel is-info is-shadowless" id="list-city">
 			<p class="panel-heading has-text-left list-by-city-last-request">
 				Últimos pedidos de ayuda en {{city}}
 			</p>
