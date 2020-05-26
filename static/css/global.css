@@ -52,8 +52,6 @@
   color: var(--blue);
 }
 
-
-
 .breadcrumb li:first-of-type a {
   color: var(--gray);
 }
