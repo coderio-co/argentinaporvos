@@ -30,10 +30,10 @@
 {% for field in form.visible_fields %}
 <div class="field">
     {% if field.field.required %}
-    <label class="label has-text-left" for="{{ field.name }}" style="margin: 35px 0 4px 3px;">{{ field.label }}*</label>
+    <label class="label has-text-left form-name-label" for="{{ field.name }}">{{ field.label }}*</label>
     {%else%}
         {% if field.name != 'categories' %}
-            <label class="label has-text-left" for="{{ field.name }}" style="margin: 35px 0 4px 3px;">{{ field.label }}</label>
+            <label class="label has-text-left form-name-label" for="{{ field.name }}">{{ field.label }}</label>
         {% else %}
 			<!-- <br> -->
         <!-- <div class="columns is-centered is-mobile is-multiline">
@@ -70,7 +70,7 @@
 	{%endif%}
 	
     {% if field.help_text|safe %}
-    <p class="help text-muted has-text-left" style="margin: 0 0 10px 4px;">{{ field.help_text }}</p>
+    <p class="help text-muted has-text-left form-help-text">{{ field.help_text }}</p>
     {% endif %}
 
     {% if form.is_bound %}
@@ -94,7 +94,7 @@
     {% else %}
     {% if field.field.widget.input_type == "file" %}
     <p id="status"></p>
-    <div class="file has-name is-boxed is-primary is-fullwidth" style="margin-top: 10px;">
+    <div class="file has-name is-boxed is-primary is-fullwidth form-file-input">
         <label class="file-label">
             {% render_field field class="file-input" %}
             <span class="button is-info is-outlined hover-grow">
@@ -103,7 +103,7 @@
 					&nbsp;&nbsp;Adjuntá una foto
 				</span>
 			</span>
-            <span class="file-name" style="border: none;">
+            <span class="file-name form-file-name">
 			</span>
         </label>
     </div>
@@ -129,7 +129,7 @@
       let fileIconWrapper = document.createElement("span");
       let fileIcon = document.createElement("i");
       buttonWrapper.classList.add("file", "has-name", "is-boxed", "is-primary", "is-fullwidth");
-      buttonWrapper.style.marginTop = "10px"
+      buttonWrapper.classList.add("form-file-input");
       labelFile.classList.add("file-label");
       inputFile.classList.add("file-input");
       fakeButton.classList.add("button", "is-info", "is-outlined", "hover-grow");
