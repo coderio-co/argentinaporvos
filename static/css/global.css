@@ -450,7 +450,8 @@ header h1 a img {
 }
 
 .disclaimer-preview article .decorative-img,
-.how-it-works article .decorative-img {
+.how-it-works article .decorative-img,
+.contact-us .media .decorative-img {
   display: block;
   float: left;
   margin-right: 0.875rem;
@@ -481,12 +482,12 @@ header h1 a img {
   margin-right: 1rem;
 }
 
-#legal h2, #contact-us h2, #gratitude h2 {
+#legal h2, .contact-us h2, #gratitude h2 {
   color: var(--blue);
   overflow: hidden;
 }
 
-#contact-us h2 {
+.contact-us h2 {
   margin-bottom: 10px;
   padding-bottom: 10%;
 }
@@ -494,19 +495,7 @@ header h1 a img {
 .contact-us-card-container {
   background-color: var(--blue);
   border-radius: 10px;
-}
-.contact-us-media {
-  padding: 40px;
-}
-
-.contact-us-media-left {
-  margin-right: 2rem;
-}
-
-.contact-us-media-i {
-  color: currentColor;
-  font-style: normal;
-  text-decoration: underline;
+  padding: 2.5rem;
 }
 
 .home-tile-heading {
@@ -681,6 +670,10 @@ header h1 a img {
   .how-it-works article div .info {
     margin-left: 1rem;
     width: 85%;
+  }
+
+  .contact-us-card-container .media .decorative-img {
+    margin-right: 2rem;
   }
 }
 
