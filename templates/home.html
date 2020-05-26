@@ -1,21 +1,21 @@
 {% extends 'base.html'%} {% block content %}
   
-<div class="tile is-ancestor center">
-	<div class="tile is-vertical is-6 is-parent" style="margin-bottom: 0; padding: 0 5px 0 5px ">
-		<div class="column home-card is-4by3 is-mobile center background-is-tranparent" style="border-radius: 10px;">
+<div class="center home-title">
+	<div class="tile is-vertical is-6 is-parent home-tile-heading">
+		<div class="home-card is-4by3 is-mobile center background-is-tranparent">
 			<div class="media is-centered">
-				<h2 class="title is-5 center has-text-centered" style="color: #58595B; font-weight: bold;">
+				<h2 class="title is-5 center has-text-centered home-tile-text">
 					¡La ayuda que necesitás está a la vuelta de la esquina!
-  
 				</h2>
-			</div></div>
+			</div>
 		</div>
 	</div>
+</div>
 
 
-<div class="tile is-ancestor">
-	<div class="tile is-vertical is-parent" style="margin-bottom: 0; padding: 0 5px 0 5px ">
-		<div class="column home-card is-mobile center background-is-tranparent">
+<div class="tile is-ancestor home-text">
+	<div class="tile is-vertical is-parent home-tile-heading">
+		<div class="home-card is-mobile center background-is-tranparent">
 			<div class="is-centered">
 				<p class="heading-text center has-text-centered-desktop">
 					Conectamos por geolocalización a las personas que necesitan ayuda con las que quieren ayudar.</p>
@@ -27,7 +27,7 @@
 	</div>
 
 <div class="is-fullhd">
-	<div class="columns is-centered is-2 animated fadeIn" style="margin-top: 20px;">
+	<div class="columns is-centered is-2 animated fadeIn home-card-column-container">
 		<div
 			id="need-help"
 			class="column is-three-third-mobile is-half-tablet is-half-desktop is-one-fifth-widescreen is-one-fifth-fullhd hover-grow"
@@ -59,8 +59,7 @@
 
 		<div
 			id="want-to-help"
-			class="column is-three-third-mobile is-half-tablet is-half-desktop is-one-fifth-widescreen is-one-fifth-fullhd hover-grow"
-			style="padding-bottom: 30px;"
+			class="column is-three-third-mobile is-half-tablet is-half-desktop is-one-fifth-widescreen is-one-fifth-fullhd hover-grow home-help-card"
 		>
 			<a href="/dar">
 				<div class="card home-cards">
