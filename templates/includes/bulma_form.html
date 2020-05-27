@@ -70,7 +70,13 @@
 	{%endif%}
 	
     {% if field.help_text|safe %}
-    <p class="help text-muted has-text-left form-help-text">{{ field.help_text }}</p>
+    
+    {% if field.name == 'picture' %}
+    <p class="help text-muted has-text-left form-help-text" id="{{field.name}}_des">{{ field.help_text|striptags  }}</p>
+    {% else %}
+        
+    <p class="help text-muted has-text-left form-help-text" id="{{field.name}}_des">{{ field.help_text }}</p>
+    {% endif %}
     {% endif %}
 
     {% if form.is_bound %}
@@ -96,7 +102,7 @@
     <p id="status"></p>
     <div class="file has-name is-boxed is-primary is-fullwidth form-file-input">
         <label class="file-label">
-            {% render_field field class="file-input" %}
+            {% render_field field class="file-input" aria-describedby="picture_des" %}
             <span class="button is-info is-outlined hover-grow">
 				<span class="file-icon">
 					<i class="fas fa-image"></i>
