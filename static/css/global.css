@@ -685,11 +685,28 @@ article.help-request {
   padding: 1rem;
 }
 
-article.help-request img.decorative {
+article.help-request .help-request-list-header img {
   display: block;
   height: 48px;
   margin-right: 1rem;
   width: 48px;
+}
+
+article.help-request .help-request-list-header h2 {
+  font-size: 1rem;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+article.help-request .help-request-list-body p {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  margin-top: 0.4rem;
+  overflow: hidden;
 }
 
 .help-request-list {
@@ -698,6 +715,12 @@ article.help-request img.decorative {
   box-shadow: 2px 2px 7px 1px rgba(0, 0, 0, 0.2);
   margin-bottom: .75rem;
   padding: 1px 5px;
+}
+
+.help-request-list-header {
+  align-items: center;
+  display: flex;
+  margin-top: 0;
 }
 
 .help-request-map-button {
