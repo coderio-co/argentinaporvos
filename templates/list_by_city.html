@@ -55,19 +55,25 @@
 						<div class="media-content">
 							<div class="content">
 								<article class="help-request help-request-list">
-									<img class="decorative" src="{% static 'img/img_hand.svg' %}" alt="" />
 									<div class="media-content">
 										<div class="content">
-											<p class="bd-notification is-primary has-text-black has-text-left list-by-city-request-name-div">
-												<strong class="list-by-city-request-name">#{{pedido.id}}</strong> |
-												{{pedido.name}}
-											</p>
-											<p class="bd-notification is-primary has-text-black has-text-left list-by-city-notification-div">
-												<small class="is-small list-by-city-notification">{{pedido.added}}</small>
-											</p>
-											<p class="bd-notification is-primary has-text-black has-text-left list-by-city-request-name-div">
-												{{pedido.title}}
-											</p>
+											<header class="help-request-list-header">
+												<img class="decorative" src="{% static 'img/img_hand.svg' %}" alt="" />
+												<h2
+													class="bd-notification is-primary has-text-black has-text-left">
+													<strong class="list-by-city-request-name">#{{pedido.id}}</strong> |
+													{{pedido.name}}
+												</h2>
+												<p class="bd-notification is-primary has-text-black has-text-left">
+													<small class="is-small list-by-city-notification">{{pedido.added}}</small>
+												</p>
+											</header>
+											<div class="help-request-list-body">
+												<p
+													class="bd-notification is-primary has-text-black has-text-left">
+													{{pedido.title}}
+												</p>
+											</div>
 										</div>
 									</div>
 								</article>
