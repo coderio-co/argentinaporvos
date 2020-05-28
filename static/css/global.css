@@ -43,6 +43,10 @@
   min-height: 100vh;
 }
 
+.site-container {
+  overflow: hidden;
+}
+
 .site-content {
   flex: 1;
 }
