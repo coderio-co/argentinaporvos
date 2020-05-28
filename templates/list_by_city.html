@@ -50,12 +50,12 @@
 
 			<div class="list-by-city-request-div">
 				{% for pedido in list_paginated %}
-				<a href="/pedidos/{{pedido.id}}" class="has-text-grey-dark" title="{{added}}">
+				<a href="/pedidos/{{pedido.id}}" class="has-text-grey-dark">
 					<div class="media">
 						<div class="media-content">
 							<div class="content">
 								<article class="help-request help-request-list">
-									<div class="media-content">
+									<div class="request-card">
 										<div class="content">
 											<header class="help-request-list-header">
 												<img class="decorative" src="{% static 'img/img_hand.svg' %}" alt="" />
