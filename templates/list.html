@@ -1,4 +1,8 @@
-{% extends 'base.html' %} {% load leaflet_tags %} {% load humanize %} {% load static %} {% block bread %}
+{% extends 'base.html' %}
+{% load leaflet_tags %}
+{% load humanize %}
+{% load static %}
+{% block bread %}
 <nav class="breadcrumb is-centered" aria-label="breadcrumbs">
 	<ul>
 		<li><a href="/">Inicio</a></li>
@@ -128,25 +132,31 @@
 	</script>
 
 	<script type="text/template" id="requests-table-template">
-		     {% verbatim %}
+		{% verbatim %}
 		<a href="/pedidos/{{id}}" class="has-text-grey-dark" title="{{added}}">
 			<div class="media">
 				<div class="media-content">
 					<div class="content">
 						<article class="help-request help-request-list">
-							<img class="decorative"
-									 src="https://argentinaporvos.s3-us-west-2.amazonaws.com/static/img/img_hand.svg" alt="" />
 							<div class="media-content request-card">
 								<div class="content">
-									<p class="bd-notification is-primary has-text-black has-text-left">
-										<strong class="list-request-name">#{{id}}</strong> | {{name}}
-									</p>
-									<p class="bd-notification is-primary has-text-black has-text-left">
-										<small class="is-small list-request-days">{{added}}</small>
-									</p>
-									<p class="bd-notification is-primary has-text-black has-text-left">
-										{{title}}
-									</p>
+									<header class="help-request-list-header">
+										<img class="decorative" src="https://argentinaporvos.s3-us-west-2.amazonaws.com/static/img/img_hand.svg" alt="" />
+										<div>
+											<h2 class="bd-notification is-primary has-text-black has-text-left">
+												<strong class="list-request-name">#{{id}}</strong> | {{name}}
+											</h2>
+											<p class="bd-notification is-primary has-text-black has-text-left">
+												<small class="is-small list-request-days">{{added}}</small>
+											</p>
+										</div>
+									</header>
+									<div class="help-request-list-body">
+										<p
+											class="bd-notification is-primary has-text-black has-text-left">
+											{{title}}
+										</p>
+									</div>
 								</div>
 							</div>
 						</article>
