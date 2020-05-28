@@ -830,8 +830,15 @@ article.help-request .help-request-list-body p {
   text-align: left;
 }
 
-.search-location-button {
+.search-location-icon {
   color: white;
+  font-size: 0.85rem;
+}
+
+.search-location-text {
+ margin-top: 0.2rem;
+ color: white;
+ font-size: 0.85rem;
 }
 
 .open-map-button, .open-map-button:hover {
@@ -985,6 +992,13 @@ article.help-request .help-request-list-body p {
   align-items: center;
   color: #f14668;
   justify-content: center;
+}
+
+@media (min-width: 320px) {
+  .search-location-icon,
+  .search-location-text {
+    font-size: 1rem;
+  }
 }
 
 @media (min-width: 480px) {
