@@ -350,11 +350,13 @@ footer {
   transition-property: transform;
 }
 
-.hover-grow:active,
-.hover-grow:focus,
-.hover-grow:hover {
-  -webkit-transform: scale(1.02);
-  transform: scale(1.02);
+@media (min-width: 1024px) {
+  .hover-grow:active,
+  .hover-grow:focus,
+  .hover-grow:hover {
+    -webkit-transform: scale(1.02);
+    transform: scale(1.02);
+  }
 }
 
 .hover-fade {
@@ -505,7 +507,7 @@ header h1 a img {
 .home-tile-heading {
   margin-bottom: 0;
   padding: 0 10px 0 10px;
-} 
+}
 
 .home-title div:first-of-type {
   padding-top: 0px;
@@ -516,7 +518,7 @@ header h1 a img {
 }
 
 .home-tile-text {
-  color: var(--gray); 
+  color: var(--gray);
   font-weight: bold;
 }
 
@@ -549,9 +551,9 @@ header h1 a img {
 }
 
 .legal-item-title {
-  padding-top: 10px;
-  padding-bottom: 10px;
   margin-bottom: 1em;
+  padding-bottom: 10px;
+  padding-top: 10px;
 }
 
 .gratitude-container {
@@ -573,22 +575,22 @@ header h1 a img {
 }
 
 .list-by-city-checkbox {
-  width: 15px;
   height: 15px;
+  width: 15px;
 }
 
-#list-city p.list-by-city-last-request{
+#list-city p.list-by-city-last-request {
   background-color: transparent;
   color: var(--orange);
-  padding: 5px;
-  margin-bottom: 35px;
   font-size: 26px;
+  margin-bottom: 35px;
+  padding: 5px;
 }
 
 .list-by-city-request-div {
-  overflow-y:auto;
-  max-height:75vh;
-  padding:15px;
+  max-height: 75vh;
+  overflow-y: auto;
+  padding: 15px;
 }
 
 .list-by-city-request-name-div {
@@ -598,9 +600,10 @@ header h1 a img {
 .list-by-city-request-name {
   color: var(--blue);
 }
+
 .list-by-city-notification-div {
-  margin-bottom: 0;
   color: var(--gray);
+  margin-bottom: 0;
 }
 
 .list-by-city-notificacion {
@@ -624,24 +627,24 @@ header h1 a img {
 }
 
 .list-request-days {
-  font-size: 12px;
   color: var(--gray);
+  font-size: 12px;
 }
 
 .list-pagination-first-button {
   background-color: white;
-  color: var(--blue);
   border-color: var(--blue);
+  color: var(--blue);
 }
 
 .donation-name {
-  color:#363636;
+  color: #363636;
 }
 
 .donation-last-center {
-  overflow-y:auto;
-  max-height:75vh;
-  padding:15px;
+  max-height: 75vh;
+  overflow-y: auto;
+  padding: 15px;
 }
 
 @media (min-width: 600px) {
@@ -697,18 +700,18 @@ article.help-request .help-request-list-header img {
 }
 
 article.help-request .help-request-list-header h2 {
-  font-size: 1rem;
-  margin: 0;
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
+  display: -webkit-box;
+  font-size: 1rem;
+  -webkit-line-clamp: 1;
+  margin: 0;
   overflow: hidden;
 }
 
 article.help-request .help-request-list-body p {
+  -webkit-box-orient: vertical;
   display: -webkit-box;
   -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
   margin-top: 0.4rem;
   overflow: hidden;
 }
@@ -738,8 +741,8 @@ article.help-request .help-request-list-body p {
 }
 
 .help-request-modal-p {
-  font-weight: bold;
   color: var(--blue);
+  font-weight: bold;
 }
 
 .help-request-help-modal {
@@ -774,8 +777,8 @@ article.help-request .help-request-list-body p {
 }
 
 .request-container {
-  border-radius: 15px;
   border: none;
+  border-radius: 15px;
 }
 
 .request-title {
@@ -802,9 +805,9 @@ article.help-request .help-request-list-body p {
 }
 
 .request-vote-container {
-  padding-top: 0;
   margin-bottom: 0;
   padding-bottom: 0;
+  padding-top: 0;
 }
 
 .request-vote-field {
@@ -817,16 +820,16 @@ article.help-request .help-request-list-body p {
 
 .request-help-button {
   border-radius: 50%;
-  width: 40px;
   height: 40px;
+  width: 40px;
 }
 
 .request-help-not-received {
+  align-items: flex-start;
+  border: none;
+  display: flex;
   margin-top: 0;
   padding-top: 0;
-  border: none;
-  align-items: flex-start;
-  display: flex;
   text-align: left;
 }
 
@@ -836,9 +839,9 @@ article.help-request .help-request-list-body p {
 }
 
 .search-location-text {
- margin-top: 0.2rem;
- color: white;
- font-size: 0.85rem;
+  color: white;
+  font-size: 0.85rem;
+  margin-top: 0.2rem;
 }
 
 .open-map-button, .open-map-button:hover {
@@ -1044,29 +1047,30 @@ article.help-request .help-request-list-body p {
 
 .buttons-section {
   padding-top: 10px;
-} 
+}
 
 .button-whatsapp {
-  border-radius: 50%; border: 1px solid #10c971; 
   background-color: #10c971;
+  border: 1px solid #10c971;
+  border-radius: 50%;
 }
 
 .button-facebook {
-  border-radius: 50%;
-  border: 1px solid #385898;
   background-color: #385898;
+  border: 1px solid #385898;
+  border-radius: 50%;
 }
 
 .button-twitter {
-  border-radius: 50%;
-  border: 1px solid #1da1f2;
   background-color: #1da1f2;
+  border: 1px solid #1da1f2;
+  border-radius: 50%;
 }
 
 .faq-question-column {
   border-bottom: 1px solid #a7b0c0;
-  margin-top: 40px;
   border-bottom-width: 1px;
+  margin-top: 40px;
   padding: 0 0 30px 0;
 }
 
