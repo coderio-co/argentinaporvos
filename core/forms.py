@@ -39,6 +39,7 @@ class HelpRequestForm(forms.ModelForm):
                     "id": "message",
                     "class": "textarea",
                     "rows": 4,
+                    "minlength": 20,
                     "placeholder": "Ejemplo: Por la situación actual estoy necesitando tapabocas y productos de limpieza, cualquier ayuda aunque sea mínima ya me va a ayudar. ¡Muchas Gracias!",
                 }
             ),
