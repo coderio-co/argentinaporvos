@@ -855,6 +855,11 @@ article.help-request .help-request-list-body p {
   transform: scale(1.025, 1.025);
 }
 
+.open-map-button-text {
+  margin-bottom: 5px;
+  color: white;
+}
+
 .request header {
   display: block;
   padding: 1.5rem 1.5rem 0;
