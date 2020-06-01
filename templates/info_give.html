@@ -1,14 +1,14 @@
 {% extends 'base.html' %} {% block bread %}
 <nav aria-label="breadcrumbs" class="breadcrumb is-centered">
 	<ul>
-		<li><a href="/" style="color: #9096a1;">Inicio</a></li>
+		<li><a href="/">Inicio</a></li>
 		<li class="is-active">
-			<a class="is-active" href="#" style="color: #2979ff;">Brindar ayuda</a>
+			<a class="is-active navigation-breadcrumb-active" href="#">Brindar ayuda</a>
 		</li>
 	</ul>
 </nav>
 {% endblock bread %} {% block content%} {% include "./disclaimer.html" with message='Si estás dispuesto a ayudar, tenés que completar los campos con tus datos (asegurate que todos sean correctos) en la plataforma de ArgentinaPorVos. Así mediante la Geolocalización vas a poder ver si alguien precisa algo cerca de tu ubicación. ' %}
-<div class="columns center">
+<div class="center">
 	<div
 		class="column is-two-third-mobile is-half-tablet is-half-desktop is-half-widescreen is-half-fullhd is-marginless is-paddingless"
 	>
