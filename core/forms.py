@@ -56,6 +56,6 @@ class HelpRequestForm(forms.ModelForm):
 
     def clean_phone(self):
         phone = self.data.get('phone')
-        if not re.match(r"\+?1?\d{8,15}$", f'+54{phone}'):
+        if not re.match(r"\+?1?\d{9,15}$", f'+54{phone}'):
             raise forms.ValidationError('Ingrese un número de teléfono válido')
         return phone
