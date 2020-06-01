@@ -24,7 +24,7 @@
 {% endblock bread %}
 {% block content%}
 
-<main class="request columns is-centered">
+<div class="request columns is-centered">
 	<article class="column is-four-fifths">
 		<div class="card is-shadowless request-container">
 
@@ -71,7 +71,7 @@
 					<div class="media animated fadeIn">
 						<div class="media-content is-full is-fullwidth">
 							<div>
-								<p class="subtitle has-text-left request-data-name">Nombre:</p>
+								<h3 class="subtitle has-text-left request-data-name">Nombre:</h3>
 								<p class="title is-4 has-text-left">{{ help_request.name}}</p>
 							</div>
 						</div>
@@ -81,8 +81,8 @@
 				<div
 					class="column is-fullwidth request-data-container"
 				>
-					<p class="subtitle has-text-left">Contactar:</p>
-					<p class="subtitle has-text-left">
+					<h3 class="subtitle has-text-left">Contactar:</h3>
+					<h3 class="subtitle has-text-left">
 						<a class="button hover-grow is-half request-phone-button"
 						   href="tel:+54{{help_request.phone}}"
 						>
@@ -98,7 +98,7 @@
 										</span>
 							<span>Contactar vía WhatsApp</span>
 						</a>
-					</p>
+					</h3>
 				</div>
 
 				<hr>
@@ -110,7 +110,7 @@
 					<div class="media animated fadeIn">
 						<div class="media-content is-full is-fullwidth">
 							<div>
-								<p class="subtitle has-text-left request-data-name">Dirección:</p>
+								<h3 class="subtitle has-text-left request-data-name">Dirección:</h3>
 								<p class="title is-4 has-text-left">{{help_request.address}}</p>
 							</div>
 						</div>
@@ -125,10 +125,10 @@
 					<div class="media animated fadeIn">
 						<div class="media-content is-full is-fullwidth">
 							<div>
-								<p class="subtitle has-text-left request-data-name">Ciudad:</p>
+								<h3 class="subtitle has-text-left request-data-name">Ciudad:</h3>
 								<p class="title is-4 has-text-left">
-								<p class="title is-4">
 									<a href="/pedidos_ciudad/{{help_request.city_code}}">{{help_request.city}}</a>
+								</p>
 							</div>
 						</div>
 					</div>
@@ -141,7 +141,7 @@
 					<div class="media animated fadeIn">
 						<div class="media-content is-full is-fullwidth">
 							<div class="content">
-								<p class="subtitle has-text-left request-data-name">Ubicación:</p>
+								<h3 class="subtitle has-text-left request-data-name">Ubicación:</h3>
 								{% leaflet_map "main" callback="mainMapInit" %}
 								<a href="https://www.google.com/maps/search/?api=1&query={{help_request.location.y|unlocalize}},{{help_request.location.x|unlocalize}}"
 								   target="_blank">
@@ -164,15 +164,15 @@
 		{% comment %}
 		<div class="tile is-child is-box request-data-container">
 			<p class="title is-4">{{ help_request.title}}</p>
-			<p class="subtitle">{{help_request.message|linebreaks}}</p>
+			<h3 class="subtitle">{{help_request.message|linebreaks}}</h3>
 			<hr>
-			<p class="subtitle">Nombre:</p>
+			<h3 class="subtitle">Nombre:</h3>
 			<p class="title is-4">{{ help_request.name}}</p>
-			<p class="subtitle">Contacto:</p>
+			<h3 class="subtitle">Contacto:</h3>
 			<p class="title is-4"><a href="tel:{{help_request.phone}}">{{help_request.phone}}</a></p>
 		</div>
 		{% if help_request.address %}
-		<p class="subtitle">Dirección:</p>
+		<h3 class="subtitle">Dirección:</h3>
 		<p class="title is-4">{{help_request.address}}</p>
 		{% endif %}
 		{% if help_request.picture %}
@@ -182,9 +182,9 @@
 			</figure>
 		</a>
 		{% endif %}
-		<p class="subtitle">Ubicación:
+		<h3 class="subtitle">Ubicación:
 			{% leaflet_map "main" callback="mainMapInit" %}
-		</p>
+		</h3>
 		<a href="https://www.google.com/maps/search/?api=1&query={{help_request.location.y|unlocalize}},{{help_request.location.x|unlocalize}}"
 		   target="_blank">
 			<button class="button is-medium is-fullwidth is-link is-light">
@@ -194,14 +194,14 @@
 				<span>Abrir en Google Maps</span>
 			</button>
 		</a>
-	</article>
 	{% endcomment %}
-	<aside>
-		<h3 class="subtitle request-share">Compartí este pedido haciendo click en los botones</h3>
-		<div class="is-fullwidth request-share-buttons">
-			{% include 'includes/buttons.html'%}
-		</div>
-	</aside>
+		<aside class="request-social-links">
+			<h3 class="subtitle request-share">Compartí este pedido haciendo click en los botones</h3>
+			<div class="is-fullwidth request-share-buttons">
+				{% include 'includes/buttons.html'%}
+			</div>
+		</aside>
+	</article>
 
 
 	<script type="text/javascript">
@@ -218,5 +218,5 @@
 		L.geoJson(data).addTo(map)
 	}
 	</script>
-</main>
+</div>
 {% endblock %}
