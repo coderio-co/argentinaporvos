@@ -793,18 +793,31 @@ article.help-request .help-request-list-body p {
 }
 
 .request-title {
-  align-items: center;
-  display: flex;
   padding-bottom: 0;
   text-align: start;
 }
 
 .request-title img {
+  float: left;
   margin-right: 1rem;
+}
+
+.request .subtitle {
+  font-family: "muli-regular", sans-serif;;
+}
+
+.request .subtitle:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+
+.request .subtitle:not(.is-spaced) + .title {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
 }
 
 .request-data-container {
   background-color: white;
+  padding: 0;
 }
 
 .request-data-name {
@@ -842,6 +855,11 @@ article.help-request .help-request-list-body p {
   margin-top: 0;
   padding-top: 0;
   text-align: left;
+}
+
+.request-social-links {
+  background-color: white;
+  padding: 1.5rem;
 }
 
 .search-location-icon {
@@ -1013,10 +1031,6 @@ article.help-request .help-request-list-body p {
   padding-right: 1.5rem;
 }
 
-.article-help-detail-p {
-  padding-left: .75rem;
-}
-
 .form-name-label {
   margin: 35px 0 4px 3px;
 }
@@ -1070,6 +1084,15 @@ article.help-request .help-request-list-body p {
   .search-location-icon,
   .search-location-text {
     font-size: 1rem;
+  }
+
+  .request-title {
+    align-items: center;
+    display: flex;
+  }
+
+  .request-title img {
+    float: none;
   }
 
   .request-map-container {
