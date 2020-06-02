@@ -417,6 +417,10 @@ header h1 a img {
   max-width: 100%;
 }
 
+.map-modal-steps {
+  padding-bottom: .75rem;
+}
+
 .heading-text {
   color: var(--gray);
   font-size: 1rem;
