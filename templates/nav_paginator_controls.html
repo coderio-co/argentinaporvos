@@ -1,6 +1,6 @@
 <!-- start pagination nav buttons -->
 <div class="row">    
-    <nav class="pagination is-centered" role="navigation" aria-label="pagination">
+    <nav class="pagination is-centered" aria-label="Paginación">
         <!-- previous (<<) nav button -->
         {% if list_paginated.has_previous %}
 			<a href="?page={{ list_paginated.previous_page_number }}{% if search %}&q={{ search }}{% endif %}" class="pagination-previous prev-button is-outlined">
