@@ -417,6 +417,10 @@ header h1 a img {
   max-width: 100%;
 }
 
+.map-modal-steps {
+  padding-bottom: .75rem;
+}
+
 .heading-text {
   color: var(--gray);
   font-size: 1rem;
@@ -691,7 +695,7 @@ header h1 a img {
   }
 
   .contact-us-card-container .media .decorative-img {
-    margin-right: 2rem;
+    margin: 0 2rem 10px 0;
   }
 }
 
@@ -944,11 +948,6 @@ article.help-request .help-request-list-body p {
   padding: 1px 5px;
 }
 
-.request-list-table-pagination {
-  background-color: white;
-  color: #a7b0c0;
-}
-
 .request-list-button-showlast {
   background-color: white;
   border-color: var(--blue);
@@ -1042,6 +1041,7 @@ article.help-request .help-request-list-body p {
 
 .form-help-text {
   margin: 0 0 10px 4px;
+  padding-bottom: 10px;
 }
 
 .form-file-input {
