@@ -46,6 +46,7 @@ class HelpRequestForm(forms.ModelForm):
             "name": forms.TextInput(attrs={"id": "name", "class": "input", 'pattern':'[A-Za-zÁÉÍÓÚáéíóúñÑ ]+', 'title':'Ingrese solo letras.', "placeholder": "Nombre completo",}),
             "phone": forms.TextInput(attrs={"id": "phone", "class": "input", "type": "tel", 'pattern':'\+?1?\d{8,15}$', 'title':'Ingrese solo números y una cantidad mayor a 7.', "placeholder": "Teléfono",}),
             "address": forms.TextInput(attrs={"id": "address", "class": "input", "placeholder": "Dirección",}),
+            "picture": forms.FileInput(attrs={"id": "picture"}),
             'categories': forms.SelectMultiple(attrs={"id": "categories", "style": "display:none;"}),
         }
         error_messages = {
