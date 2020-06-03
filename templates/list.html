@@ -28,7 +28,7 @@
 		<div class="row is-centered cities-dropdown-wrapper">
 			<div class="columns is-vcentered is-desktop">
 				<div class="column">
-					<div class="cities-dropdown" role="menu">
+					<div class="cities-dropdown">
 						<div class="field is-horizontal">
 							<div class="field-body">
 								<div class="field">
@@ -37,7 +37,6 @@
 											<input
 												name="cities"
 												class="input"
-												role="menuitem"
 												list="list_cities"
 												id="search-city-field"
 												placeholder="Seleccionar ciudad..."
@@ -74,14 +73,13 @@
 		</div>
 
 		<button
-			href="#"
 			id="find-me"
 			class="button is-fullwidth hover-grow request-findme-button"
 		>
-			<span class="icon is-small">
+			<span class="icon is-small search-location-icon">
 				<i class="fas fa-map-marker-alt search-location-button"></i>
 			</span>
-			<span class="search-location-button">Apretá acá, para ver tu ubicación</span>
+			<span href="#" class="search-location-text">Apretá acá, para ver tu ubicación</span>
 		</button>
 		<p id="status"></p>
 	</div>
@@ -214,7 +212,7 @@
 					</li>
 				</ul>
 
-				<button class="pagination-next next-button is-outlined request-list-table-pagination " {{hasNext}}">Siguiente&nbsp;&nbsp;<i class="fas fa-chevron-right"></i> </button>
+				<button class="pagination-next next-button is-outlined request-list-table-pagination " {{hasNext}}>Siguiente&nbsp;&nbsp;<i class="fas fa-chevron-right"></i> </button>
 			</nav>
 		</div>
 		{% endverbatim %}
@@ -335,5 +333,6 @@
 		</script>
 
 
-	{% endblock %}
 </div>
+
+	{% endblock %}

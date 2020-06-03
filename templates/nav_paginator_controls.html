@@ -3,11 +3,11 @@
     <nav class="pagination is-centered" role="navigation" aria-label="pagination">
         <!-- previous (<<) nav button -->
         {% if list_paginated.has_previous %}
-			<a href="?page={{ list_paginated.previous_page_number }}{% if search %}&q={{ search }}{% endif %}" class="pagination-previous prev-button is-outlined" style="background-color: white !important; color: #a7b0c0 !important;">
+			<a href="?page={{ list_paginated.previous_page_number }}{% if search %}&q={{ search }}{% endif %}" class="pagination-previous prev-button is-outlined">
 				<i class="fas fa-chevron-left"></i>&nbsp;&nbsp;Anterior
 			</a>
         {% else %}
-			<a class="pagination-previous" class="pagination-previous prev-button is-outlined" style="background-color: white !important; color: #a7b0c0 !important;" disabled>
+			<a class="pagination-previous prev-button is-outlined" disabled>
 				<i class="fas fa-chevron-left"></i>&nbsp;&nbsp;Anterior
 			</a>
 		{% endif %}
@@ -19,7 +19,6 @@
 				<a href="?page={{ 1 }}{% if search %}&q={{ search }}{% endif %}" 
 				class="pagination-link first-button" 
 				aria-label="Goto page 1"
-				style="background-color: white !important; color: #2979ff; border-color: #2979ff;"
 				> 
 					1 
 				</a>
@@ -75,17 +74,14 @@
         {% if list_paginated.has_next %}
 			<a href="?page={{ list_paginated.next_page_number }}{% if search %}&q={{ search }}{% endif %}" 
 				class="pagination-next next-button is-outlined" {{hasNext}} 
-				style="background-color: white !important; color: #a7b0c0 !important;"
 			>
 				Siguiente&nbsp;&nbsp;<i class="fas fa-chevron-right"></i>
 			</a>
         {% else %}
-			<a class="pagination-next" 
-				class="pagination-next next-button is-outlined" {{hasNext}} 
-				style="background-color: white !important; color: #a7b0c0 !important;"
+			<a class="pagination-next next-button is-outlined" {{hasNext}} 
 				disabled
 			>
-				Siguiente
+				Siguiente&nbsp;&nbsp;<i class="fas fa-chevron-right"></i>
 			</a>
 		{% endif %}
 	</nav>
