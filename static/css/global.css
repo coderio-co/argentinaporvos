@@ -695,7 +695,7 @@ header h1 a img {
   }
 
   .contact-us-card-container .media .decorative-img {
-    margin-right: 2rem;
+    margin: 0 2rem 10px 0;
   }
 }
 
