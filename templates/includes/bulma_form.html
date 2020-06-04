@@ -70,7 +70,7 @@
 	{% endif %}
 	
     {% if field.help_text|safe %}
-    <div class="help text-muted has-text-left form-help-text" style="margin:0 0 5px 5px;">{{ field.help_text }}</div>
+    <div class="help text-muted has-text-left form-help-text">{{ field.help_text }}</div>
     {% endif %}
 
     {% if form.is_bound %}
