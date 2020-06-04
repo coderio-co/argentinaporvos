@@ -421,6 +421,11 @@ header h1 a img {
   padding-bottom: .75rem;
 }
 
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
 .heading-text {
   color: var(--gray);
   font-size: 1rem;
