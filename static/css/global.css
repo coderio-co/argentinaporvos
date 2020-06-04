@@ -1040,6 +1040,7 @@ article.help-request .help-request-list-body p {
 }
 
 .form-help-text {
+  font-family: "muli-regular", sans-serif;
   margin: 0 0 10px 4px;
   padding-bottom: 10px;
 }
