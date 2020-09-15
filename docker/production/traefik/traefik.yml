@@ -15,7 +15,7 @@ certificatesResolvers:
  letsencrypt:
    # https://docs.traefik.io/master/https/acme/#lets-encrypt
    acme:
-     email: "argxvos@coderio.co"
+     email: "hello@coderio.co"
      storage: /etc/traefik/acme/acme.json
      # https://docs.traefik.io/master/https/acme/#httpchallenge
      httpChallenge:
