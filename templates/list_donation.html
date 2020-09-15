@@ -105,9 +105,9 @@
         <div id="requests-table-paginator"></div>
     </div>
 </div>
-<script type="text/javascript" src="{% static 'scripts/list-donation.js' %}"></script>
+<script src="{% static 'scripts/list-donation.js' %}"></script>
 
-<script type="text/javascript">
+<script>
     function mainMapInit(map, options) {
         new ListRequestView(map, options);
     }
@@ -145,7 +145,7 @@
               <div class="column is-5">
                 Mostrando &lt; Página {{currentPage}} de {{totalPages}} &gt;
             </div>
-            <nav class="pagination is-right" role="navigation" aria-label="pagination">
+            <nav class="pagination is-right" aria-label="Paginación">
                 <button class="pagination-previous prev-button" {{hasPrev}}>Previo</button>
                 <button class="pagination-next next-button" {{hasNext}}>Siguiente</button>
 

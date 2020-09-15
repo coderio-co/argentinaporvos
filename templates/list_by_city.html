@@ -8,14 +8,14 @@
 		<li><a href="/">Inicio</a></li>
 		<li><a href="/dar">Información</a></li>
 		<li class="is-active">
-			<a href="#" class="is-active navigation-breadcrumb-active" >Quiero ayudar</a>
+			<a href="#" class="is-active navigation-breadcrumb-active">Quiero ayudar</a>
 		</li>
 	</ul>
 </nav>
 {% endblock bread %}
 
 {% block content%}
-<h2 class="center custom-heading-two"">
+<h2 class="center custom-heading-two">
 	Pedidos en {{city}}
 </h2>
 
@@ -67,7 +67,8 @@
 													</h2>
 													<p class="bd-notification is-primary has-text-black has-text-left">
 														<small class="is-small list-by-city-notification">{{pedido.added}}</small>
-													</p></div>
+                          </p>
+                        </div>
 											</header>
 											<div class="help-request-list-body">
 												<p
@@ -81,14 +82,14 @@
 							</div>
 						</div>
 					</div>
-				</a>
-				{% endfor %}
-			</div>
+        </a>
+        {% endfor %}	
+      </div>	 	
 		</div>
 		{% include "nav_paginator_controls.html" %}
 	</div>
 </div>
-    <script type="text/javascript">
+    <script>
       // start on load
       switchClusteringInit();
 
@@ -175,6 +176,6 @@
       }
 
     </script>
-
-</div>
 {% endblock %}
+</div>
+

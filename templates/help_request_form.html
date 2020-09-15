@@ -36,7 +36,7 @@
 		<div class="modal" id="myModal">
 			<div class="modal-background"></div>
 			<div class="modal-card">
-				<header class="modal-card-head" class="help-request-modal-header">
+				<header class="modal-card-head help-request-modal-header">
 					<p class="modal-card-title has-text-left help-request-modal-p">
 						Ayuda con el mapa
 					</p>
@@ -44,21 +44,20 @@
 				</header>
 				<section class="modal-card-body">
 					<ul class="help-request-help-modal">
-						<li class="is-size-6 has-text-left has-text-black modalLi">
+						<li class="is-size-6 has-text-left has-text-black modalLi map-modal-steps">
 							Mové el mapa hasta donde veas tu ubicación y luego apretá en el icono
 							<i class="fas fa-map-marker-alt"></i> y luego marcá en el mapa el punto exacto
 						</li>
-						<br />
-						<li class="is-size-6 has-text-left has-text-black modalLi">
+						<li class="is-size-6 has-text-left has-text-black modalLi map-modal-steps">
 							Si te equivocaste podés apretar en el icono <i class="far fa-edit"></i> así podés mover el
 							marcador, una vez corregido apretar 'Grabar'
 						</li>
 					</ul>
-					<div class="image" class="help-request-gif-container"><img src="{% static 'img/ayudamapa.gif' %}" alt=""
+					<div class="image help-request-gif-container"><img src="{% static 'img/ayudamapa.gif' %}" alt=""
 					/></div>
 				</section>
-				<footer class="modal-card-foot">
-					<button class="button is-success close">Ok</button>
+				<footer class="modal-card-foot modal-footer">
+					<button class="button is-success close">¡Entendido!</button>
 				</footer>
 			</div>
 		</div>
@@ -176,6 +175,7 @@
 			document.querySelector('#find-me').addEventListener('click', geoFindMe);
 			document.querySelector('#help-request-form').addEventListener('submit', checkRequestForm);
 		</script>
-		{% endblock %}
+		
 	</div>
 </div>
+{% endblock %}
